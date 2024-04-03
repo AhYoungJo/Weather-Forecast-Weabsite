@@ -1,11 +1,16 @@
 import React from 'react';
+import MapAPI from '../Services/MAP/initMap'
+import EngWeahterAPI from '../Services/Weather/Eng/ENG_WeatherAPI'
+import Weather from '../Components/Contents/Weather';
 
-
-const Home = () => {
+const Home: React.FC = () => {
     return (
-        <div>
-            <h1>Home Component</h1>
-        </div>
+        <>
+            <h1>Home Component아니 왜 안 바뀜?</h1>
+            <MapAPI/>
+            <EngWeahterAPI/>
+            <Weather/>
+        </>
     );
 };
 
