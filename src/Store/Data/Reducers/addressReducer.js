@@ -1,5 +1,5 @@
 const initialState = {
-    address: '', // 사용자가 입력한 주소 키워드
+    address: '대한민국 서울특별시 용산구', // 사용자가 입력한 주소 키워드
   };
   
   export const setAddress = (address) => ({
@@ -20,4 +20,3 @@ const initialState = {
   };
   
   export default addressReducer;
-  

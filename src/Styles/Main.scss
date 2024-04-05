@@ -1,0 +1,28 @@
+.Main {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    &__map {
+        box-shadow: 1px 1px 4px 1px rgba(136, 136, 136, 0.486);
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &_head {
+        top: 20px;
+        width: auto;
+        font-size: 20px;
+        &__inputDiv{
+            &__input{
+                width: 3em;
+                height: 3em;
+            }
+        }
+    }
+
+
+}
