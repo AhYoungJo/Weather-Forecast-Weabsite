@@ -10,8 +10,8 @@ export const setLocation = (latitude, longitude) => ({
 
 // 초기 상태 정의
 const initialState = {
-    latitude: 0,
-    longitude: 0,
+    latitude: 37.53631710000001,
+    longitude: 126.9771144,
 };
 
 // 리듀서 함수
