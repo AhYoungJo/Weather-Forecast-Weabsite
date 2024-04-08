@@ -1,28 +1,164 @@
+@font-face {
+    font-family: 'TTLaundryGothicB';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2403-2@1.0/TTLaundryGothicB.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 .Main {
+    font-family: 'GmarketSansMedium';
     position: absolute;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100vw;
+    -ms-user-select: none;
+     -moz-user-select: -moz-none;
+     -webkit-user-select: none;
+     -khtml-user-select: none;
+     user-select: none;
+    &__head {
+        color: whitesmoke;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        top: 20px;
+        font-size: 20px;
+        &__inputDiv{
+            margin: 100px 0 50px 0;
+            width: 300px;
+            position: relative;
+            display: inline-flex;
+            justify-content: center;
+            &__input{
+                box-shadow: 0px 1px 3px 1px #a3a3a365;
+                font-size: 15px;
+                width: 20em;
+                height: 3.5em;
+                padding: 10px 40px 10px 60px;
+                border: none;
+                float: left;
+                color: #63717f;
+                -webkit-border-radius: 16px;
+                -moz-border-radius: 16px;
+                border-radius: 16px;
+            }
+            &__input:focus {
+                outline-color: #949494;
+            }
+            &__icon {
+                position: absolute;
+                top: 16.5px;
+                left: 24px;
+                background-size: contain;
+                background-repeat: no-repeat;
+                opacity: 50%;
+                width: 16px;
+                height: 16px;
+                background-image: url('../Assets/Images/search_50.png');
+            }
+        }
+        &__weatherDiv{
+            -webkit-border-radius: 36px;
+            -moz-border-radius: 36px;
+            border-radius: 36px;
+            box-shadow: 0px 1px 3px 1px #32323245;
+            text-align: center;
+            background-color: rgba(20, 20, 20, 0.614);
+            height: auto;
+            width: auto;
+            padding: 60px 50px;
+        }
+        &__weatherDiv li:nth-child(1){
+            font-size: 15px;
+        }
+        &__weatherDiv li:nth-child(2){
+            margin-top: 40px;
+            font-size: 40px;
+            font-weight: 700;
+        }
+        &__weatherDiv li:nth-child(3) img{
+            border-radius: 50%;
+            // background-color: #FFFF;
+            width: 150px;
+            height: 150px;
+        }
+        &__weatherDiv li:nth-child(4){
+            margin: 0 0 20px 0;
+            font-weight: bold;
+            font-size: 18px;
+            font-weight: 20px;
+        }
+        &__weatherDiv li:nth-child(5) span,
+        &__weatherDiv li:nth-child(6) span{
+            font-weight: bold;
+        }
+        &__weatherDiv li:nth-child(5),
+        &__weatherDiv li:nth-child(6) {
+            display: inline-flex;
+            padding: 0 .5em;
+            font-size: 13px;
+        }
+    }
     &__map {
-        box-shadow: 1px 1px 4px 1px rgba(136, 136, 136, 0.486);
-        margin-top: 10px;
+        box-shadow: 0px 1px 3px 1px #32323245;
         display: flex;
         justify-content: center;
         align-items: center;
     }
-    &_head {
-        top: 20px;
-        width: auto;
-        font-size: 20px;
-        &__inputDiv{
-            &__input{
-                width: 3em;
-                height: 3em;
+    &__body {
+        font-size: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50px;
+        &__dailyWeather{
+            &__Head {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                &__left {
+
+                }
+                &__right{
+                    background-image: url('../Assets/Images/favorite_main_colorblank_90.png');
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    width: 33px;
+                    height: 33px;
+                }
+            }
+            &__chart {
+
+            }
+            &__body {
+                box-shadow: 1px 0px 2.3px 2px whitesmoke;
+                width: 80vw;
+                display: flex;
+                flex-direction: row;
+                overflow: scroll;
+                list-style: none;
+                padding: 30px 0;
+                text-align: center;
+                justify-content: space-between;
+            }
+            &__body::-webkit-scrollbar {
+                display: none;
+            }
+            &__body {
+                -ms-overflow-style: none; /* 인터넷 익스플로러 */
+                scrollbar-width: none; /* 파이어폭스 */
             }
         }
     }
-
 
 }

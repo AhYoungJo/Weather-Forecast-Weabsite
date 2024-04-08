@@ -1,10 +1,11 @@
 import React from 'react';
+import styled from 'styled-components';
 
-const Header = () => {
+const Header: React.FC = () => {
     return (
-        <div>
-            
-        </div>
+        <>
+        {/* 헤더 컨텐츠 */}
+        </>
     );
 };
 

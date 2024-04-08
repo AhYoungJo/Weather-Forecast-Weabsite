@@ -52,3 +52,4 @@ export function fixed_time(){
 		return hours;
 	}
 }
+

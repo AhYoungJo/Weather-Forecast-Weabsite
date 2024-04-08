@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 90vw;
+    width: 100vw;
     &_button {
         background-image: url('../../Assets/Images/currentLocation.png');
         background-repeat: no-repeat;
@@ -13,16 +13,18 @@
         height: 3em;
         border: none;
         background-color: whitesmoke;
-        // box-shadow: 2px 2px 2px rgba(139, 139, 139, 0.479);
-        margin-top: 16.5px;
+        box-shadow: 0px 1px 3px 1px #a3a3a365;
+        margin-top: 30px;
         margin-left: 1em;
         cursor: pointer;
         transition: all 0.3s ease-in-out;
     }
     &_button:hover {
         transform: scale(1.06) rotate(180deg);
+        box-shadow: none;
     }
     &_clearbutton {
+        box-shadow: 0px 1px 3px 1px #a3a3a365;
         background-image: url('../../Assets/Images/reset_blue.png');
         background-repeat: no-repeat;
         background-position: center;
@@ -32,25 +34,28 @@
         height: 2.6em;
         border: none;
         background-color: transparent;
-        // box-shadow: 2px 2px 2px rgba(139, 139, 139, 0.479);
-        margin-top: 18.5px;
+        margin-top: 32px;
         margin-left: .5em;
         cursor: pointer;
         transition: all 0.3s ease-in-out;
     }
     &_clearbutton:hover {
         transform: scale(1.06) rotate(180deg);
+        box-shadow: none;
     }
     &_map {
-        height: 50vh;
+        height: 67vh;
     }
     &_input {
-        font-size: 16px;
-        text-indent: 1em;
-        margin-top: 10px;
+        font-size: 15px;
+        padding: 10px 30px 10px 30px;
+        margin-top: 24px;
         width: 20em;
         height: 3.5em;
+        -webkit-border-radius: 16px;
+        -moz-border-radius: 16px;
         border: none;
+        border-radius: 16px;
         box-shadow: 2px 2px 3px 1px #a3a3a365;
         margin-left: 1em;
     }

@@ -17,7 +17,7 @@ const GetWeatherInfo: React.FC = () => {
           `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&lang=kr&appid=${process.env.REACT_APP_OPEN_WHEATHER_API_KEY}&units=metric`
         );
 
-        console.log('data', response.data)
+        // console.log('data', response.data)
         // id 찾아서 매칭 후 description 한글 번역된 거 가져오기 
 
         //newWeatherDataList 값 초기화
@@ -29,9 +29,11 @@ const GetWeatherInfo: React.FC = () => {
           const weatherKo: string = weatherDescKo[weatherId];
           // // 날씨 아이콘 가져오기
           const weatherIcon = item.weather[0].icon;
+          const code = item.weather[0].main;
           //날짜와 시간 분리하기
           const DT: string = item.dt_txt;
           const [date, time] = DT.split(' ');
+          const hour = time.slice(0, 2)
           const weatherIconURL = `http://openweathermap.org/img/wn/${weatherIcon}@2x.png`;
           // // 소수점 버리기
           const temp: number = parseFloat(item.main.temp.toFixed(1));
@@ -58,10 +60,11 @@ const GetWeatherInfo: React.FC = () => {
 
           newWeatherDataList.push({
             id: weatherId,
+            code: code,
             icon: weatherIconURL,
             description: weatherKo,
             date: date,
-            time: time,
+            time: hour,
             temp: temp,
             temp_max: tempMax,
             temp_min: tempMin,
@@ -85,6 +88,7 @@ const GetWeatherInfo: React.FC = () => {
 
     useEffect(() => {
       patchWeather(latitude, longitude);
+      console.log('weather', weather)
   }, [latitude, longitude]);
 
 
