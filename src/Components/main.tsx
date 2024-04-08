@@ -1,53 +1,91 @@
 import React, {useState, useEffect} from 'react';
-import Mapv2 from '../Services/MAP/Map_v2'
-import {loadMapApi} from '../Utils/GoogleMApsUtils'
-import { useSelector } from 'react-redux'
-import { RootState } from '../Store/Data/Reducers/index';
-import GetWeatherInfo from '../Services/Weather/WeatherAPI';
-import Loading from '../Hooks/Loading';
 import '../Styles/Main.scss'
+import Mapv2 from '../Services/MAP/Map_v2'
+import GetWeatherInfo from '../Services/Weather/WeatherAPI';
+import {loadMapApi} from '../Utils/GoogleMApsUtils'
+import { useSelector, useDispatch } from 'react-redux'
+import { RootState } from '../Store/Data/Reducers/index';
+import { Background } from '../Styles/Styles';
+import {setTimesByDate} from '../Store/Data/Reducers/timesByDateReducer'
+import { getBackgroundKeyword } from '../Utils/backgroundUtils';
+// import Loading from '../Hooks/Loading';
+import favorite from '../Assets/Images/favorite_main_colorblank_90.png'
 
+interface TimeData {
+    time: string;
+    temp: number;
+    pop: number;
+    icon: string;
+}
 
-const Main = () => {
-    //before mounted
+const Main: React.FC = () => {
+    const dispatch = useDispatch();
     const [scriptLoad, setScriptLoaded] = useState(false);
-    const location = useSelector((state: RootState) => state.location);
     const address  = useSelector((state: RootState) => (
         state.address.address))
     const weatherDataList = useSelector((state: RootState) => state.weather.weatherDataList)
-
+    const timesByDate = useSelector((state: RootState) => state.timesByDate.timeByDate);
+    const keyword = weatherDataList.length > 0 ? weatherDataList[0].code : '';
+    const weatherGIF = getBackgroundKeyword(keyword)
     const Input_Top = document.querySelector<HTMLInputElement>('#Input_Top');
 
     //mount once && scriptLoad값이 true로 바뀌면 렌더링 되게끔 설정
     useEffect(() => {
         const googleMapScript = loadMapApi();
-        // script를 dom에 추가하는 코드를 넣었고, return 시킴
-        // type은 load, load 되면 이걸 dom에 들어가게 설정 
+        
+        // dom에 들어가면 scriptLoad 값을 true로 바꿔서 맵 실행
         googleMapScript.addEventListener('load', function() {
             setScriptLoaded(true);
         })
     }, [])
+    
+    useEffect(() => {
+        const newTimesByDate: { [date: string]: { time: string; temp: number, pop: number, icon: string }[]  } = {};
+        weatherDataList.forEach((data: { date: string, time: string, temp: number, pop: number, icon: string }) => {
+            const { date, time, temp, pop, icon } = data;
+            if (!newTimesByDate[date]) {
+                newTimesByDate[date] = [];
+            }
+            newTimesByDate[date].push({ time, temp, pop, icon});
+        });
+        dispatch(setTimesByDate(newTimesByDate));
+    }, [weatherDataList]);
+
+    console.log(timesByDate)
+
+    const todayDate = Object.keys(timesByDate)[0];
+    const todayDateData: TimeData[] = timesByDate[todayDate];
+
+
+    const handleClick = () => {
+        alert('즐겨찾기에 추가되었습니다.')
+    }
 
 
     //초기에 weatherDataList 배열에 값이 없을 경우엔 에러가 나서, 삼항연산자로 처리
     return (
        <div className='Main'>
             <section>
-                {/**input창
-                 * 주소
-                 * 온도
-                 * 아이콘
-                 * description
-                 * 최고, 최저
-                 */}
+                <Background bgURL={weatherGIF}>
                 <div className='Main__head'>
-                    <div className='Main__head__inputDiv' >
+                    <div className='Main__head__inputDiv'>
                         <input id='Input_Top' type="text" className='Main__head__inputDiv__input' placeholder='장소를 검색하세요.'/>
+                        <div className="Main__head__inputDiv__icon"></div>
+                    </div>
+                    <div className='Main__head__weatherDiv'>
+                        <ul>
+                            <li>🌎gif넣어봐야지{address}</li>
+                            {weatherDataList && weatherDataList[0] ? <li>{weatherDataList[0].temp}℃</li> : <li>loading...</li>}
+                            {weatherDataList && weatherDataList[0] ? <li><img src={weatherDataList[0].icon} alt='weatherIcon'/></li> : <li>loading...</li>}
+                            {weatherDataList && weatherDataList[0] ? <li>{weatherDataList[0].description}</li> : <li>loading...</li>}
+                            {weatherDataList && weatherDataList[0] ? <li><span>최고:</span> {weatherDataList[0].temp_max}℃</li> : <li>loading...</li>}
+                            {weatherDataList && weatherDataList[0] ? <li><span>최저:</span> {weatherDataList[0].temp_min}℃</li> : <li>loading...</li>}
+                        </ul>
                     </div>
                 </div>
+                </Background>
             </section>
 
-            <br />
 
             <section>
                 <div className='Main__map'>
@@ -68,27 +106,59 @@ const Main = () => {
             <section >
                 <div className='Main__body'>
                     <div className='Main__body__dailyWeather'>
-                        <h2>"{address}" 의 날씨 정보</h2>
-                        <div className='Home_weatherDiv'>
+                        <div className='Main__body__dailyWeather__Head'>
+                            <div className='Main__body__dailyWeather__Head__left'>
+                            <h2>"(위치 마크)"{address}</h2>
                             <ul>
-                                {weatherDataList && weatherDataList[0] ? <li>{weatherDataList[0].description}</li> : <li>없음</li>}
-                                {weatherDataList && weatherDataList[0] ? <li><img src={weatherDataList[0].icon} alt='weatherIcon'/></li> : <li>없음</li>}
-                                {weatherDataList && weatherDataList[0] ? <li>평균: {weatherDataList[0].temp}</li> : <li>없음</li>}
-                                {weatherDataList && weatherDataList[0] ? <li>최고: {weatherDataList[0].temp_max}</li> : <li>없음</li>}
-                                {weatherDataList && weatherDataList[0] ? <li>최저: {weatherDataList[0].temp_min}</li> : <li>없음</li>}
-                                {weatherDataList && weatherDataList[0] ? <li>체감 온도: {weatherDataList[0].feels_like}</li> : <li>없음</li>}
-                                {weatherDataList && weatherDataList[0] ? <li>강수량: {weatherDataList[0].pop}</li> : <li>없음</li>}
+                                {weatherDataList && weatherDataList[0] ? <li>{weatherDataList[0].date}</li> : <li>loading...</li>}
+                                {weatherDataList && weatherDataList[0] ? <li>체감 온도: {weatherDataList[0].feels_like}</li> : <li>loading...</li>}
                             </ul>
+                            </div>
+                            <div className='Main__body__dailyWeather__Head__right'>
+                                {/* <img src={favorite} alt="favorite button" onClick={handleClick} /> */}
+                            </div>
                         </div>
-                        <h2>주간 날씨</h2>
+
+                        <hr />
+                        <div className='Main__body__dailyWeather__Chart'>
+                            <h2>시간별</h2>
+                            <br />
+                            {/* <Line /> */}
+                          
+                        </div>
+                        <br /> 
+
+                        <div className='Main__body__dailyWeather__body'>
+                            {Array.isArray(todayDateData) ? (
+                                todayDateData.map((data: TimeData, index: number) => (
+                                    <div key={index}>
+                                        <li>💧{data.pop}%</li>
+                                        <li><img src={data.icon} alt='weatherIcon'/></li>
+                                        <li>{data.time}시</li>
+                                    </div>
+                                ))
+                             ) : (
+                                <div>Loading...</div>
+                            )}
+                        </div>
+
+                        <div className='Main__body__dailyWeather__Wind'>
+                            {/** 바람, */}
+                        </div>
+
+                        <br />
                     </div>
-                    <div className='Main__body__dailyWeatherChart'></div>
-                    <div className='Main__body__detailInfos'></div>
-                    <div className='Main__body__5daysWeather'></div>
                 </div>
             </section>
             
             <br />
+
+            <section> {/** 클릭하면 디테일하게 볼 수 있게 할 건지 고민.. */}
+                <div className='Main__body__5daysWeather'>
+                        <h2>주간 날씨</h2>
+
+                </div>
+            </section>
             
        </div>
     );

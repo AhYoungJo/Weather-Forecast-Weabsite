@@ -380,6 +380,7 @@ const Map_v2: React.FC<IMap> = ({mapType, mapTypeControl = false, Input_Top}) =>
                 //구글 맵 객체 생성 함수, 
                 new google.maps.Map(ref.current, {
                     zoom: zoomLevel,
+                    minZoom: 5,
                     center: address,
                     mapTypeControl: false,
                     mapTypeId: mapType,
@@ -388,8 +389,8 @@ const Map_v2: React.FC<IMap> = ({mapType, mapTypeControl = false, Input_Top}) =>
                     scaleControl: true,
                     fullscreenControl: false,
                     panControl: false,
-                    scrollwheel: true,
-                    zoomControl: false,
+                    scrollwheel: false,
+                    zoomControl: true,
                     gestureHandling: 'cooperative',
                     draggableCursor: 'pointer',
                     styles: myStyles2,
