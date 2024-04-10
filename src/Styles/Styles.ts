@@ -13,7 +13,9 @@ interface BackgroundProps {
 export const Background = styled.div<BackgroundProps>`
     background-image: url(${(props) => props.bgURL});
     background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     /* 배경 이미지 스타일 설정 */
     width: 100vw;
-    height: 780px;
+    height: 750px;
 `;

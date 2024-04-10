@@ -3,7 +3,8 @@ import {useSelector, useDispatch} from 'react-redux'
 import { RootState } from '../../Store/Data/Reducers';
 import { setLocation } from '../../Store/Data/Reducers/locationReducer'; 
 import { setAddress } from '../../Store/Data/Reducers/addressReducer';
-import './Map_v2.scss'
+import './Map_v2.scss';
+// import '../../Assets/Images/map-marker_blue.png';
 
 interface IMap {
     mapType: google.maps.MapTypeId,
@@ -14,7 +15,7 @@ interface IMap {
 interface IMarker {
     latitude: number;
     longitude: number;
-    googleMarker: google.maps.Marker; // 추가: 구글 마커 객체를 저장할 변수
+    googleMarker: google.maps.Marker; // 구글 마커 객체를 저장할 변수
 }
 
 type GoogleLatLng = google.maps.LatLng;
@@ -35,8 +36,9 @@ type GoogleAutocomplete = google.maps.places.Autocomplete;
 //문제1.
 //바깥 input은 마커와 위치는 뜨는데, map이 존재해서 center가 안먹힌다. 아무래도 useEffect가 중복하는듯.
 //dispatch가 전혀 안 되고 있음
+//이젠 뜬다..
 
-//
+
 
 const Map_v2: React.FC<IMap> = ({mapType, mapTypeControl = false, Input_Top}) => {
     const location = useSelector((state: RootState) => state.location);
@@ -56,6 +58,7 @@ const Map_v2: React.FC<IMap> = ({mapType, mapTypeControl = false, Input_Top}) =>
         addAutocomplete_Top();
         addCurrentLocationButton();
         addClearButton();
+        addInputValue()
     }, [map]);
 
     //최초 맵 실행
@@ -92,41 +95,74 @@ const Map_v2: React.FC<IMap> = ({mapType, mapTypeControl = false, Input_Top}) =>
         //구글맵 지오코더 생성자 함수... 대박...
         const geocoder = new google.maps.Geocoder();
         
-        // 메소드!!!!
-        // 받아오는 값의 타입을 미리 알려주는 ... 것도 있음?? 설치 필수다 이거 진짜
-        await geocoder.geocode({location: coordinate}, function (results, status) {
-            if(status === "OK" && results !== null) {
-                const where = results[0].formatted_address;
-                const latLng = {
-                    lat: coordinate.lat(),
-                    lng: coordinate.lng()
-                }
+        try {
+            // 메소드!!!!
+            // 받아오는 값의 타입을 미리 알려주는 ... 것도 있음?? 설치 필수다 이거 진짜
+            await geocoder.geocode({location: coordinate}, function (results, status) {
+                if(status === "OK" && results !== null) {
+                    const resultAddress = results[0].formatted_address;
+                    const arrAdd = resultAddress.split(' ');
+                    const addressArr = [];
+                    if(arrAdd.length <= 1) {
+                        addressArr.push(arrAdd[0])
+                    } else {
+                        for(let i = 1; i < arrAdd.length; i++) {
+                            addressArr.push(arrAdd[i])
+                        };
+                    }
+                    const address = addressArr.join(' ');
+                    const shortenAddress = arrAdd.length <= 1 ? `${arrAdd[0]}` : `${arrAdd[1]} ${arrAdd[2]}`;
+                    const latLng = {
+                        lat: coordinate.lat(),
+                        lng: coordinate.lng()
+                    }
+    
+                    console.log('map click responses: ', results[0])
+                    
+                    dispatch(setLocation(latLng.lat, latLng.lng));
+                    dispatch(setAddress(address, shortenAddress))
+    
+                    markerClear()
+    
+                    //새로운 마커 생성 
+                    const newMarker: IMarker = {
+                        latitude: latLng.lat,
+                        longitude: latLng.lng,
+                        googleMarker: new google.maps.Marker({
+                            position: latLng,
+                            map: map,
+                            icon: getIconAttributes(),
+                        })
+                    };
+    
+                    
+                    // 이전 마커 배열에 새로운 마커 추가
+                    setMarker(prevMarkers => [...prevMarkers, newMarker]);
+                    if(markers && markers.length > 0) {
+                        const lastMarker = markers[markers.length - 1];
+                        setupMarker(new google.maps.LatLng(lastMarker.latitude, lastMarker.longitude));
+                    }
+                    map?.setCenter(latLng);
+                } 
+            })
+        } catch(error) {
+            console.log('goeocode request failed', error)
+        }
 
-                console.log('map click responses: ', latLng.lat, latLng.lng)
+    }
 
-                dispatch(setLocation(latLng.lat, latLng.lng));
-                dispatch(setAddress(where))
-
-                //새로운 마커 생성 
-                const newMarker: IMarker = {
-                    latitude: latLng.lat,
-                    longitude: latLng.lng,
-                    googleMarker: new google.maps.Marker({
-                        position: latLng,
-                        map: map,
-                        icon: getIconAttributes(),
-                    })
-                };
-
-            
-                // 이전 마커 배열에 새로운 마커 추가
-                addMarkerToArray(newMarker);
-                addMarker();
-
-                map?.setCenter(latLng);
-            } 
+    const setupMarker = (location: GoogleLatLng):void => {
+        new google.maps.Marker({
+            position: location,
+            map: map,
+            icon: getIconAttributes(),
         })
-
+    }
+    
+    const markerClear = () => {
+        markers?.forEach(marker => {
+            marker.googleMarker.setMap(null);
+        });
     }
 
     //현재 위치 받아오기
@@ -150,48 +186,40 @@ const Map_v2: React.FC<IMap> = ({mapType, mapTypeControl = false, Input_Top}) =>
     };
 
 
-    //마커 추가하기
-    const addMarkerToArray = (newMarker: IMarker) => {
-        setMarker(prevMarkers => [...prevMarkers, newMarker]);
-    };
 
-    const setupMarker = (location: GoogleLatLng):void => {
-        new google.maps.Marker({
-            position: location,
-            map: map,
-            icon: getIconAttributes(),
-        })
-    }
-
-    const addMarker = () => {
-        markers?.forEach((mark) => {
-            setupMarker(new google.maps.LatLng(mark.latitude, mark.longitude));
-        });
-    }
 
     const getIconAttributes = () => {
-        const svgMarker = `
-            <svg xmlns="http://www.w3.org/2000/svg" height="800px" width="800px" viewBox="0 0 512 512" version="1.1" id="_x36_" xml:space="preserve">
-                <g>
-                    <path style="fill:#1b84fc;" d="M424.269,212.061c0,58.586-23.759,111.638-62.128,150.007L213.684,510.451L212.134,512
-                        L62.275,362.141c-7.231-7.157-13.872-14.905-19.996-23.095C15.716,303.703,0,259.726,0,212.061
-                        c0-51.06,18.077-97.914,48.182-134.512c8.78-10.773,18.668-20.586,29.366-29.367C114.147,18.077,161.074,0,212.134,0
-                        c40.655,0,78.582,11.437,110.826,31.211c28.554,17.487,52.609,41.541,70.097,70.097
-                        C412.831,133.552,424.269,171.478,424.269,212.061z"/>
-                    <path style="fill:#304c7d;" d="M339.392,212.081c0,70.284-56.968,127.258-127.259,127.258
-                        c-70.277,0-127.258-56.974-127.258-127.258S141.856,84.822,212.133,84.822C282.424,84.822,339.392,141.797,339.392,212.081z"/>
-                    <path style="opacity:0.13;fill:#ffffff;" d="M424.269,212.061c0,58.586-23.759,111.638-62.128,150.007L213.684,510.451L212.134,512
-                        V0c40.655,0,78.582,11.437,110.826,31.211c28.554,17.487,52.609,41.541,70.097,70.097
-                        C412.831,133.552,424.269,171.478,424.269,212.061z"/>
-                </g>
-            </svg>
-        `;
+        // const svgMarker = `
+        //     <svg xmlns="http://www.w3.org/2000/svg" height="800px" width="800px" viewBox="0 0 512 512" version="1.1" id="_x36_" xml:space="preserve">
+        //         <g>
+        //             <path style="fill:#1b84fc;" d="M424.269,212.061c0,58.586-23.759,111.638-62.128,150.007L213.684,510.451L212.134,512
+        //                 L62.275,362.141c-7.231-7.157-13.872-14.905-19.996-23.095C15.716,303.703,0,259.726,0,212.061
+        //                 c0-51.06,18.077-97.914,48.182-134.512c8.78-10.773,18.668-20.586,29.366-29.367C114.147,18.077,161.074,0,212.134,0
+        //                 c40.655,0,78.582,11.437,110.826,31.211c28.554,17.487,52.609,41.541,70.097,70.097
+        //                 C412.831,133.552,424.269,171.478,424.269,212.061z"/>
+        //             <path style="fill:#304c7d;" d="M339.392,212.081c0,70.284-56.968,127.258-127.259,127.258
+        //                 c-70.277,0-127.258-56.974-127.258-127.258S141.856,84.822,212.133,84.822C282.424,84.822,339.392,141.797,339.392,212.081z"/>
+        //             <path style="opacity:0.13;fill:#ffffff;" d="M424.269,212.061c0,58.586-23.759,111.638-62.128,150.007L213.684,510.451L212.134,512
+        //                 V0c40.655,0,78.582,11.437,110.826,31.211c28.554,17.487,52.609,41.541,70.097,70.097
+        //                 C412.831,133.552,424.269,171.478,424.269,212.061z"/>
+        //         </g>
+        //     </svg>
+        // `;
+        // return {
+        //     url: `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svgMarker)}`,
+        //     scaledSize: new google.maps.Size(36, 43),
+        //     anchor: new google.maps.Point(12, 33),
+        // };
+        const image = 'https://img.icons8.com/stickers/100/marker.png';
         return {
-            url: `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svgMarker)}`,
-            scaledSize: new google.maps.Size(36, 43), // Adjust the size as needed
-            anchor: new google.maps.Point(12, 33), // Adjust anchor point
-        };
+            url: image,
+            scaledSize: new google.maps.Size(36, 36),
+            anchor: new google.maps.Point(12, 33),
+        }
     };
+
+
+
 
 
     //초기 지도로 돌리기
@@ -213,6 +241,7 @@ const Map_v2: React.FC<IMap> = ({mapType, mapTypeControl = false, Input_Top}) =>
     // setMarker(prevMarkers => []);
     // markers 배열을 업데이트한 후 
 
+
     const clear = () => {
         setMarker(prevMarkers => {
             prevMarkers.forEach(mark => mark.googleMarker.setMap(null))
@@ -228,9 +257,13 @@ const Map_v2: React.FC<IMap> = ({mapType, mapTypeControl = false, Input_Top}) =>
     };
 
     //검색어 자동 완성 기능
+    const autoCompleteInput = document.createElement('input');
+    const addInputValue = () => {
+        autoCompleteInput.value = addressState.address;
+    }
+
     const addAutocomplete = ():void => {
-        const autoCompleteInput = document.createElement('input');
-        autoCompleteInput.setAttribute('placeholder', '장소를 검색하세요');
+        autoCompleteInput.setAttribute('placeholder', '장소를 검색하세요. (예) "서울특별시 용산구"');
         autoCompleteInput.classList.add('map-container_input');
         map?.controls[google.maps.ControlPosition.TOP_CENTER].push(autoCompleteInput);
         const autocompleteInstance = new google.maps.places.Autocomplete(autoCompleteInput);
@@ -241,25 +274,13 @@ const Map_v2: React.FC<IMap> = ({mapType, mapTypeControl = false, Input_Top}) =>
                 lat: place.geometry?.location?.lat() || 0,
                 lng: place.geometry?.location?.lng() || 0,
             };
-            // const where = place.formatted_address;
             console.log(latLng.lat, latLng.lng)
 
-            const sendLatLng = new google.maps.LatLng(latLng.lat, latLng.lng);
+            const newLatLng = new google.maps.LatLng(latLng.lat, latLng.lng);
                 
-            const newMarker: IMarker = {
-                latitude: latLng.lat,
-                longitude: latLng.lng,
-                googleMarker: new google.maps.Marker({
-                    position: latLng,
-                    map: map,
-                    icon: getIconAttributes(),
-                })
-            };
+            coordinateToAddress(newLatLng)
 
-            setMarker(prevMarkers => [...prevMarkers, newMarker]);
-            coordinateToAddress(sendLatLng)
 
-            // autoCompleteInput.value = `${where}`;
             autoCompleteInput.addEventListener('focus', (e: FocusEvent) => {
                 (e.target as HTMLInputElement).value = '';
             })
@@ -271,26 +292,15 @@ const Map_v2: React.FC<IMap> = ({mapType, mapTypeControl = false, Input_Top}) =>
             const InputTopInstance = new google.maps.places.Autocomplete(Input_Top);
             InputTopInstance.addListener('place_changed', () => {
                 const place = InputTopInstance.getPlace();
+                const where = place.formatted_address;
                 const latLng: google.maps.LatLngLiteral = {
                     lat: place.geometry?.location?.lat() || 0,
                     lng: place.geometry?.location?.lng() || 0,
                 };
-                const sendLatLng = new google.maps.LatLng(latLng.lat, latLng.lng);
+                const newLatLng = new google.maps.LatLng(latLng.lat, latLng.lng);
                        
-                const newMarker: IMarker = {
-                    latitude: latLng.lat,
-                    longitude: latLng.lng,
-                    googleMarker: new google.maps.Marker({
-                        position: latLng,
-                        map: map,
-                        icon: getIconAttributes(),
-                    })
-                };
-        
-                // 이전 마커 배열에 새로운 마커 추가
-                setMarker(prevMarkers => [...prevMarkers, newMarker]);
-                coordinateToAddress(sendLatLng);
-                // Input_Top.value = `${where}`;
+                coordinateToAddress(newLatLng);
+                Input_Top.value = `${where}`;
                 Input_Top.addEventListener('focus', (e: FocusEvent) => {
                     (e.target as HTMLInputElement).value = '';
                 })
@@ -300,17 +310,14 @@ const Map_v2: React.FC<IMap> = ({mapType, mapTypeControl = false, Input_Top}) =>
     } 
     
     //불필요한 라벨들 제거
-    const myStyles =[
+    const myStyles = [
         {
             featureType: "poi",
             elementType: "labels",
             stylers: [
                   { visibility: "off" }
             ]
-        }
-    ];
-
-    const myStyles2 = [
+        },
         {
             featureType: "administrative.land_parcel",
             elementType: "labels",
@@ -393,7 +400,7 @@ const Map_v2: React.FC<IMap> = ({mapType, mapTypeControl = false, Input_Top}) =>
                     zoomControl: true,
                     gestureHandling: 'cooperative',
                     draggableCursor: 'pointer',
-                    styles: myStyles2,
+                    styles: myStyles,
                 })
             );
         }
