@@ -21,5 +21,8 @@ export default createGlobalStyle`
     ul{
         list-style: none;
     }
+    #root {
+        /* height: 5em; */
+    }
 `;
 

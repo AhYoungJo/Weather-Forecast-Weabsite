@@ -1,0 +1,307 @@
+@import './mixin';
+
+@include desktop {
+    // .BlackDiv {
+    //     top: 0;
+    //     right: 0;
+    //     position: fixed;
+    //     height: 100%;
+    //     width: 100%;
+    //     background-color: rgba(0, 0, 0, 0.486);
+    //     z-index: 2;
+    // }
+    .Sidebar {
+        box-shadow: 1px rgb(165, 165, 165);
+        top: 0;
+        right: 0;
+        font-size: 16px;
+        z-index: 1;
+        position: fixed;
+        background-color: #FFF;
+        height: 100%;
+        width: 40%;
+        padding: 20px;
+
+        &__top{
+            display: flex;
+            justify-content: space-between;
+        }
+
+        &__top > img {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        &__top > img:hover {
+            opacity: 80%;
+        }
+
+        &__hrDiv {
+            width: 100%;
+            background-color: rgb(218, 218, 218);
+            height: 1px;
+        }
+        
+    }
+}
+   
+@include desktopToLaptop {
+    .BlackDiv {
+        top: 0;
+        right: 0;
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.486);
+        z-index: 2;
+    }
+    .Sidebar {
+        box-shadow: 4px 1px 3px 3px rgb(71, 71, 71);
+        top: 0;
+        right: 0;
+        font-size: 16px;
+        z-index: 1;
+        position: fixed;
+        background-color: #FFF;
+        height: 100%;
+        width: 40%;
+        padding: 20px;
+
+        &__top{
+            display: flex;
+            justify-content: space-between;
+        }
+
+        &__top > img {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        &__top > img:hover {
+            opacity: 80%;
+        }
+
+        &__hrDiv {
+            width: 100%;
+            background-color: rgb(218, 218, 218);
+            height: 1px;
+        }
+        
+    }
+}
+@include laptop {
+    .BlackDiv {
+        top: 0;
+        right: 0;
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.486);
+        z-index: 2;
+    }
+    .Sidebar {
+        top: 0;
+        right: 0;
+        font-size: 16px;
+        z-index: 1;
+        position: fixed;
+        background-color: #FFF;
+        height: 100%;
+        width: 40%;
+        padding: 20px;
+
+        &__top{
+            display: flex;
+            justify-content: space-between;
+        }
+
+        &__top > img {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        &__top > img:hover {
+            opacity: 80%;
+        }
+
+        &__hrDiv {
+            width: 100%;
+            background-color: rgb(218, 218, 218);
+            height: 1px;
+        }
+        
+    }
+}
+@include laptopToTablet {
+    .BlackDiv {
+        top: 0;
+        right: 0;
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.486);
+        z-index: 2;
+    }
+    .Sidebar {
+        top: 0;
+        right: 0;
+        font-size: 16px;
+        z-index: 1;
+        position: fixed;
+        background-color: #FFF;
+        height: 100%;
+        width: 40%;
+        padding: 20px;
+
+        &__top{
+            display: flex;
+            justify-content: space-between;
+        }
+
+        &__top > img {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        &__top > img:hover {
+            opacity: 80%;
+        }
+
+        &__hrDiv {
+            width: 100%;
+            background-color: rgb(218, 218, 218);
+            height: 1px;
+        }
+        
+    }
+}
+@include tablet {
+    .BlackDiv {
+        top: 0;
+        right: 0;
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.486);
+        z-index: 2;
+    }
+    .Sidebar {
+        top: 0;
+        right: 0;
+        font-size: 16px;
+        z-index: 1;
+        position: fixed;
+        background-color: #FFF;
+        height: 100%;
+        width: 50%;
+        padding: 20px;
+
+        &__top{
+            display: flex;
+            justify-content: space-between;
+        }
+
+        &__top > img {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        &__top > img:hover {
+            opacity: 80%;
+        }
+
+        &__hrDiv {
+            width: 100%;
+            background-color: rgb(218, 218, 218);
+            height: 1px;
+        }
+        
+    }
+}
+@include tabletToMobile {
+    .BlackDiv {
+        top: 0;
+        right: 0;
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.486);
+        z-index: 2;
+    }
+    .Sidebar {
+        top: 0;
+        right: 0;
+        font-size: 16px;
+        z-index: 1;
+        position: fixed;
+        background-color: #FFF;
+        height: 100%;
+        width: 40%;
+        padding: 20px;
+
+        &__top{
+            display: flex;
+            justify-content: space-between;
+        }
+
+        &__top > img {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        &__top > img:hover {
+            opacity: 80%;
+        }
+
+        &__hrDiv {
+            width: 100%;
+            background-color: rgb(218, 218, 218);
+            height: 1px;
+        }
+        
+    }
+}
+@include mobile {
+        .Sidebar {
+            top: 0;
+            right: 0;
+            font-size: 16px;
+            z-index: 1;
+            position: fixed;
+            background-color: #FFF;
+            height: 100%;
+            width: 100%;
+            padding: 20px;
+    
+            &__top{
+                display: flex;
+                justify-content: space-between;
+                font-size: 20px;
+            }
+    
+            &__top > img {
+                width: 20px;
+                height: 20px;
+                cursor: pointer;
+            }
+    
+            &__top > img:hover {
+                opacity: 80%;
+            }
+    
+            &__hrDiv {
+                width: 100%;
+                background-color: rgb(218, 218, 218);
+                height: 1px;
+            }
+            &__SignButtons button{
+                font-size: 16px;
+            }
+        }
+}

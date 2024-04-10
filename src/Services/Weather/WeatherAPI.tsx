@@ -88,8 +88,7 @@ const GetWeatherInfo: React.FC = () => {
 
     useEffect(() => {
       patchWeather(latitude, longitude);
-      console.log('weather', weather)
-  }, [latitude, longitude]);
+  }, [latitude]);
 
 
 
