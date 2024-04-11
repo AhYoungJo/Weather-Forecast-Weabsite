@@ -9,7 +9,6 @@ import { Background } from '../Styles/Styles';
 import {setTimesByDate} from '../Store/Data/Reducers/timesByDateReducer'
 import { getBackgroundKeyword } from '../Utils/backgroundUtils';
 import { currentDateString, currentTimeString, tomorrowDateString } from '../Utils/currentDateUtils';
-import makrerImage from '../Assets/Images/top_markerIcon_gif.gif';
 
 // import Loading from '../Hooks/Loading';
 
