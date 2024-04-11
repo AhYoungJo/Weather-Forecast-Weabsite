@@ -14,8 +14,8 @@ export const Background = styled.div<BackgroundProps>`
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    width: 100vw;
-    height: 800px;
+    width: 100vw; 
+    top: 0;
 `;
 
 interface ButtonProps {

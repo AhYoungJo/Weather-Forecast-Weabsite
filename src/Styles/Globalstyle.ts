@@ -14,6 +14,7 @@ export default createGlobalStyle`
         padding: 0;
         margin: 0;
         box-sizing: border-box;
+        overflow-x: hidden;
     }
     a{
         color: inherit;
@@ -23,7 +24,6 @@ export default createGlobalStyle`
         list-style: none;
     }
     #root {
-        /* height: 5em; */
     }
 `;
 
