@@ -11,25 +11,26 @@
         z-index: 3;
     }
     .Sidebar {
-        box-shadow: 1px rgb(165, 165, 165);
         top: 0;
         right: 0;
         font-size: 16px;
-        z-index: 2;
+        z-index: 1;
         position: fixed;
         background-color: #FFF;
         height: 100%;
-        width: 30%;
-        padding: 40px 50px;
+        width: 40%;
+        padding: 60px 60px;
 
         &__top{
             display: flex;
             justify-content: space-between;
+            align-items: center;
+            font-size: 25px;
         }
 
         &__top > img {
-            width: 20px;
-            height: 20px;
+            width: 25px;
+            height: 25px;
             cursor: pointer;
         }
 
@@ -37,21 +38,122 @@
             opacity: 80%;
         }
 
-        &__SignButtons {
-            margin: 30px 0 50px 0;
-            display: flex;
-            justify-content: space-between;
-            width: 30%;
-            height: auto;
-            flex-direction: row;
-        }
-
         &__hrDiv {
             width: 100%;
             background-color: rgb(218, 218, 218);
             height: 1px;
         }
-        
+        &__SignButtons {
+            margin: 30px 0 50px 0;
+            display: flex;
+            justify-content: space-between;
+            width: 175px;
+            height: auto;
+            flex-direction: row;
+        }
+        &__SecondButtDiv {
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            width: auto;
+            
+            &__HomeDiv{
+                margin-left: 2px;
+                margin-right: 40px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                
+                &__Icon {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    & .Round {
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 50%;
+                        background-color: #4082e63e;
+                    }
+                }
+                & img {
+                    position: absolute;
+                    opacity: 0.6;
+                    width: 40px;
+                    height: 40px;
+                }
+                & span {
+                    margin-top: 12px;
+                    line-height: 30px;
+                }
+            }
+            &__HomeDiv:hover {
+                opacity: 1;
+            }
+
+            &__MyPageDiv{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;  
+                &__Icon {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    & .MyPageRound {
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 50%;
+                        background-color: #4082e63e;
+                    }
+                    & img {
+                        position: absolute;
+                        opacity: 0.6;
+                        top: -1.8px;
+                        width: 42px;
+                        height: 42px;
+                    }
+                }
+                & .MyPageSpan {
+                    margin-top: 12px;
+                    line-height: 30px;
+                }
+            }
+            &__MyPageDiv:hover {
+                opacity: 1;
+            }
+            
+        }
+    }
+    .FavoriteDiv {
+        display: inline-flex;
+        align-items: center;
+        & img {
+            margin-right: 12px;
+            width: 24px;
+            height: 24px;
+        }
+    }
+    .ContactDiv {
+        margin-top: 12px;
+        display: inline-flex;
+        align-items: center;
+        & img {
+            margin-right: 12px;
+            width: 24px;
+            height: 24px;
+        }
+    }
+    .GitDiv {
+        margin-top: 12px;
+        display: inline-flex;
+        align-items: center;
+        & img {
+            margin-right: 12px;
+            width: 24px;
+            height: 24px;
+        }
     }
 }
    
@@ -66,25 +168,26 @@
         z-index: 3;
     }
     .Sidebar {
-        box-shadow: 4px 1px 3px 3px rgb(71, 71, 71);
         top: 0;
         right: 0;
         font-size: 16px;
-        z-index: 2;
+        z-index: 1;
         position: fixed;
         background-color: #FFF;
         height: 100%;
-        width: 40%;
-        padding: 20px;
+        width: 30%;
+        padding: 60px 60px;
 
         &__top{
             display: flex;
             justify-content: space-between;
+            align-items: center;
+            font-size: 25px;
         }
 
         &__top > img {
-            width: 20px;
-            height: 20px;
+            width: 25px;
+            height: 25px;
             cursor: pointer;
         }
 
@@ -97,7 +200,117 @@
             background-color: rgb(218, 218, 218);
             height: 1px;
         }
-        
+        &__SignButtons {
+            margin: 30px 0 50px 0;
+            display: flex;
+            justify-content: space-between;
+            width: 175px;
+            height: auto;
+            flex-direction: row;
+        }
+        &__SecondButtDiv {
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            width: auto;
+            
+            &__HomeDiv{
+                margin-left: 2px;
+                margin-right: 40px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                
+                &__Icon {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    & .Round {
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 50%;
+                        background-color: #4082e63e;
+                    }
+                }
+                & img {
+                    position: absolute;
+                    opacity: 0.6;
+                    width: 40px;
+                    height: 40px;
+                }
+                & span {
+                    margin-top: 12px;
+                    line-height: 30px;
+                }
+            }
+            &__HomeDiv:hover {
+                opacity: 1;
+            }
+
+            &__MyPageDiv{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;  
+                &__Icon {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    & .MyPageRound {
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 50%;
+                        background-color: #4082e63e;
+                    }
+                    & img {
+                        position: absolute;
+                        opacity: 0.6;
+                        top: -1.8px;
+                        width: 42px;
+                        height: 42px;
+                    }
+                }
+                & .MyPageSpan {
+                    margin-top: 12px;
+                    line-height: 30px;
+                }
+            }
+            &__MyPageDiv:hover {
+                opacity: 1;
+            }
+            
+        }
+    }
+    .FavoriteDiv {
+        display: inline-flex;
+        align-items: center;
+        & img {
+            margin-right: 12px;
+            width: 24px;
+            height: 24px;
+        }
+    }
+    .ContactDiv {
+        margin-top: 12px;
+        display: inline-flex;
+        align-items: center;
+        & img {
+            margin-right: 12px;
+            width: 24px;
+            height: 24px;
+        }
+    }
+    .GitDiv {
+        margin-top: 12px;
+        display: inline-flex;
+        align-items: center;
+        & img {
+            margin-right: 12px;
+            width: 24px;
+            height: 24px;
+        }
     }
 }
 @include laptop {
@@ -114,21 +327,23 @@
         top: 0;
         right: 0;
         font-size: 16px;
-        z-index: 2;
+        z-index: 1;
         position: fixed;
         background-color: #FFF;
         height: 100%;
         width: 40%;
-        padding: 20px;
+        padding: 60px 60px;
 
         &__top{
             display: flex;
             justify-content: space-between;
+            align-items: center;
+            font-size: 25px;
         }
 
         &__top > img {
-            width: 20px;
-            height: 20px;
+            width: 25px;
+            height: 25px;
             cursor: pointer;
         }
 
@@ -141,7 +356,117 @@
             background-color: rgb(218, 218, 218);
             height: 1px;
         }
-        
+        &__SignButtons {
+            margin: 30px 0 50px 0;
+            display: flex;
+            justify-content: space-between;
+            width: 175px;
+            height: auto;
+            flex-direction: row;
+        }
+        &__SecondButtDiv {
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            width: auto;
+            
+            &__HomeDiv{
+                margin-left: 2px;
+                margin-right: 40px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                
+                &__Icon {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    & .Round {
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 50%;
+                        background-color: #4082e63e;
+                    }
+                }
+                & img {
+                    position: absolute;
+                    opacity: 0.6;
+                    width: 40px;
+                    height: 40px;
+                }
+                & span {
+                    margin-top: 12px;
+                    line-height: 30px;
+                }
+            }
+            &__HomeDiv:hover {
+                opacity: 1;
+            }
+
+            &__MyPageDiv{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;  
+                &__Icon {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    & .MyPageRound {
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 50%;
+                        background-color: #4082e63e;
+                    }
+                    & img {
+                        position: absolute;
+                        opacity: 0.6;
+                        top: -1.8px;
+                        width: 42px;
+                        height: 42px;
+                    }
+                }
+                & .MyPageSpan {
+                    margin-top: 12px;
+                    line-height: 30px;
+                }
+            }
+            &__MyPageDiv:hover {
+                opacity: 1;
+            }
+            
+        }
+    }
+    .FavoriteDiv {
+        display: inline-flex;
+        align-items: center;
+        & img {
+            margin-right: 12px;
+            width: 24px;
+            height: 24px;
+        }
+    }
+    .ContactDiv {
+        margin-top: 12px;
+        display: inline-flex;
+        align-items: center;
+        & img {
+            margin-right: 12px;
+            width: 24px;
+            height: 24px;
+        }
+    }
+    .GitDiv {
+        margin-top: 12px;
+        display: inline-flex;
+        align-items: center;
+        & img {
+            margin-right: 12px;
+            width: 24px;
+            height: 24px;
+        }
     }
 }
 @include laptopToTablet {
@@ -158,21 +483,23 @@
         top: 0;
         right: 0;
         font-size: 16px;
-        z-index: 2;
+        z-index: 1;
         position: fixed;
         background-color: #FFF;
         height: 100%;
-        width: 40%;
-        padding: 20px;
+        width: 45%;
+        padding: 60px 60px;
 
         &__top{
             display: flex;
             justify-content: space-between;
+            align-items: center;
+            font-size: 25px;
         }
 
         &__top > img {
-            width: 20px;
-            height: 20px;
+            width: 25px;
+            height: 25px;
             cursor: pointer;
         }
 
@@ -185,7 +512,117 @@
             background-color: rgb(218, 218, 218);
             height: 1px;
         }
-        
+        &__SignButtons {
+            margin: 30px 0 50px 0;
+            display: flex;
+            justify-content: space-between;
+            width: 175px;
+            height: auto;
+            flex-direction: row;
+        }
+        &__SecondButtDiv {
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            width: auto;
+            
+            &__HomeDiv{
+                margin-left: 2px;
+                margin-right: 40px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                
+                &__Icon {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    & .Round {
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 50%;
+                        background-color: #4082e63e;
+                    }
+                }
+                & img {
+                    position: absolute;
+                    opacity: 0.6;
+                    width: 40px;
+                    height: 40px;
+                }
+                & span {
+                    margin-top: 12px;
+                    line-height: 30px;
+                }
+            }
+            &__HomeDiv:hover {
+                opacity: 1;
+            }
+
+            &__MyPageDiv{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;  
+                &__Icon {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    & .MyPageRound {
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 50%;
+                        background-color: #4082e63e;
+                    }
+                    & img {
+                        position: absolute;
+                        opacity: 0.6;
+                        top: -1.8px;
+                        width: 42px;
+                        height: 42px;
+                    }
+                }
+                & .MyPageSpan {
+                    margin-top: 12px;
+                    line-height: 30px;
+                }
+            }
+            &__MyPageDiv:hover {
+                opacity: 1;
+            }
+            
+        }
+    }
+    .FavoriteDiv {
+        display: inline-flex;
+        align-items: center;
+        & img {
+            margin-right: 12px;
+            width: 24px;
+            height: 24px;
+        }
+    }
+    .ContactDiv {
+        margin-top: 12px;
+        display: inline-flex;
+        align-items: center;
+        & img {
+            margin-right: 12px;
+            width: 24px;
+            height: 24px;
+        }
+    }
+    .GitDiv {
+        margin-top: 12px;
+        display: inline-flex;
+        align-items: center;
+        & img {
+            margin-right: 12px;
+            width: 24px;
+            height: 24px;
+        }
     }
 }
 @include tablet {
@@ -207,16 +644,18 @@
         background-color: #FFF;
         height: 100%;
         width: 50%;
-        padding: 20px;
+        padding: 60px 60px;
 
         &__top{
             display: flex;
             justify-content: space-between;
+            align-items: center;
+            font-size: 25px;
         }
 
         &__top > img {
-            width: 20px;
-            height: 20px;
+            width: 25px;
+            height: 25px;
             cursor: pointer;
         }
 
@@ -229,7 +668,117 @@
             background-color: rgb(218, 218, 218);
             height: 1px;
         }
-        
+        &__SignButtons {
+            margin: 30px 0 50px 0;
+            display: flex;
+            justify-content: space-between;
+            width: 175px;
+            height: auto;
+            flex-direction: row;
+        }
+        &__SecondButtDiv {
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            width: auto;
+            
+            &__HomeDiv{
+                margin-left: 2px;
+                margin-right: 40px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                
+                &__Icon {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    & .Round {
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 50%;
+                        background-color: #4082e63e;
+                    }
+                }
+                & img {
+                    position: absolute;
+                    opacity: 0.6;
+                    width: 40px;
+                    height: 40px;
+                }
+                & span {
+                    margin-top: 12px;
+                    line-height: 30px;
+                }
+            }
+            &__HomeDiv:hover {
+                opacity: 1;
+            }
+
+            &__MyPageDiv{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;  
+                &__Icon {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    & .MyPageRound {
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 50%;
+                        background-color: #4082e63e;
+                    }
+                    & img {
+                        position: absolute;
+                        opacity: 0.6;
+                        top: -1.8px;
+                        width: 42px;
+                        height: 42px;
+                    }
+                }
+                & .MyPageSpan {
+                    margin-top: 12px;
+                    line-height: 30px;
+                }
+            }
+            &__MyPageDiv:hover {
+                opacity: 1;
+            }
+            
+        }
+    }
+    .FavoriteDiv {
+        display: inline-flex;
+        align-items: center;
+        & img {
+            margin-right: 12px;
+            width: 24px;
+            height: 24px;
+        }
+    }
+    .ContactDiv {
+        margin-top: 12px;
+        display: inline-flex;
+        align-items: center;
+        & img {
+            margin-right: 12px;
+            width: 24px;
+            height: 24px;
+        }
+    }
+    .GitDiv {
+        margin-top: 12px;
+        display: inline-flex;
+        align-items: center;
+        & img {
+            margin-right: 12px;
+            width: 24px;
+            height: 24px;
+        }
     }
 }
 @include tabletToMobile {
@@ -250,17 +799,19 @@
         position: fixed;
         background-color: #FFF;
         height: 100%;
-        width: 40%;
-        padding: 20px;
+        width: 73%;
+        padding: 60px 60px;
 
         &__top{
             display: flex;
             justify-content: space-between;
+            align-items: center;
+            font-size: 25px;
         }
 
         &__top > img {
-            width: 20px;
-            height: 20px;
+            width: 25px;
+            height: 25px;
             cursor: pointer;
         }
 
@@ -273,7 +824,117 @@
             background-color: rgb(218, 218, 218);
             height: 1px;
         }
-        
+        &__SignButtons {
+            margin: 30px 0 50px 0;
+            display: flex;
+            justify-content: space-between;
+            width: 175px;
+            height: auto;
+            flex-direction: row;
+        }
+        &__SecondButtDiv {
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            width: auto;
+            
+            &__HomeDiv{
+                margin-left: 2px;
+                margin-right: 40px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                
+                &__Icon {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    & .Round {
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 50%;
+                        background-color: #4082e63e;
+                    }
+                }
+                & img {
+                    position: absolute;
+                    opacity: 0.6;
+                    width: 40px;
+                    height: 40px;
+                }
+                & span {
+                    margin-top: 12px;
+                    line-height: 30px;
+                }
+            }
+            &__HomeDiv:hover {
+                opacity: 1;
+            }
+
+            &__MyPageDiv{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;  
+                &__Icon {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    & .MyPageRound {
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 50%;
+                        background-color: #4082e63e;
+                    }
+                    & img {
+                        position: absolute;
+                        opacity: 0.6;
+                        top: -1.8px;
+                        width: 42px;
+                        height: 42px;
+                    }
+                }
+                & .MyPageSpan {
+                    margin-top: 12px;
+                    line-height: 30px;
+                }
+            }
+            &__MyPageDiv:hover {
+                opacity: 1;
+            }
+            
+        }
+    }
+    .FavoriteDiv {
+        display: inline-flex;
+        align-items: center;
+        & img {
+            margin-right: 12px;
+            width: 24px;
+            height: 24px;
+        }
+    }
+    .ContactDiv {
+        margin-top: 12px;
+        display: inline-flex;
+        align-items: center;
+        & img {
+            margin-right: 12px;
+            width: 24px;
+            height: 24px;
+        }
+    }
+    .GitDiv {
+        margin-top: 12px;
+        display: inline-flex;
+        align-items: center;
+        & img {
+            margin-right: 12px;
+            width: 24px;
+            height: 24px;
+        }
     }
 }
 @include mobile {
@@ -286,17 +947,18 @@
             background-color: #FFF;
             height: 100%;
             width: 100%;
-            padding: 60px 60px;
+            padding: 68px 64px;
     
             &__top{
                 display: flex;
                 justify-content: space-between;
+                align-items: center;
                 font-size: 25px;
             }
     
             &__top > img {
-                width: 20px;
-                height: 20px;
+                width: 25px;
+                height: 25px;
                 cursor: pointer;
             }
     
@@ -313,7 +975,7 @@
                 margin: 30px 0 50px 0;
                 display: flex;
                 justify-content: space-between;
-                width: 160px;
+                width: 175px;
                 height: auto;
                 flex-direction: row;
             }
@@ -324,7 +986,8 @@
                 width: auto;
                 
                 &__HomeDiv{
-                    margin-right: 29px;
+                    margin-left: 2px;
+                    margin-right: 40px;
                     display: flex;
                     flex-direction: column;
                     align-items: center;
@@ -348,6 +1011,7 @@
                         height: 40px;
                     }
                     & span {
+                        margin-top: 12px;
                         line-height: 30px;
                     }
                 }
@@ -380,6 +1044,7 @@
                         }
                     }
                     & .MyPageSpan {
+                        margin-top: 12px;
                         line-height: 30px;
                     }
                 }
@@ -387,6 +1052,35 @@
                     opacity: 1;
                 }
                 
+            }
+        }
+        .FavoriteDiv {
+            display: inline-flex;
+            align-items: center;
+            & img {
+                margin-right: 12px;
+                width: 24px;
+                height: 24px;
+            }
+        }
+        .ContactDiv {
+            margin-top: 12px;
+            display: inline-flex;
+            align-items: center;
+            & img {
+                margin-right: 12px;
+                width: 24px;
+                height: 24px;
+            }
+        }
+        .GitDiv {
+            margin-top: 12px;
+            display: inline-flex;
+            align-items: center;
+            & img {
+                margin-right: 12px;
+                width: 24px;
+                height: 24px;
             }
         }
     

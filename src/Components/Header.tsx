@@ -60,7 +60,7 @@ const Header: React.FC = () => {
                                     borderColor = {null}
                                     hoverBorderColor = 'white'
                                     borderSize = {null}
-                                    buttonW = {68}
+                                    buttonW = {81}
                                     buttonH = {35}
                                     fontColor = 'white'
                                     hoverFontColor = '#032455'
@@ -121,12 +121,12 @@ const Header: React.FC = () => {
                                 </div>
                             </Link>
                             <br/><br />
-                            <Link to='/'>
+                            <a href="https://github.com/AhYoungJo/Weather-Forecast-Weabsite" rel='GitHub'>
                                 <div className='GitDiv'>
                                     <img src={GitHub} alt='Git'/>
                                     <span>Git</span>
                                 </div>
-                            </Link>
+                            </a>
                         </div>       
                     </div>
                 </div>

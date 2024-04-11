@@ -2,17 +2,13 @@
 
 @include desktop {
     nav {
-        // background-image: url('../Assets/Background/clouds_half_bg.jpg');
-        // background-position: center;
-        // background-repeat: no-repeat;
-        // background-size: cover;
         background: whitesmoke;
         box-shadow: 0 1px 4px 1px rgba(30, 30, 30, 0.412);
         height: 60px;
         width: 100%;
-        z-index: 1;
         position: fixed;
         top: 0;
+        z-index: 1;
     }
     .header {
         height: 100%;
@@ -34,11 +30,8 @@
 }
 @include desktopToLaptop {
     nav {
-        background-image: url('../Assets/Background/clouds_half_bg.jpg');
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        box-shadow: 0 1px 4px 1px rgba(30, 30, 30, 0.412);
+        background-color: whitesmoke;
+        box-shadow: 0 1px 5px 1px rgba(65, 65, 65, 0.412);
         height: 60px;
         width: 100%;
         z-index: 1;
@@ -65,11 +58,8 @@
 }
 @include laptop {
     nav {
-        background-image: url('../Assets/Background/clouds_half_bg.jpg');
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        box-shadow: 0 1px 4px 1px rgba(30, 30, 30, 0.412);
+        background-color: whitesmoke;
+        box-shadow: 0 1px 5px 1px rgba(65, 65, 65, 0.412);
         height: 60px;
         width: 100%;
         z-index: 1;
@@ -96,11 +86,8 @@
 }
 @include laptopToTablet {
     nav {
-        background-image: url('../Assets/Background/clouds_half_bg.jpg');
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        box-shadow: 0 1px 4px 1px rgba(30, 30, 30, 0.412);
+        background-color: whitesmoke;
+        box-shadow: 0 1px 5px 1px rgba(65, 65, 65, 0.412);;
         height: 40px;
         width: 100%;
         z-index: 1;
@@ -127,11 +114,8 @@
 }
 @include tablet {
     nav {
-        background-image: url('../Assets/Background/clouds_half_bg.jpg');
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        box-shadow: 0 1px 4px 1px rgba(30, 30, 30, 0.412);
+        background-color: whitesmoke;
+        box-shadow: 0 1px 5px 1px rgba(65, 65, 65, 0.412);
         height: 40px;
         width: 100%;
         z-index: 1;
@@ -158,15 +142,12 @@
 }
 @include tabletToMobile {
     nav {
-        background-image: url('../Assets/Background/clouds_half_bg.jpg');
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        box-shadow: 0 1px 4px 1px rgba(30, 30, 30, 0.412);
+        background-color: whitesmoke;
+        box-shadow: 0 1px 5px 1px rgba(65, 65, 65, 0.412);
         height: 40px;
         width: 100%;
         z-index: 1;
-        position: fixed;
+        position: sticky;
         top: 0;
     }
     .header {

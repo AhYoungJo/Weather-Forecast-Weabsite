@@ -88,8 +88,8 @@ const Main: React.FC = () => {
                             {weatherDataList && weatherDataList[0] ? <li>{weatherDataList[0].temp}℃</li> : <li>loading...</li>}
                             {weatherDataList && weatherDataList[0] ? <li><img src={weatherDataList[0].icon} alt='weatherIcon'/></li> : <li>loading...</li>}
                             {weatherDataList && weatherDataList[0] ? <li>{weatherDataList[0].description}</li> : <li>loading...</li>}
-                            {weatherDataList && weatherDataList[0] ? <li><span>최고:</span> {weatherDataList[0].temp_max}℃</li> : <li>loading...</li>}
-                            {weatherDataList && weatherDataList[0] ? <li><span>최저:</span> {weatherDataList[0].temp_min}℃</li> : <li>loading...</li>}
+                            {weatherDataList && weatherDataList[0] ? <li><span>최고: </span>   {weatherDataList[0].temp_max}℃</li> : <li>loading...</li>}
+                            {weatherDataList && weatherDataList[0] ? <li><span>최저: </span>  {weatherDataList[0].temp_min}℃</li> : <li>loading...</li>}
                         </ul>
                     </div>
                 </div>
