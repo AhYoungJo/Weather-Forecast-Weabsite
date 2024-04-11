@@ -260,6 +260,9 @@ const Map_v2: React.FC<IMap> = ({mapType, mapTypeControl = false, Input_Top}) =>
     const autoCompleteInput = document.createElement('input');
     const addInputValue = () => {
         autoCompleteInput.value = addressState.address;
+        autoCompleteInput.addEventListener('focus', (e: FocusEvent) => {
+            (e.target as HTMLInputElement).value = '';
+        })
     }
 
     const addAutocomplete = ():void => {

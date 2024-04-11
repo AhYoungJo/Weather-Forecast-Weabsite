@@ -1,8 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import cancle from '../Assets/Images/cancle_90.png'
 import '../Styles/Header.scss';
+import '../Styles/Sidebar.scss';
 import {Link } from 'react-router-dom';
 import $ from 'jquery';
+import { Button } from '../Styles/Styles';
 
 
 const Header: React.FC = () => {
@@ -48,8 +50,34 @@ const Header: React.FC = () => {
                                 <img src={cancle} alt='cancle.icon' className='cancelIcon' id="cancleSideBar"/>
                             </div>
                             <div className='Sidebar__SignButtons'>
-                                <button>로그인</button>
-                                <button>회원가입</button>
+                                <Button buttonColor = '#4083E6' 
+                                    hoverBgColor = '#f7f7f7'
+                                    borderColor = {null}
+                                    hoverBorderColor = 'white'
+                                    borderSize = {null}
+                                    buttonW = {68}
+                                    buttonH = {35}
+                                    fontColor = 'white'
+                                    hoverFontColor = '#032455'
+                                    fontSzie = {15}
+                                    transSec = {0.4}
+                                    radius= {7}>
+                                    로그인
+                                </Button>
+                                <Button buttonColor = '#f7f7f7' 
+                                    hoverBgColor = '#4083E6'
+                                    borderColor = '#4083E6'
+                                    hoverBorderColor = 'white'
+                                    borderSize = {1}
+                                    buttonW = {78}
+                                    buttonH = {35}
+                                    fontColor = '#032455'
+                                    hoverFontColor = '#f7f7f7'
+                                    fontSzie = {15}
+                                    transSec = {0.4}
+                                    radius= {7}>
+                                    회원가입
+                                </Button>
                             </div>
                             <div className='Sidebar__Home&MyPage'>
                                 <Link to='/'>

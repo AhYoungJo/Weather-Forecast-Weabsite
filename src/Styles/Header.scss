@@ -1,9 +1,23 @@
 @import './mixin';
 
 @include desktop {
-    .header {
-        width: 100%;
+    nav {
+        background-image: url('../Assets/Background/clouds_half_bg.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        box-shadow: 0 1px 4px 1px rgba(30, 30, 30, 0.412);
         height: 60px;
+        width: 100%;
+        z-index: 1;
+        position: fixed;
+        top: 0;
+    }
+    .header {
+        height: 100%;
+        width: 100%;
+        padding: 16px 26px;
+        align-items: center;
         display: flex;
         justify-content: space-between;
         &__logo {
@@ -18,9 +32,23 @@
     }
 }
 @include desktopToLaptop {
-    .header {
+    nav {
+        background-image: url('../Assets/Background/clouds_half_bg.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        box-shadow: 0 1px 4px 1px rgba(30, 30, 30, 0.412);
+        height: 60px;
         width: 100%;
-        height: 50px;
+        z-index: 1;
+        position: fixed;
+        top: 0;
+    }
+    .header {
+        height: 100%;
+        width: 100%;
+        padding: 16px 26px;
+        align-items: center;
         display: flex;
         justify-content: space-between;
         &__logo {
@@ -35,9 +63,23 @@
     }
 }
 @include laptop {
-    .header {
+    nav {
+        background-image: url('../Assets/Background/clouds_half_bg.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        box-shadow: 0 1px 4px 1px rgba(30, 30, 30, 0.412);
+        height: 60px;
         width: 100%;
-        height: 34px;
+        z-index: 1;
+        position: fixed;
+        top: 0;
+    }
+    .header {
+        height: 100%;
+        width: 100%;
+        padding: 16px 26px;
+        align-items: center;
         display: flex;
         justify-content: space-between;
         &__logo {
@@ -52,9 +94,23 @@
     }
 }
 @include laptopToTablet {
-    .header {
+    nav {
+        background-image: url('../Assets/Background/clouds_half_bg.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        box-shadow: 0 1px 4px 1px rgba(30, 30, 30, 0.412);
+        height: 40px;
         width: 100%;
-        height: 34px;
+        z-index: 1;
+        position: fixed;
+        top: 0;
+    }
+    .header {
+        height: 100%;
+        width: 100%;
+        padding: 16px 26px;
+        align-items: center;
         display: flex;
         justify-content: space-between;
         &__logo {
@@ -69,9 +125,23 @@
     }
 }
 @include tablet {
-    .header {
+    nav {
+        background-image: url('../Assets/Background/clouds_half_bg.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        box-shadow: 0 1px 4px 1px rgba(30, 30, 30, 0.412);
+        height: 40px;
         width: 100%;
-        height: 34px;
+        z-index: 1;
+        position: fixed;
+        top: 0;
+    }
+    .header {
+        height: 100%;
+        width: 100%;
+        padding: 16px 26px;
+        align-items: center;
         display: flex;
         justify-content: space-between;
         &__logo {
@@ -86,9 +156,23 @@
     }
 }
 @include tabletToMobile {
-    .header {
+    nav {
+        background-image: url('../Assets/Background/clouds_half_bg.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        box-shadow: 0 1px 4px 1px rgba(30, 30, 30, 0.412);
+        height: 40px;
         width: 100%;
-        height: 34px;
+        z-index: 1;
+        position: fixed;
+        top: 0;
+    }
+    .header {
+        height: 100%;
+        width: 100%;
+        padding: 16px 26px;
+        align-items: center;
         display: flex;
         justify-content: space-between;
         &__logo {
@@ -103,14 +187,23 @@
     }
 }
 @include mobile {
-    .header {
-        padding: 10px;
-        background-color: #d8edf059;
-        border-bottom: 1px solid rgba(209, 209, 209, 0.384);
-        position: fixed;
-        z-index: 1;
+    nav {
+        background-image: url('../Assets/Background/clouds_half_bg.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        box-shadow: 0 1px 4px 1px rgba(30, 30, 30, 0.412);
+        height: 40px;
         width: 100%;
-        height: 34px;
+        z-index: 1;
+        position: fixed;
+        top: 0;
+    }
+    .header {
+        height: 100%;
+        width: 100%;
+        padding: 16px 26px;
+        align-items: center;
         display: flex;
         justify-content: space-between;
         &__logo {
