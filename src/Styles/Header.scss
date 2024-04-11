@@ -1,0 +1,201 @@
+@import './mixin';
+
+@include desktop {
+    nav {
+        background: whitesmoke;
+        box-shadow: 0 1px 4px 1px rgba(30, 30, 30, 0.412);
+        height: 60px;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        z-index: 1;
+    }
+    .header {
+        height: 100%;
+        width: 100%;
+        padding: 16px 26px;
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        &__logo {
+            font-size: 12px;
+        }
+        button {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+    }
+}
+@include desktopToLaptop {
+    nav {
+        background-color: whitesmoke;
+        box-shadow: 0 1px 5px 1px rgba(65, 65, 65, 0.412);
+        height: 60px;
+        width: 100%;
+        z-index: 1;
+        position: fixed;
+        top: 0;
+    }
+    .header {
+        height: 100%;
+        width: 100%;
+        padding: 16px 26px;
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        &__logo {
+            font-size: 12px;
+        }
+        button {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+    }
+}
+@include laptop {
+    nav {
+        background-color: whitesmoke;
+        box-shadow: 0 1px 5px 1px rgba(65, 65, 65, 0.412);
+        height: 60px;
+        width: 100%;
+        z-index: 1;
+        position: fixed;
+        top: 0;
+    }
+    .header {
+        height: 100%;
+        width: 100%;
+        padding: 16px 26px;
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        &__logo {
+            font-size: 12px;
+        }
+        button {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+    }
+}
+@include laptopToTablet {
+    nav {
+        background-color: whitesmoke;
+        box-shadow: 0 1px 5px 1px rgba(65, 65, 65, 0.412);;
+        height: 40px;
+        width: 100%;
+        z-index: 1;
+        position: fixed;
+        top: 0;
+    }
+    .header {
+        height: 100%;
+        width: 100%;
+        padding: 16px 26px;
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        &__logo {
+            font-size: 12px;
+        }
+        button {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+    }
+}
+@include tablet {
+    nav {
+        background-color: whitesmoke;
+        box-shadow: 0 1px 5px 1px rgba(65, 65, 65, 0.412);
+        height: 40px;
+        width: 100%;
+        z-index: 1;
+        position: fixed;
+        top: 0;
+    }
+    .header {
+        height: 100%;
+        width: 100%;
+        padding: 16px 26px;
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        &__logo {
+            font-size: 12px;
+        }
+        button {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+    }
+}
+@include tabletToMobile {
+    nav {
+        background-color: whitesmoke;
+        box-shadow: 0 1px 5px 1px rgba(65, 65, 65, 0.412);
+        height: 40px;
+        width: 100%;
+        z-index: 1;
+        position: sticky;
+        top: 0;
+    }
+    .header {
+        height: 100%;
+        width: 100%;
+        padding: 16px 26px;
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        &__logo {
+            font-size: 12px;
+        }
+        button {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+    }
+}
+@include mobile {
+    nav {
+        background-color: whitesmoke;
+        box-shadow: 0 1px 5px 1px rgba(65, 65, 65, 0.412);
+        height: 45px;
+        width: 100%;
+        z-index: 1;
+        position: sticky;
+        top: 0;
+    }
+    .header {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        padding: 16px 26px;
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        &__logo {
+            font-size: 12px;
+        }
+        button {
+            background: none;
+            border: none;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+    }
+}
+

@@ -8,8 +8,9 @@ import { RootState } from '../Store/Data/Reducers/index';
 import { Background } from '../Styles/Styles';
 import {setTimesByDate} from '../Store/Data/Reducers/timesByDateReducer'
 import { getBackgroundKeyword } from '../Utils/backgroundUtils';
+import { currentDateString, currentTimeString, tomorrowDateString } from '../Utils/currentDateUtils';
+
 // import Loading from '../Hooks/Loading';
-import favorite from '../Assets/Images/favorite_main_colorblank_90.png'
 
 interface TimeData {
     time: string;
@@ -21,8 +22,7 @@ interface TimeData {
 const Main: React.FC = () => {
     const dispatch = useDispatch();
     const [scriptLoad, setScriptLoaded] = useState(false);
-    const address  = useSelector((state: RootState) => (
-        state.address.address))
+    const {address, shortenAddress}  = useSelector((state: RootState) => (state.address))
     const weatherDataList = useSelector((state: RootState) => state.weather.weatherDataList)
     const timesByDate = useSelector((state: RootState) => state.timesByDate.timeByDate);
     const keyword = weatherDataList.length > 0 ? weatherDataList[0].code : '';
@@ -51,10 +51,20 @@ const Main: React.FC = () => {
         dispatch(setTimesByDate(newTimesByDate));
     }, [weatherDataList]);
 
-    console.log(timesByDate)
-
-    const todayDate = Object.keys(timesByDate)[0];
-    const todayDateData: TimeData[] = timesByDate[todayDate];
+    const todayKey = Object.keys(timesByDate).find(date => date === currentDateString);
+    const tomorrowKey = Object.keys(timesByDate).find(date => date === tomorrowDateString);
+    const todayDateData: TimeData[] = todayKey ? timesByDate[todayKey].filter((data: TimeData) => parseInt(data.time) >= parseInt(currentTimeString)) : [];
+    
+    const tomorrowDateData: TimeData[] = timesByDate[tomorrowKey? tomorrowKey : 1];
+    const sliceTommorData = (tLength: number) => {
+        const todayDataLength = todayDateData.length;
+        const slices = [8, 7, 6, 5, 4, 3, 2, 1]; // 각 경우에 대한 slice 값
+    
+        const index = Math.min(tLength, slices.length - 1); // tLength와 slices 배열 길이 중 작은 값을 선택
+        const sliceValue = slices[index]; // 선택된 인덱스에 해당하는 slice 값
+    
+        return todayDateData.slice(0, todayDataLength - sliceValue + 1);
+    }
 
 
     const handleClick = () => {
@@ -74,19 +84,20 @@ const Main: React.FC = () => {
                     </div>
                     <div className='Main__head__weatherDiv'>
                         <ul>
-                            <li>🌎gif넣어봐야지{address}</li>
+                            <div><img src="https://img.icons8.com/stickers/100/marker.png" alt="marker"/><span>{shortenAddress}</span></div>
                             {weatherDataList && weatherDataList[0] ? <li>{weatherDataList[0].temp}℃</li> : <li>loading...</li>}
                             {weatherDataList && weatherDataList[0] ? <li><img src={weatherDataList[0].icon} alt='weatherIcon'/></li> : <li>loading...</li>}
                             {weatherDataList && weatherDataList[0] ? <li>{weatherDataList[0].description}</li> : <li>loading...</li>}
-                            {weatherDataList && weatherDataList[0] ? <li><span>최고:</span> {weatherDataList[0].temp_max}℃</li> : <li>loading...</li>}
-                            {weatherDataList && weatherDataList[0] ? <li><span>최저:</span> {weatherDataList[0].temp_min}℃</li> : <li>loading...</li>}
+                            {weatherDataList && weatherDataList[0] ? <li><span>최고: </span>   {weatherDataList[0].temp_max}℃</li> : <li>loading...</li>}
+                            {weatherDataList && weatherDataList[0] ? <li><span>최저: </span>  {weatherDataList[0].temp_min}℃</li> : <li>loading...</li>}
                         </ul>
                     </div>
                 </div>
                 </Background>
             </section>
-
-
+            <br /> <br /> <br /> <br />
+            <p className='Main__mapIntroduce'>아래 지도를 이용해서 검색해보세요!</p>
+            <br /> <br /> <br /> <br />
             <section>
                 <div className='Main__map'>
                     {scriptLoad && (
@@ -101,14 +112,17 @@ const Main: React.FC = () => {
             <GetWeatherInfo />
             </>
             
-            <br />
+            <br /> <br /> <br /> <br />
             
             <section >
                 <div className='Main__body'>
                     <div className='Main__body__dailyWeather'>
                         <div className='Main__body__dailyWeather__Head'>
                             <div className='Main__body__dailyWeather__Head__left'>
-                            <h2>"(위치 마크)"{address}</h2>
+                                <div>
+                                    <img width="20" height="20" src="https://img.icons8.com/stickers/100/marker.png" alt="marker"/>
+                                    <span>{address}</span>
+                                </div>
                             <ul>
                                 {weatherDataList && weatherDataList[0] ? <li>{weatherDataList[0].date}</li> : <li>loading...</li>}
                                 {weatherDataList && weatherDataList[0] ? <li>체감 온도: {weatherDataList[0].feels_like}</li> : <li>loading...</li>}
@@ -123,24 +137,35 @@ const Main: React.FC = () => {
                         <div className='Main__body__dailyWeather__Chart'>
                             <h2>시간별</h2>
                             <br />
+                            <p>차트 입니다</p>
                             {/* <Line /> */}
                           
                         </div>
                         <br /> 
 
                         <div className='Main__body__dailyWeather__body'>
-                            {Array.isArray(todayDateData) ? (
-                                todayDateData.map((data: TimeData, index: number) => (
-                                    <div key={index}>
-                                        <li>💧{data.pop}%</li>
-                                        <li><img src={data.icon} alt='weatherIcon'/></li>
-                                        <li>{data.time}시</li>
-                                    </div>
-                                ))
-                             ) : (
+                            {todayDateData && tomorrowDateData? (
+                                <>
+                                    {todayDateData.map((data: TimeData, index: number) => (
+                                        <div key={index}>
+                                            <li>💧{data.pop}%</li>
+                                            <li><img src={data.icon} alt='weatherIcon'/></li>
+                                            <li>{data.time}시</li>
+                                        </div>
+                                    ))}
+                                    {tomorrowDateData.length > 0 && tomorrowDateData.map((data: TimeData, index: number) => (
+                                        <div key={index}>
+                                            <li>💧{data.pop}%</li>
+                                            <li><img src={data.icon} alt='weatherIcon'/></li>
+                                            <li>{data.time}시</li>
+                                        </div>
+                                    ))}
+                                </>
+                            ) : (
                                 <div>Loading...</div>
                             )}
                         </div>
+
 
                         <div className='Main__body__dailyWeather__Wind'>
                             {/** 바람, */}

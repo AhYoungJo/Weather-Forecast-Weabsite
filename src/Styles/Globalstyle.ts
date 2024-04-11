@@ -13,6 +13,8 @@ export default createGlobalStyle`
     body{
         padding: 0;
         margin: 0;
+        box-sizing: border-box;
+        overflow-x: hidden;
     }
     a{
         color: inherit;
@@ -20,6 +22,8 @@ export default createGlobalStyle`
     }
     ul{
         list-style: none;
+    }
+    #root {
     }
 `;
 
