@@ -2,10 +2,11 @@
 
 @include desktop {
     nav {
-        background-image: url('../Assets/Background/clouds_half_bg.jpg');
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
+        // background-image: url('../Assets/Background/clouds_half_bg.jpg');
+        // background-position: center;
+        // background-repeat: no-repeat;
+        // background-size: cover;
+        background: whitesmoke;
         box-shadow: 0 1px 4px 1px rgba(30, 30, 30, 0.412);
         height: 60px;
         width: 100%;
@@ -188,18 +189,16 @@
 }
 @include mobile {
     nav {
-        background-image: url('../Assets/Background/clouds_half_bg.jpg');
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        box-shadow: 0 1px 4px 1px rgba(30, 30, 30, 0.412);
-        height: 40px;
+        background-color: whitesmoke;
+        box-shadow: 0 1px 5px 1px rgba(65, 65, 65, 0.412);
+        height: 45px;
         width: 100%;
         z-index: 1;
-        position: fixed;
+        position: sticky;
         top: 0;
     }
     .header {
+        position: absolute;
         height: 100%;
         width: 100%;
         padding: 16px 26px;
@@ -212,7 +211,7 @@
         button {
             background: none;
             border: none;
-            font-size: 2rem;
+            font-size: 15px;
             cursor: pointer;
         }
 

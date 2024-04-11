@@ -780,10 +780,9 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            top: 20px;
             font-size: 10px;
             &__inputDiv{
-                margin: 140px 0 70px 0;
+                margin: 112px 0 70px 0;
                 width: 300px;
                 position: relative;
                 display: inline-flex;
@@ -827,7 +826,7 @@
                 text-align: center;
                 width: 72%;
                 background-color: rgba(20, 20, 20, 0.808);
-                padding: 50px 20px;
+                padding: 47px 20px;
                 justify-content: center;
             }
             &__weatherDiv div{
