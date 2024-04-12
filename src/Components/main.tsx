@@ -13,7 +13,6 @@ import MainHead from './Contents/MainHead';
 import DailyHead from './Contents/DailyHead';
 import DailyWeather from './Contents/DailyWeather';
 import WindDegree from './Contents/WindDegree';
-import WindSpeed from './Contents/WindSpeed';
 import {TimeData, TimesByDateT} from '../Store/Type/Interface';
 
 // import Loading from '../Hooks/Loading';
@@ -81,13 +80,16 @@ const Main: React.FC = () => {
                     <MainHead />
                 </Background>
             </section>
-
-            <br /> <br /> <br /> <br /> <br /><br />
-
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
             <p className='Main__mapIntroduce'>아래 지도를 이용해서 검색해보세요!</p>
-
-            <br /> <br /> <br />
-
+            <br />
+            <br />
+            <br />
             <section>
                 <div className='Main__map'>
                     {scriptLoad && (
@@ -95,47 +97,27 @@ const Main: React.FC = () => {
                     )}
                 </div>
             </section>
-            
             <br />
-            
             <>
             <GetWeatherInfo />
-            </>
-            
-            <br /> <br /> <br /> <br />
-            
+            </>           
+            <br />
+            <br />
+            <br />
+            <br />
+
             <section >
                 <div className='Main__body'>
                     <div className='Main__body__dailyWeather'>
                         < DailyHead />
-
-                        <hr />
-                        <br />
-
-                        <p>옆으로 슬라이드하면 날씨를 더 확인할 수 있습니다. </p>
-
                         <br />
                         <br />
-
-                        <div className='Main__body__dailyWeather__Chart'>
-                            <h2>시간별</h2>
-                            <br />
-                            <p>차트 입니다</p>
-                            {/* <Line /> */}
-                        
-                        </div>
                         <br />
-
                         <DailyWeather tomorrowSlicedData={tomorrowSlicedData} todayDateData={todayDateData}/>
-
                         <br /> 
-
                         <WindDegree tomorrowSlicedData={tomorrowSlicedData} todayDateData={todayDateData}/>
-
-                        <br /><br />
-                        
-                        <WindSpeed tomorrowSlicedData={tomorrowSlicedData} todayDateData={todayDateData}/>
-                        
+                        <br />
+                        <br />
                     </div>
                 </div>
             </section>
@@ -145,7 +127,6 @@ const Main: React.FC = () => {
             <section> {/** 클릭하면 디테일하게 볼 수 있게 할 건지 고민.. */}
                 <div className='Main__body__5daysWeather'>
                         <h2>주간 날씨</h2>
-
                 </div>
             </section>
             

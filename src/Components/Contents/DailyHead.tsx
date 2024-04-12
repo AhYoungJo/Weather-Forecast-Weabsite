@@ -23,7 +23,6 @@ const DailyHead = () => {
                             </ul>
                             </div>
                             <div className='Main__body__dailyWeather__Head__right' onClick={addFavorite}>
-                                {/* <img src={favorite} alt="favorite button" onClick={addFavorite} /> */}
                             </div>
                         </div>
     );

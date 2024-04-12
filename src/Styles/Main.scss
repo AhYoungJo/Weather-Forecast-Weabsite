@@ -334,44 +334,77 @@
             align-items: center;
         }
         &__body {
+            list-style: none;
+            border-radius: 10px;
             font-size: 12px;
             display: flex;
             justify-content: center;
+            width: 100%;
             &__dailyWeather{
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                align-items: flex-start;
                 width: 67vw;
-                height: 700px;
+                height: 1100px;
                 border-bottom: 1px solid red;
                 &__Head {
-                    font-size: 18px;
-                    line-height: 20px;
+                    background-image: linear-gradient(to top, #ffffff, #ffffff);
+                    box-shadow: 0 2px 5px .4px rgb(211, 181, 181);
+                    color: rgb(66, 65, 65);
+                    border-radius: 50px;
+                    font-size: 17px;
+                    // font-weight: 700;
                     display: flex;
                     flex-direction: row;
                     justify-content: space-between;
+                    align-items: flex-start;
+                    padding: 35px;
+                    height: 180px;
+                    width: 400px;
+                    &__left {
+                        line-height: 30px;
+                    }
                     &__left div{
                         display: inline-flex;
                         align-items: center;
+                    }
+                    &__left img {
+                        width: 24px;
+                        height: 24px;
+                        margin-right: 4px;
                     }
                     &__right{
                         background-image: url('../Assets/Images/favorite_main_colorblank_90.png');
                         background-size: contain;
                         background-repeat: no-repeat;
                         background-position: center;
-                        width: 33px;
-                        height: 33px;
+                        width: 24px;
+                        height: 24px;
                     }
                 }
-                &__Chart {
-                    border: 1px solid orchid;
-                    height: 150px;
+                &__Body {
+                    // background-image: linear-gradient(to top, #ffcfd5, #ffdbe1);
+                    box-shadow: 0 2px 5px .4px rgb(211, 181, 181);
+                    background-color: white;
+                    border-radius: 50px;
+                    width: 600px;
+                    height: 300px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    &__Chart {
+                        width: 500px;
+                    }
                 }
                 &__body {
-                    border-radius: 5px;
-                    box-shadow: 1px 1px 3px 1px whitesmoke;
+                    border-radius: 20px;
                     display: flex;
                     flex-direction: row;
                     overflow: scroll;
                     list-style: none;
-                    padding: 30px 0;
+                    padding: 35px 10px;
                     text-align: center;
                     justify-content: space-between;
                     -ms-overflow-style: none; /* 인터넷 익스플로러 */
@@ -386,10 +419,125 @@
                 }
                 &__body li {
                     padding: 0 17px;
+                }&__WindDegTitle{
+                    color: rgb(40, 44, 87);
+                    font-weight: 700;
+                    padding: 30px 0;
+                    font-size: 22px;
+                    text-indent: 10px;
+                    width: 70px;
+                    border-bottom: 1px solid rgb(211, 211, 211);
+                }
+
+                &__WindSpeedTitle{
+                    position: relative;
+                    text-indent: 5px;
+                    top: 130px;
+                    color: rgb(158, 158, 158);
+                    font-size: 16px;
+                }
+                &__강수량Ttitle{
+                    position: relative;
+                    color: rgb(40, 44, 87);
+                    top: 250px;
+                    font-size: 22px;
+                    font-weight: 700;
+                    text-indent: 10px;
+                    padding: 30px 0;
+                    width: 90px;
+                    border-bottom: 1px solid rgb(211, 211, 211);
+                }
+
+                &__WindDeg {  
+                    // background-image: linear-gradient(to bottom, #ecf4ff, #cbccff);
+                    border-bottom: none;
+                    border-radius: 20px;
+                    font-size: 16px;
+                    overflow: scroll;
+                    width: 900px;            
+                    height: 600px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    &__Icon img {
+                        width: 40px;
+                        height: 40px;
+                        opacity: 0.9;
+                    }
+                    &__Icon {
+                        // width: 3000px;
+                        height: 600px;
+                        display: flex;
+                        justify-content: space-around;
+                        align-items: center;
+                        flex-direction: row;
+                    }
+                    &__Icon div {
+                        width: 120px;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        
+                    }
+                    &__Icon div:first-child {
+                        margin-left: 5px;
+                    }
+                    &__Icon div:last-child {
+                        margin-right: 10px;
+                    }
+                    // &__Bg {
+              
+                    // }
+                    // &__Bg2 {
+           
+                    // }
+                }
+                &__WindDeg::-webkit-scrollbar {
+                    display: none;
                 }
             }
+            
+            .WindDeg__background {
+                // overflow: scroll;
+                box-shadow: 0 2px 5px .4px rgb(211, 181, 181);
+                background-color: white;
+                padding: 50px;
+                border-radius: 60px;
+                height: 780px;
+                width: 67vw;
+            }
+            .WindDeg__background::-webkit-scrollbar{
+                display: none;
+            }
+            .WindDeg__background__scroll{
+                margin-top: -100px;
+                width: 1100px;
+                height: 560px;
+            }
+            .WindDeg__background__scroll::-webkit-scrollbar {
+                display: none;
+            }
+            .WindSpeed {
+                overflow: hidden;
+                height: 110px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-end;
+                font-size: 16px;
+            }
+
+            &__5daysWeather {
+                height: 300px;
+                width: auto;
+                border: 1px solid greenyellow;
+            }
         }
-    
+        .강수량 img{
+            width: 80px;
+            height: 80px;
+        }
     }
 }
 @include laptop {
@@ -1309,36 +1457,35 @@
         &__body {
             list-style: none;
             border-radius: 10px;
-            // background-image: linear-gradient(to bottom, #0c1827c6, #031a2d, #0e1722d0);
             font-size: 12px;
             display: flex;
             justify-content: center;
             width: 100%;
             &__dailyWeather{
-                padding: 10px;
                 width: 80vw;
-                height: 700px;
+                height: 1000px;
                 border-bottom: 1px dashed red;
                 &__Head {
-                    background-color: white;
-                    // color: rgb(28, 28, 28);
-                    border-radius: 10px;
-                    // background-color: #baf4f08b;
-                    // background-image: linear-gradient(to bottom, #64A4EE, #3975CD);
+                    background-image: linear-gradient(to top, #ffffff, #ffffff);
+                    box-shadow: 0 2px 5px .4px rgb(211, 181, 181);
+                    color: rgb(66, 65, 65);
+                    font-weight: 550;
+                    border-radius: 20px;
+                    font-size: 14px;
                     display: flex;
                     flex-direction: row;
                     justify-content: space-between;
-                    padding: 10px;
+                    padding: 20px;
                     &__left {
-                        line-height: 20px;
+                        line-height: 25px;
                     }
                     &__left div{
                         display: inline-flex;
-                        align-items: center;
+                        // align-items: center;
                     }
                     &__left img {
-                        width: 15px;
-                        height: 15px;
+                        width: 22px;
+                        height: 22px;
                         margin-right: 4px;
                     }
                     &__right{
@@ -1350,18 +1497,24 @@
                         height: 20px;
                     }
                 }
-                &__Chart {
-                    border: 1px solid orchid;
-                    height: 150px;
+                &__Body {
+                    // background-image: linear-gradient(to top, #ffcfd5, #ffdbe1);
+                    box-shadow: 0 2px 5px .4px rgb(211, 181, 181);
+                    padding: 20px;
+                    background-color: white;
+                    border-radius: 20px;
+                    &__Chart {
+                        width: auto;
+                    }
                 }
                 &__body {
-                    color: white;
-                    background-image: linear-gradient(to bottom, #4c89ce, #2162c2);
+                    color: black;
+                    // background-image: linear-gradient(to bottom, #99a9f0, #3476c2);
                     border-radius: 20px;
-                    box-shadow: 0 2px 2px 0 rgb(85, 85, 85);
+                    // box-shadow: 0 2px 2px 0 rgb(85, 85, 85);
                     display: flex;
                     flex-direction: row;
-                    overflow: scroll;
+                    // overflow: scroll;
                     list-style: none;
                     padding: 35px 10px;
                     text-align: center;
@@ -1380,31 +1533,54 @@
                     padding: 0 17px;
                 }
                 &__WindDegTitle{
+                    color: rgb(40, 44, 87);
+                    font-weight: 700;
                     padding: 20px 0;
-                    font-size: 18px;
+                    font-size: 16px;
+                    text-indent: 10px;
+                    border-bottom: 1px solid rgb(211, 211, 211);
                 }
+
+                &__WindSpeedTitle{
+                    position: relative;
+                    text-indent: 5px;
+                    top: 114px;
+                    color: rgb(158, 158, 158);
+                    font-size: 12px;
+                }
+                &__강수량Ttitle{
+                    position: relative;
+                    color: rgb(40, 44, 87);
+                    top: 236px;
+                    font-size: 16px;
+                    font-weight: 700;
+                    text-indent: 10px;
+                    padding: 20px 0;
+                    border-bottom: 1px solid rgb(211, 211, 211);
+                }
+
                 &__WindDeg {  
-                    background-color: white;
-                    border: 1px solid rgb(233, 233, 233);
+                    // background-image: linear-gradient(to bottom, #ecf4ff, #cbccff);
                     border-bottom: none;
                     border-radius: 20px;
-                    font-size: 14px;   
-                    overflow: scroll;               
-                    height: 100px;
-                    padding: 10px 5px;
+                    font-size: 13px;   
+                    // overflow: scroll;               
+                    height: 450px;
+                    // padding: 10px 5px;
                     display: flex;
                     align-items: center;
                     &__Icon img {
                         width: 30px;
                         height: 30px;
+                        opacity: 0.9;
                     }
                     &__Icon {
                         display: flex;
                         justify-content: space-around;
                         align-items: center;
+                        flex-direction: row;
                     }
                     &__Icon div {
-                        padding: 5px 0;
                         width: 60px;
                         display: flex;
                         flex-direction: column;
@@ -1412,45 +1588,56 @@
                         justify-content: center;
                     }
                     &__Icon div:first-child {
-                        margin-left: 13px;
+                        margin-left: 5px;
                     }
                     &__Icon div:last-child {
-                        margin-right: 13px;
+                        margin-right: 10px;
                     }
                     // &__Bg {
-                    //     // background-color: black;
-                    //     position: absolute;
-                    //     right: 55px;
-                    //     border-radius: 20px;
-                    //     background-image: linear-gradient(to right, transparent, #f4f4f4);
-                    //     width: 33px;
-                    //     height: 120px;
+              
                     // }
                     // &__Bg2 {
-                    //     // background-color: black;
-                    //     position: absolute;
-                    //     left: 50px;
-                    //     border-radius: 40%;
-                    //     width: 33px;
-                    //     background-image: linear-gradient(to right, #f4f4f4, transparent);
-                    //     height: 98px;
+           
                     // }
                 }
                 &__WindDeg::-webkit-scrollbar {
                     display: none;
                 }
-                &__WindSpeed {
-                    height: 80px;
-                    border: 1px solid red;
-                }
             }
             
+            .WindDeg__background {
+                box-shadow: 0 2px 5px .4px rgb(211, 181, 181);
+                background-color: white;
+                padding: 10px 17px 20px 17px;
+                border-radius: 20px;
+                height: 550px;
+            }
+            .WindDeg__background__scroll{
+                margin-top: -50px;
+                overflow: scroll;
+            }
+            .WindDeg__background__scroll::-webkit-scrollbar {
+                display: none;
+            }
+            .WindSpeed {
+                overflow: hidden;
+                height: 110px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-end;
+                font-size: 12px;
+            }
+
             &__5daysWeather {
                 height: 300px;
                 width: auto;
                 border: 1px solid greenyellow;
             }
         }
-    
+        .강수량 img{
+            width: 50px;
+            height: 50px;
+        }
     }
 }
