@@ -10,12 +10,39 @@ interface BackgroundProps {
 }
 
 export const Background = styled.div<BackgroundProps>`
-    background-image: url(${(props) => props.bgURL});
+    background-image: linear-gradient(
+        to bottom, 
+            rgba(157, 165, 255, 0.38),
+            rgba(255, 255, 255, 0),
+            rgba(255, 255, 255, 0),
+            rgba(255, 255, 255, 0),
+            rgba(255, 255, 255, 0),
+            rgba(255, 255, 255, 0),
+            rgba(255, 255, 255, 0),
+            rgba(255, 255, 255, 0),
+            rgba(255, 255, 255, 0),
+            rgba(255, 255, 255, 0),
+            rgba(255, 255, 255, 0),
+            rgba(255, 255, 255, 0),
+            rgba(255, 255, 255, 0),
+            rgba(255, 255, 255, 0),
+            rgba(255, 255, 255, 0),
+            rgba(255, 255, 255, 0),
+            rgba(255, 255, 255, 0),
+            rgba(255, 255, 255, 0),
+            rgba(255, 255, 255, 0),
+            rgba(255, 255, 255, 0),
+            rgba(255, 255, 255, 0),
+            rgba(255, 255, 255, 0),
+            rgb(255, 168, 168, 0.1383)
+        ), 
+            url(${(props) => props.bgURL});
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     width: 100vw; 
     top: 0;
+
 `;
 
 interface ButtonProps {
@@ -56,3 +83,10 @@ export const Button = styled.div<ButtonProps>`
         color: black;
     }
 `;
+
+interface WindDegProps {
+    degree: number;
+}
+export const WindDegreeStyle = styled.div<WindDegProps>`
+    transform: rotate(${(props) => props.degree}deg);
+`
