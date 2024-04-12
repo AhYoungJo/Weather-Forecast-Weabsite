@@ -3,6 +3,10 @@
 
 @include desktop {
     .Main {
+        background-image: url('../Assets/Background/pink_galaxy.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
         width: 100%;
         font-family: 'GmarketSansMedium';
         position: absolute;
@@ -194,6 +198,10 @@
 
 @include desktopToLaptop {
     .Main {
+        background-image: url('../Assets/Background/pink_galaxy.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
         width: 100%;
         font-family: 'GmarketSansMedium';
         position: absolute;
@@ -386,6 +394,10 @@
 }
 @include laptop {
     .Main {
+        background-image: url('../Assets/Background/pink_galaxy.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
         width: 100%;
         font-family: 'GmarketSansMedium';
         position: absolute;
@@ -577,6 +589,10 @@
 
 @include laptopToTablet{
     .Main {
+        background-image: url('../Assets/Background/pink_galaxy.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
         width: 100%;
         font-family: 'GmarketSansMedium';
         position: absolute;
@@ -767,6 +783,10 @@
 
 @include tablet {
     .Main {
+        background-image: url('../Assets/Background/pink_galaxy.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
         width: 100%;
         font-family: 'GmarketSansMedium';
         position: absolute;
@@ -957,6 +977,10 @@
 
 @include tabletToMobile {
     .Main {
+        background-image: url('../Assets/Background/pink_galaxy.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
         width: 100%;
         font-family: 'GmarketSansMedium';
         position: absolute;
@@ -1147,6 +1171,11 @@
 
 @include mobile {
     .Main {
+        background-image: 
+            url('../Assets/Background/pink_galaxy.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
         width: 100%;
         font-family: 'GmarketSansMedium';
         position: absolute;
@@ -1209,7 +1238,7 @@
                 border-radius: 36px;
                 box-shadow: inset 0 2px 6px 5px #2f2f2f8b;
                 text-align: center;
-                width: 72%;
+                width: 70%;
                 background-color: rgba(3, 13, 29, 0.863);
                 padding: 47px 20px;
                 justify-content: center;
@@ -1278,28 +1307,47 @@
             align-items: center;
         }
         &__body {
+            list-style: none;
+            border-radius: 10px;
+            // background-image: linear-gradient(to bottom, #0c1827c6, #031a2d, #0e1722d0);
             font-size: 12px;
             display: flex;
             justify-content: center;
+            width: 100%;
             &__dailyWeather{
+                padding: 10px;
                 width: 80vw;
                 height: 700px;
-                border-bottom: 1px solid red;
+                border-bottom: 1px dashed red;
                 &__Head {
+                    background-color: white;
+                    // color: rgb(28, 28, 28);
+                    border-radius: 10px;
+                    // background-color: #baf4f08b;
+                    // background-image: linear-gradient(to bottom, #64A4EE, #3975CD);
                     display: flex;
                     flex-direction: row;
                     justify-content: space-between;
+                    padding: 10px;
+                    &__left {
+                        line-height: 20px;
+                    }
                     &__left div{
                         display: inline-flex;
                         align-items: center;
+                    }
+                    &__left img {
+                        width: 15px;
+                        height: 15px;
+                        margin-right: 4px;
                     }
                     &__right{
                         background-image: url('../Assets/Images/favorite_main_colorblank_90.png');
                         background-size: contain;
                         background-repeat: no-repeat;
                         background-position: center;
-                        width: 33px;
-                        height: 33px;
+                        width: 20px;
+                        height: 20px;
                     }
                 }
                 &__Chart {
@@ -1307,13 +1355,15 @@
                     height: 150px;
                 }
                 &__body {
-                    border-radius: 5px;
-                    box-shadow: 1px 1px 3px 1px whitesmoke;
+                    color: white;
+                    background-image: linear-gradient(to bottom, #4c89ce, #2162c2);
+                    border-radius: 20px;
+                    box-shadow: 0 2px 2px 0 rgb(85, 85, 85);
                     display: flex;
                     flex-direction: row;
                     overflow: scroll;
                     list-style: none;
-                    padding: 30px 0;
+                    padding: 35px 10px;
                     text-align: center;
                     justify-content: space-between;
                     -ms-overflow-style: none; /* 인터넷 익스플로러 */
@@ -1329,6 +1379,76 @@
                 &__body li {
                     padding: 0 17px;
                 }
+                &__WindDegTitle{
+                    padding: 20px 0;
+                    font-size: 18px;
+                }
+                &__WindDeg {  
+                    background-color: white;
+                    border: 1px solid rgb(233, 233, 233);
+                    border-bottom: none;
+                    border-radius: 20px;
+                    font-size: 14px;   
+                    overflow: scroll;               
+                    height: 100px;
+                    padding: 10px 5px;
+                    display: flex;
+                    align-items: center;
+                    &__Icon img {
+                        width: 30px;
+                        height: 30px;
+                    }
+                    &__Icon {
+                        display: flex;
+                        justify-content: space-around;
+                        align-items: center;
+                    }
+                    &__Icon div {
+                        padding: 5px 0;
+                        width: 60px;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                    }
+                    &__Icon div:first-child {
+                        margin-left: 13px;
+                    }
+                    &__Icon div:last-child {
+                        margin-right: 13px;
+                    }
+                    // &__Bg {
+                    //     // background-color: black;
+                    //     position: absolute;
+                    //     right: 55px;
+                    //     border-radius: 20px;
+                    //     background-image: linear-gradient(to right, transparent, #f4f4f4);
+                    //     width: 33px;
+                    //     height: 120px;
+                    // }
+                    // &__Bg2 {
+                    //     // background-color: black;
+                    //     position: absolute;
+                    //     left: 50px;
+                    //     border-radius: 40%;
+                    //     width: 33px;
+                    //     background-image: linear-gradient(to right, #f4f4f4, transparent);
+                    //     height: 98px;
+                    // }
+                }
+                &__WindDeg::-webkit-scrollbar {
+                    display: none;
+                }
+                &__WindSpeed {
+                    height: 80px;
+                    border: 1px solid red;
+                }
+            }
+            
+            &__5daysWeather {
+                height: 300px;
+                width: auto;
+                border: 1px solid greenyellow;
             }
         }
     
