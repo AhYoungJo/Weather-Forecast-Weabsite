@@ -16,3 +16,31 @@ const tomorrowYear = tomorrowDate.getFullYear();
 const tomorrowMonth = ('0' + (tomorrowDate.getMonth() + 1)).slice(-2);
 const tomorrowDay = ('0' + tomorrowDate.getDate()).slice(-2);
 export const tomorrowDateString = `${tomorrowYear}-${tomorrowMonth}-${tomorrowDay}`;
+
+const thirdDate = new Date(currentDate);
+thirdDate.setDate(thirdDate.getDate() + 2);
+const thirdYear = thirdDate.getFullYear();
+const thirdMonth = ('0' + (thirdDate.getMonth() + 1)).slice(-2);
+const thirdDay = ('0' + thirdDate.getDate()).slice(-2);
+export const thirdDateString = `${thirdYear}-${thirdMonth}-${thirdDay}`;
+
+const fourthDate = new Date(currentDate);
+fourthDate.setDate(fourthDate.getDate() + 3);
+const fourthYear = fourthDate.getFullYear();
+const fourthMonth = ('0' + (fourthDate.getMonth() + 1)).slice(-2);
+const fourthDay = ('0' + fourthDate.getDate()).slice(-2);
+export const fourthDateString = `${fourthYear}-${fourthMonth}-${fourthDay}`;
+
+const fifthDate = new Date(currentDate);
+fifthDate.setDate(fifthDate.getDate() + 4);
+const fifthYear = fifthDate.getFullYear();
+const fifthMonth = ('0' + (fifthDate.getMonth() + 1)).slice(-2);
+const fifthDay = ('0' + fifthDate.getDate()).slice(-2);
+export const fifthDateString = `${fifthYear}-${fifthMonth}-${fifthDay}`;
+
+const sixthdDate = new Date(currentDate);
+sixthdDate.setDate(sixthdDate.getDate() + 5);
+const sixthYear = sixthdDate.getFullYear();
+const sixthMonth = ('0' + (sixthdDate.getMonth() + 1)).slice(-2);
+const sixthDay = ('0' + sixthdDate.getDate()).slice(-2);
+export const sixthdDateString = `${sixthYear}-${sixthMonth}-${sixthDay}`;

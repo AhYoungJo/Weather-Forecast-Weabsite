@@ -10,6 +10,7 @@ const addFavorite = () => {
 const DailyHead = () => {
     const {address, shortenAddress}  = useSelector((state: RootState) => (state.address))
     const weatherDataList = useSelector((state: RootState) => state.weather.weatherDataList)
+
     return (
         <div className='Main__body__dailyWeather__Head'>
                             <div className='Main__body__dailyWeather__Head__left'>
@@ -18,12 +19,12 @@ const DailyHead = () => {
                                     <span>{address}</span>
                                 </div>
                             <ul>
-                                {weatherDataList && weatherDataList[0] ? <li>{weatherDataList[0].date}</li> : <li>loading...</li>}
-                                {weatherDataList && weatherDataList[0] ? <li>체감 온도: {weatherDataList[0].feels_like}℃</li> : <li>loading...</li>}
+                                {weatherDataList && weatherDataList[0] ? <li>[{weatherDataList[0].day}] {weatherDataList[0].date} | 체감: {weatherDataList[0].feels_like}℃</li> : <li>loading...</li>}
                             </ul>
                             </div>
                             <div className='Main__body__dailyWeather__Head__right' onClick={addFavorite}>
                             </div>
+                            {/** tab, labtop, desktop일때만 show되는 내일, 모레 날씨 컴포넌트 추가 + description과 아이콘 넣을까? */}
                         </div>
     );
 };
