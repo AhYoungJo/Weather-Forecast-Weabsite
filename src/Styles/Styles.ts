@@ -5,7 +5,7 @@ export const LoadingText = styled.div`
     text-align: center;
 `;
 
-interface BackgroundProps {
+export interface BackgroundProps {
     bgURL: string;
 }
 
@@ -40,9 +40,9 @@ export const Background = styled.div<BackgroundProps>`
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    width: 100vw; 
-    top: 0;
-
+    border-radius: 50%;
+    border: 10px solid white;
+    box-shadow: 0px 1px 10px 1px #e7e7e7;
 `;
 
 interface ButtonProps {
@@ -89,4 +89,17 @@ interface WindDegProps {
 }
 export const WindDegreeStyle = styled.div<WindDegProps>`
     transform: rotate(${(props) => props.degree}deg);
+`
+interface WindSpeedChartProps {
+    height: number;
+    color: string
+}
+
+export const WindSpeedChart = styled.div<WindSpeedChartProps>`
+    min-height: ${(props) => props.height}px;
+    width: 30px;
+    background-color: ${(props) => props.color};
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 `

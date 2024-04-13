@@ -1,31 +1,20 @@
 import React from 'react';
 import {TimeData, DailyWeatherProps} from '../../Store/Type/Interface';
+import LinearChart from './LinearChart';
+
 
 
 const DailyWeather: React.FC<DailyWeatherProps> = ({todayDateData, tomorrowSlicedData}) => {
+    const tempData = todayDateData.map((data: TimeData) => data.temp);
+    const labelData = todayDateData.map((data: TimeData) => `${data.time}시`);
     return (
-        <div className='Main__body__dailyWeather__body'>
-                            {todayDateData && tomorrowSlicedData? (
-                                <>
-                                    {todayDateData.map((data: TimeData, index: number) => (
-                                        <div key={index}>
-                                            <li>💧{data.pop}%</li>
-                                            <li><img src={data.icon} alt='weatherIcon'/></li>
-                                            <li>{data.time}시</li>
-                                        </div>
-                                    ))}
-                                    {tomorrowSlicedData.length > 0 && tomorrowSlicedData.map((data: TimeData, index: number) => (
-                                        <div key={index}>
-                                            <li>💧{data.pop}%</li>
-                                            <li><img src={data.icon} alt='weatherIcon'/></li>
-                                            <li>{data.time}시</li>
-                                        </div>
-                                    ))}
-                                </>
-                            ) : (
-                                <div>Loading...</div>
-                            )}
+        <>
+        <div className='Main__body__dailyWeather__Body'>
+            <div className='Main__body__dailyWeather__Body__Chart'>
+                <LinearChart tempData={tempData} labelData={labelData}/>
+            </div>
         </div>
+        </>
     );
 };
 

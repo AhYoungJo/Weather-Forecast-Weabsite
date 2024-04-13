@@ -3,23 +3,47 @@
 
 @include desktop {
     .map-container {
+        z-index: 1;
+        background-color: white;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        width: 63vw;
+        width: 25vw;
+        &__InputButtDiv{
+
+            margin-top: -34px;
+            margin-bottom: 10px;
+            padding: 13px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: column;
+
+            &__Inner {
+                display: flex;
+                width: 100%;
+                align-items: center;
+                justify-content: space-between;
+                
+                &__Butts {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-end;
+                }
+
+            }
+        }
         &_button {
             background-image: url('../../Assets/Images/currentLocation.png');
             background-repeat: no-repeat;
             background-position: center;
             background-size: contain;
             border-radius: 50%;
-            width: 3em;
-            height: 3em;
+            width: 2em;
+            height: 2em;
             border: none;
             background-color: whitesmoke;
             box-shadow: 0px 1px 3px 1px #a3a3a365;
-            margin-top: 30px;
-            margin-left: 1em;
             cursor: pointer;
             transition: all 0.3s ease-in-out;
         }
@@ -28,85 +52,17 @@
             box-shadow: none;
         }
         &_clearbutton {
+            margin-right: 10px;
             box-shadow: 0px 1px 3px 1px #a3a3a365;
             background-image: url('../../Assets/Images/reset_blue.png');
             background-repeat: no-repeat;
             background-position: center;
             background-size: contain;
             border-radius: 50%;
-            width: 2.6em;
-            height: 2.6em;
+            width: 2em;
+            height: 2em;
             border: none;
             background-color: transparent;
-            margin-top: 32px;
-            margin-left: .5em;
-            cursor: pointer;
-            transition: all 0.3s ease-in-out;
-        }
-        &_clearbutton:hover {
-            transform: scale(1.06) rotate(180deg);
-            box-shadow: none;
-        }
-        &_map {
-            height: 73vh;
-        }
-        &_input {
-            font-size: 15px;
-            padding: 10px 30px 10px 30px;
-            margin-top: 24px;
-            width: 20em;
-            height: 3.5em;
-            -webkit-border-radius: 16px;
-            -moz-border-radius: 16px;
-            border: none;
-            border-radius: 16px;
-            box-shadow: 2px 2px 3px 1px #a3a3a365;
-            margin-left: 1em;
-        }
-        &_input:focus {
-            outline-color: #5a9ef7;
-        }
-    }
-}
-@include desktopToLaptop {
-    .map-container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width: 66vw;
-        &_button {
-            background-image: url('../../Assets/Images/currentLocation.png');
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: contain;
-            border-radius: 50%;
-            width: 3em;
-            height: 3em;
-            border: none;
-            background-color: whitesmoke;
-            box-shadow: 0px 1px 3px 1px #a3a3a365;
-            margin-top: 30px;
-            margin-left: 1em;
-            cursor: pointer;
-            transition: all 0.3s ease-in-out;
-        }
-        &_button:hover {
-            transform: scale(1.06) rotate(180deg);
-            box-shadow: none;
-        }
-        &_clearbutton {
-            box-shadow: 0px 1px 3px 1px #a3a3a365;
-            background-image: url('../../Assets/Images/reset_blue.png');
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: contain;
-            border-radius: 50%;
-            width: 2.6em;
-            height: 2.6em;
-            border: none;
-            background-color: transparent;
-            margin-top: 32px;
-            margin-left: .5em;
             cursor: pointer;
             transition: all 0.3s ease-in-out;
         }
@@ -120,353 +76,30 @@
         &_input {
             font-size: 15px;
             padding: 10px 30px 10px 30px;
-            margin-top: 24px;
             width: 20em;
-            height: 3.5em;
+            height: 3.9em;
             -webkit-border-radius: 16px;
             -moz-border-radius: 16px;
             border: none;
             border-radius: 16px;
             box-shadow: 2px 2px 3px 1px #a3a3a365;
-            margin-left: 1em;
         }
         &_input:focus {
             outline-color: #5a9ef7;
         }
     }
-}
-@include laptop {
-    .map-container {
+    .map-containerBg{
+        position: absolute;
         display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width: 80vw;
-        &_button {
-            background-image: url('../../Assets/Images/currentLocation.png');
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: contain;
-            border-radius: 50%;
-            width: 3em;
-            height: 3em;
-            border: none;
-            background-color: whitesmoke;
-            box-shadow: 0px 1px 3px 1px #a3a3a365;
-            margin-top: 30px;
-            margin-left: 1em;
-            cursor: pointer;
-            transition: all 0.3s ease-in-out;
-        }
-        &_button:hover {
-            transform: scale(1.06) rotate(180deg);
-            box-shadow: none;
-        }
-        &_clearbutton {
-            box-shadow: 0px 1px 3px 1px #a3a3a365;
-            background-image: url('../../Assets/Images/reset_blue.png');
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: contain;
-            border-radius: 50%;
-            width: 2.6em;
-            height: 2.6em;
-            border: none;
-            background-color: transparent;
-            margin-top: 32px;
-            margin-left: .5em;
-            cursor: pointer;
-            transition: all 0.3s ease-in-out;
-        }
-        &_clearbutton:hover {
-            transform: scale(1.06) rotate(180deg);
-            box-shadow: none;
-        }
-        &_map {
-            height: 40vh;
-        }
-        &_input {
-            font-size: 15px;
-            padding: 10px 30px 10px 30px;
-            margin-top: 24px;
-            width: 20em;
-            height: 3.5em;
-            -webkit-border-radius: 16px;
-            -moz-border-radius: 16px;
-            border: none;
-            border-radius: 16px;
-            box-shadow: 2px 2px 3px 1px #a3a3a365;
-            margin-left: 1em;
-        }
-        &_input:focus {
-            outline-color: #5a9ef7;
-        }
-    }
-}
-@include laptopToTablet {
-    .map-container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width: 80vw;
-        &_button {
-            background-image: url('../../Assets/Images/currentLocation.png');
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: contain;
-            border-radius: 50%;
-            width: 3em;
-            height: 3em;
-            border: none;
-            background-color: whitesmoke;
-            box-shadow: 0px 1px 3px 1px #a3a3a365;
-            margin-top: 30px;
-            margin-left: 1em;
-            cursor: pointer;
-            transition: all 0.3s ease-in-out;
-        }
-        &_button:hover {
-            transform: scale(1.06) rotate(180deg);
-            box-shadow: none;
-        }
-        &_clearbutton {
-            box-shadow: 0px 1px 3px 1px #a3a3a365;
-            background-image: url('../../Assets/Images/reset_blue.png');
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: contain;
-            border-radius: 50%;
-            width: 2.6em;
-            height: 2.6em;
-            border: none;
-            background-color: transparent;
-            margin-top: 32px;
-            margin-left: .5em;
-            cursor: pointer;
-            transition: all 0.3s ease-in-out;
-        }
-        &_clearbutton:hover {
-            transform: scale(1.06) rotate(180deg);
-            box-shadow: none;
-        }
-        &_map {
-            height: 67vh;
-        }
-        &_input {
-            font-size: 15px;
-            padding: 10px 30px 10px 30px;
-            margin-top: 24px;
-            width: 20em;
-            height: 3.5em;
-            -webkit-border-radius: 16px;
-            -moz-border-radius: 16px;
-            border: none;
-            border-radius: 16px;
-            box-shadow: 2px 2px 3px 1px #a3a3a365;
-            margin-left: 1em;
-        }
-        &_input:focus {
-            outline-color: #5a9ef7;
-        }
-    }
-}
-@include tablet {
-    .map-container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width: 80vw;
-        &_button {
-            background-image: url('../../Assets/Images/currentLocation.png');
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: contain;
-            border-radius: 50%;
-            width: 3em;
-            height: 3em;
-            border: none;
-            background-color: whitesmoke;
-            box-shadow: 0px 1px 3px 1px #a3a3a365;
-            margin-top: 30px;
-            margin-left: 1em;
-            cursor: pointer;
-            transition: all 0.3s ease-in-out;
-        }
-        &_button:hover {
-            transform: scale(1.06) rotate(180deg);
-            box-shadow: none;
-        }
-        &_clearbutton {
-            box-shadow: 0px 1px 3px 1px #a3a3a365;
-            background-image: url('../../Assets/Images/reset_blue.png');
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: contain;
-            border-radius: 50%;
-            width: 2.6em;
-            height: 2.6em;
-            border: none;
-            background-color: transparent;
-            margin-top: 32px;
-            margin-left: .5em;
-            cursor: pointer;
-            transition: all 0.3s ease-in-out;
-        }
-        &_clearbutton:hover {
-            transform: scale(1.06) rotate(180deg);
-            box-shadow: none;
-        }
-        &_map {
-            height: 40vh;
-        }
-        &_input {
-            font-size: 15px;
-            padding: 10px 30px 10px 30px;
-            margin-top: 24px;
-            width: 20em;
-            height: 3.5em;
-            -webkit-border-radius: 16px;
-            -moz-border-radius: 16px;
-            border: none;
-            border-radius: 16px;
-            box-shadow: 2px 2px 3px 1px #a3a3a365;
-            margin-left: 1em;
-        }
-        &_input:focus {
-            outline-color: #5a9ef7;
-        }
-    }
-}
-@include tabletToMobile {
-    .map-container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width: 60vw;
-        &_button {
-            background-image: url('../../Assets/Images/currentLocation.png');
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: contain;
-            border-radius: 50%;
-            width: 3em;
-            height: 3em;
-            border: none;
-            background-color: whitesmoke;
-            box-shadow: 0px 1px 3px 1px #a3a3a365;
-            margin-top: 30px;
-            margin-left: 1em;
-            cursor: pointer;
-            transition: all 0.3s ease-in-out;
-        }
-        &_button:hover {
-            transform: scale(1.06) rotate(180deg);
-            box-shadow: none;
-        }
-        &_clearbutton {
-            box-shadow: 0px 1px 3px 1px #a3a3a365;
-            background-image: url('../../Assets/Images/reset_blue.png');
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: contain;
-            border-radius: 50%;
-            width: 2.6em;
-            height: 2.6em;
-            border: none;
-            background-color: transparent;
-            margin-top: 32px;
-            margin-left: .5em;
-            cursor: pointer;
-            transition: all 0.3s ease-in-out;
-        }
-        &_clearbutton:hover {
-            transform: scale(1.06) rotate(180deg);
-            box-shadow: none;
-        }
-        &_map {
-            height: 67vh;
-        }
-        &_input {
-            font-size: 15px;
-            padding: 10px 30px 10px 30px;
-            margin-top: 24px;
-            width: 20em;
-            height: 3.5em;
-            -webkit-border-radius: 16px;
-            -moz-border-radius: 16px;
-            border: none;
-            border-radius: 16px;
-            box-shadow: 2px 2px 3px 1px #a3a3a365;
-            margin-left: 1em;
-        }
-        &_input:focus {
-            outline-color: #5a9ef7;
-        }
-    }
-}
-@include mobile {
-    .map-container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width: 80vw;
-        &_button {
-            background-image: url('../../Assets/Images/currentLocation.png');
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: contain;
-            border-radius: 50%;
-            width: 2.1em;
-            height: 2.1em;
-            border: none;
-            background-color: whitesmoke;
-            box-shadow: 0px 1px 3px 1px #a3a3a365;
-            margin-top: 8px;
-            margin-left: .3em;
-            cursor: pointer;
-            transition: all 0.3s ease-in-out;
-        }
-        &_button:hover {
-            transform: scale(1.06) rotate(180deg);
-            box-shadow: none;
-        }
-        &_clearbutton {
-            box-shadow: 0px 1px 3px 1px #a3a3a365;
-            background-image: url('../../Assets/Images/reset_blue.png');
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: contain;
-            border-radius: 50%;
-            width: 1.7em;
-            height: 1.7em;
-            border: none;
-            background-color: transparent;
-            margin-top: 11px;
-            margin-left: .1em;
-            cursor: pointer;
-            transition: all 0.3s ease-in-out;
-        }
-        &_clearbutton:hover {
-            transform: scale(1.06) rotate(180deg);
-            box-shadow: none;
-        }
-        &_map {
-            height: 80vw;
-        }
-        &_input {
-            border-radius: 10px;
-            font-size: 12px;
-            padding: 10px 20px 10px 20px;
-            margin-top: 5px;
-            width: 80%;
-            height: 3em;
-            border: none;
-            box-shadow: 2px 2px 3px 1px #a3a3a365;
-            // margin-left: -105px;
-        }
-        &_input:focus {
-            outline-color: #5a9ef7;
-        }
-    }
+        top: 750px;
+        width: 31vw;
+        height: 680px;
+        background-color: white;
+        border: 8px solid rgb(248, 248, 248);
+        box-shadow: 0 3px 10px 1px rgb(187, 187, 187);
+        border-radius: 70px;
+
+    };
     .pac-card {
         margin: 10px 10px 0 0;
         box-sizing: border-box;
@@ -494,4 +127,758 @@
         padding: 10px;
     }
 }
-//모바일 버전, 맵 가로는 더 길게, 가른 ㄴ꽉차게
+@include desktopToLaptop {
+    .map-container {
+        z-index: 1;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 25vw;
+        &__InputButtDiv{
+
+            margin-top: -34px;
+            margin-bottom: 10px;
+            padding: 13px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: column;
+
+            &__Inner {
+                display: flex;
+                width: 100%;
+                align-items: center;
+                justify-content: space-between;
+                
+                &__Butts {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-end;
+                }
+
+            }
+        }
+        &_button {
+            background-image: url('../../Assets/Images/currentLocation.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            border-radius: 50%;
+            width: 2em;
+            height: 2em;
+            border: none;
+            background-color: whitesmoke;
+            box-shadow: 0px 1px 3px 1px #a3a3a365;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+        &_button:hover {
+            transform: scale(1.06) rotate(180deg);
+            box-shadow: none;
+        }
+        &_clearbutton {
+            margin-right: 10px;
+            box-shadow: 0px 1px 3px 1px #a3a3a365;
+            background-image: url('../../Assets/Images/reset_blue.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            border-radius: 50%;
+            width: 2em;
+            height: 2em;
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+        &_clearbutton:hover {
+            transform: scale(1.06) rotate(180deg);
+            box-shadow: none;
+        }
+        &_map {
+            height: 67vh;
+        }
+        &_input {
+            font-size: 15px;
+            padding: 10px 30px 10px 30px;
+            width: 20em;
+            height: 3.9em;
+            -webkit-border-radius: 16px;
+            -moz-border-radius: 16px;
+            border: none;
+            border-radius: 16px;
+            box-shadow: 2px 2px 3px 1px #a3a3a365;
+        }
+        &_input:focus {
+            outline-color: #5a9ef7;
+        }
+    }
+    .map-containerBg{
+        position: absolute;
+        display: flex;
+        top: 750px;
+        width: 31vw;
+        height: 42em;
+        background-color: white;
+        border: 8px solid rgb(248, 248, 248);
+        box-shadow: 0 3px 10px 1px rgb(187, 187, 187);
+        border-radius: 70px;
+
+    };
+    .pac-card {
+        margin: 10px 10px 0 0;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        outline: none;
+    }
+    .pac-container{
+        background-color: #fff;
+        box-shadow: 0 2px 2px rgba(59, 59, 59, 0.3);
+        font-family: 'GmarketSansMedium';
+        font-size: 10px;
+        position: absolute;
+        margin-top: 5px;
+        top: 10px;
+        width: 80%;
+        border-radius: 16px;
+        padding: 0 9px;
+        padding-bottom: 5px;
+    }
+    .pac-item{
+        text-align: left;
+        padding: 11px 10px;
+    }
+    .pac-icon img{
+        padding: 10px;
+    }
+}
+@include laptop {
+    .map-container {
+        z-index: 1;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 40vw;
+        &__InputButtDiv{
+
+            margin-top: -34px;
+            margin-bottom: 10px;
+            padding: 13px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: column;
+
+            &__Inner {
+                display: flex;
+                width: 100%;
+                align-items: center;
+                justify-content: space-between;
+                
+                &__Butts {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-end;
+                }
+
+            }
+        }
+        &_button {
+            background-image: url('../../Assets/Images/currentLocation.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            border-radius: 50%;
+            width: 2em;
+            height: 2em;
+            border: none;
+            background-color: whitesmoke;
+            box-shadow: 0px 1px 3px 1px #a3a3a365;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+        &_button:hover {
+            transform: scale(1.06) rotate(180deg);
+            box-shadow: none;
+        }
+        &_clearbutton {
+            margin-right: 10px;
+            box-shadow: 0px 1px 3px 1px #a3a3a365;
+            background-image: url('../../Assets/Images/reset_blue.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            border-radius: 50%;
+            width: 2em;
+            height: 2em;
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+        &_clearbutton:hover {
+            transform: scale(1.06) rotate(180deg);
+            box-shadow: none;
+        }
+        &_map {
+            height: 30em;
+        }
+        &_input {
+            font-size: 15px;
+            padding: 10px 30px 10px 30px;
+            width: 20em;
+            height: 3.9em;
+            -webkit-border-radius: 16px;
+            -moz-border-radius: 16px;
+            border: none;
+            border-radius: 16px;
+            box-shadow: 2px 2px 3px 1px #a3a3a365;
+        }
+        &_input:focus {
+            outline-color: #5a9ef7;
+        }
+    }
+    .map-containerBg{
+        position: absolute;
+        display: flex;
+        top: 750px;
+        width: 46vw;
+        height: 48em;
+        background-color: white;
+        border: 8px solid rgb(248, 248, 248);
+        box-shadow: 0 3px 10px 1px rgb(187, 187, 187);
+        border-radius: 70px;
+    };
+    .pac-card {
+        margin: 10px 10px 0 0;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        outline: none;
+    }
+    .pac-container{
+        background-color: #fff;
+        box-shadow: 0 2px 2px rgba(59, 59, 59, 0.3);
+        font-family: 'GmarketSansMedium';
+        font-size: 10px;
+        position: absolute;
+        margin-top: 5px;
+        top: 10px;
+        width: 80%;
+        border-radius: 16px;
+        padding: 0 9px;
+        padding-bottom: 5px;
+    }
+    .pac-item{
+        text-align: left;
+        padding: 11px 10px;
+    }
+    .pac-icon img{
+        padding: 10px;
+    }
+}
+@include laptopToTablet {
+    .map-container {
+        z-index: 1;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 25vw;
+        &__InputButtDiv{
+
+            margin-top: -34px;
+            margin-bottom: 10px;
+            padding: 13px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: column;
+
+            &__Inner {
+                display: flex;
+                width: 100%;
+                align-items: center;
+                justify-content: space-between;
+                
+                &__Butts {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-end;
+                }
+
+            }
+        }
+        &_button {
+            background-image: url('../../Assets/Images/currentLocation.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            border-radius: 50%;
+            width: 2em;
+            height: 2em;
+            border: none;
+            background-color: whitesmoke;
+            box-shadow: 0px 1px 3px 1px #a3a3a365;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+        &_button:hover {
+            transform: scale(1.06) rotate(180deg);
+            box-shadow: none;
+        }
+        &_clearbutton {
+            margin-right: 10px;
+            box-shadow: 0px 1px 3px 1px #a3a3a365;
+            background-image: url('../../Assets/Images/reset_blue.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            border-radius: 50%;
+            width: 2em;
+            height: 2em;
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+        &_clearbutton:hover {
+            transform: scale(1.06) rotate(180deg);
+            box-shadow: none;
+        }
+        &_map {
+            height: 67vh;
+        }
+        &_input {
+            font-size: 15px;
+            padding: 10px 30px 10px 30px;
+            width: 20em;
+            height: 3.9em;
+            -webkit-border-radius: 16px;
+            -moz-border-radius: 16px;
+            border: none;
+            border-radius: 16px;
+            box-shadow: 2px 2px 3px 1px #a3a3a365;
+        }
+        &_input:focus {
+            outline-color: #5a9ef7;
+        }
+    }
+    .map-containerBg{
+        position: absolute;
+        display: flex;
+        top: 750px;
+        width: 31vw;
+        height: 600px;
+        background-color: white;
+        border: 8px solid rgb(248, 248, 248);
+        box-shadow: 0 3px 10px 1px rgb(187, 187, 187);
+        border-radius: 70px;
+
+    };
+    .pac-card {
+        margin: 10px 10px 0 0;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        outline: none;
+    }
+    .pac-container{
+        background-color: #fff;
+        box-shadow: 0 2px 2px rgba(59, 59, 59, 0.3);
+        font-family: 'GmarketSansMedium';
+        font-size: 10px;
+        position: absolute;
+        margin-top: 5px;
+        top: 10px;
+        width: 80%;
+        border-radius: 16px;
+        padding: 0 9px;
+        padding-bottom: 5px;
+    }
+    .pac-item{
+        text-align: left;
+        padding: 11px 10px;
+    }
+    .pac-icon img{
+        padding: 10px;
+    }
+}
+@include tablet {
+    .map-container {
+        z-index: 1;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 25vw;
+        &__InputButtDiv{
+
+            margin-top: -34px;
+            margin-bottom: 10px;
+            padding: 13px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: column;
+
+            &__Inner {
+                display: flex;
+                width: 100%;
+                align-items: center;
+                justify-content: space-between;
+                
+                &__Butts {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-end;
+                }
+
+            }
+        }
+        &_button {
+            background-image: url('../../Assets/Images/currentLocation.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            border-radius: 50%;
+            width: 2em;
+            height: 2em;
+            border: none;
+            background-color: whitesmoke;
+            box-shadow: 0px 1px 3px 1px #a3a3a365;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+        &_button:hover {
+            transform: scale(1.06) rotate(180deg);
+            box-shadow: none;
+        }
+        &_clearbutton {
+            margin-right: 10px;
+            box-shadow: 0px 1px 3px 1px #a3a3a365;
+            background-image: url('../../Assets/Images/reset_blue.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            border-radius: 50%;
+            width: 2em;
+            height: 2em;
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+        &_clearbutton:hover {
+            transform: scale(1.06) rotate(180deg);
+            box-shadow: none;
+        }
+        &_map {
+            height: 67vh;
+        }
+        &_input {
+            font-size: 15px;
+            padding: 10px 30px 10px 30px;
+            width: 20em;
+            height: 3.9em;
+            -webkit-border-radius: 16px;
+            -moz-border-radius: 16px;
+            border: none;
+            border-radius: 16px;
+            box-shadow: 2px 2px 3px 1px #a3a3a365;
+        }
+        &_input:focus {
+            outline-color: #5a9ef7;
+        }
+    }
+    .map-containerBg{
+        position: absolute;
+        display: flex;
+        top: 750px;
+        width: 31vw;
+        height: 680px;
+        background-color: white;
+        border: 8px solid rgb(248, 248, 248);
+        box-shadow: 0 3px 10px 1px rgb(187, 187, 187);
+        border-radius: 70px;
+
+    };
+    .pac-card {
+        margin: 10px 10px 0 0;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        outline: none;
+    }
+    .pac-container{
+        background-color: #fff;
+        box-shadow: 0 2px 2px rgba(59, 59, 59, 0.3);
+        font-family: 'GmarketSansMedium';
+        font-size: 10px;
+        position: absolute;
+        margin-top: 5px;
+        top: 10px;
+        width: 80%;
+        border-radius: 16px;
+        padding: 0 9px;
+        padding-bottom: 5px;
+    }
+    .pac-item{
+        text-align: left;
+        padding: 11px 10px;
+    }
+    .pac-icon img{
+        padding: 10px;
+    }
+}
+@include tabletToMobile {
+    .map-container {
+        z-index: 1;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 25vw;
+        &__InputButtDiv{
+
+            margin-top: -34px;
+            margin-bottom: 10px;
+            padding: 13px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: column;
+
+            &__Inner {
+                display: flex;
+                width: 100%;
+                align-items: center;
+                justify-content: space-between;
+                
+                &__Butts {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-end;
+                }
+
+            }
+        }
+        &_button {
+            background-image: url('../../Assets/Images/currentLocation.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            border-radius: 50%;
+            width: 2em;
+            height: 2em;
+            border: none;
+            background-color: whitesmoke;
+            box-shadow: 0px 1px 3px 1px #a3a3a365;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+        &_button:hover {
+            transform: scale(1.06) rotate(180deg);
+            box-shadow: none;
+        }
+        &_clearbutton {
+            margin-right: 10px;
+            box-shadow: 0px 1px 3px 1px #a3a3a365;
+            background-image: url('../../Assets/Images/reset_blue.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            border-radius: 50%;
+            width: 2em;
+            height: 2em;
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+        &_clearbutton:hover {
+            transform: scale(1.06) rotate(180deg);
+            box-shadow: none;
+        }
+        &_map {
+            height: 67vh;
+        }
+        &_input {
+            font-size: 15px;
+            padding: 10px 30px 10px 30px;
+            width: 20em;
+            height: 3.9em;
+            -webkit-border-radius: 16px;
+            -moz-border-radius: 16px;
+            border: none;
+            border-radius: 16px;
+            box-shadow: 2px 2px 3px 1px #a3a3a365;
+        }
+        &_input:focus {
+            outline-color: #5a9ef7;
+        }
+    }
+    .map-containerBg{
+        position: absolute;
+        display: flex;
+        top: 750px;
+        width: 31vw;
+        height: 680px;
+        background-color: white;
+        border: 8px solid rgb(248, 248, 248);
+        box-shadow: 0 3px 10px 1px rgb(187, 187, 187);
+        border-radius: 70px;
+
+    };
+    .pac-card {
+        margin: 10px 10px 0 0;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        outline: none;
+    }
+    .pac-container{
+        background-color: #fff;
+        box-shadow: 0 2px 2px rgba(59, 59, 59, 0.3);
+        font-family: 'GmarketSansMedium';
+        font-size: 10px;
+        position: absolute;
+        margin-top: 5px;
+        top: 10px;
+        width: 80%;
+        border-radius: 16px;
+        padding: 0 9px;
+        padding-bottom: 5px;
+    }
+    .pac-item{
+        text-align: left;
+        padding: 11px 10px;
+    }
+    .pac-icon img{
+        padding: 10px;
+    }
+}
+@include mobile {
+    .map-container {
+        z-index: 1;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 70vw;
+        &__InputButtDiv{
+            margin-top: -20px;
+            margin-bottom: 10px;
+            padding: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: column;
+
+            &__Inner {
+                display: flex;
+                width: 100%;
+                align-items: center;
+                justify-content: space-between;
+                
+                &__Butts {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-end;
+                }
+
+            }
+        }
+        &_button {
+            background-image: url('../../Assets/Images/currentLocation.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            border-radius: 50%;
+            width: 1.6em;
+            height: 1.6em;
+            border: none;
+            margin-right: 5px;
+            background-color: whitesmoke;
+            box-shadow: 0px 1px 3px 1px #a3a3a365;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+        &_button:hover {
+            transform: scale(1.06) rotate(180deg);
+            box-shadow: none;
+        }
+        &_clearbutton {
+            margin-right: 10px;
+            box-shadow: 0px 1px 3px 1px #a3a3a365;
+            background-image: url('../../Assets/Images/reset_blue.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            border-radius: 50%;
+            width: 1.6em;
+            height: 1.6em;
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+        &_clearbutton:hover {
+            transform: scale(1.06) rotate(180deg);
+            box-shadow: none;
+        }
+        &_map {
+            height: 40vh;
+        }
+        &_input {
+            font-size: 15px;
+            padding: 10px 30px 10px 30px;
+            width: 15em;
+            height: 3em;
+            -webkit-border-radius: 16px;
+            -moz-border-radius: 16px;
+            border: none;
+            border-radius: 16px;
+            box-shadow: 2px 2px 3px 1px #a3a3a365;
+        }
+        &_input:focus {
+            outline-color: #5a9ef7;
+        }
+    }
+    .map-containerBg{
+        position: absolute;
+        display: flex;
+        top: 680px;
+        width: 82vw;
+        height: 125em;
+        background-color: white;
+        border: 8px solid rgb(248, 248, 248);
+        box-shadow: 0 3px 10px 1px rgb(187, 187, 187);
+        border-radius: 70px;
+
+    };
+    .pac-card {
+        margin: 10px 10px 0 0;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        outline: none;
+    }
+    .pac-container{
+        background-color: #fff;
+        box-shadow: 0 2px 2px rgba(59, 59, 59, 0.3);
+        font-family: 'GmarketSansMedium';
+        font-size: 10px;
+        position: absolute;
+        margin-top: 5px;
+        top: 10px;
+        width: 80%;
+        border-radius: 16px;
+        padding: 0 9px;
+        padding-bottom: 5px;
+    }
+    .pac-item{
+        text-align: left;
+        padding: 11px 10px;
+    }
+    .pac-icon img{
+        padding: 10px;
+    }
+}
