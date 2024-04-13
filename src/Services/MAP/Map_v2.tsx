@@ -58,7 +58,7 @@ const Map_v2: React.FC<IMap> = ({mapType, mapTypeControl = false, Input_Top}) =>
         addAutocomplete_Top();
         addCurrentLocationButton();
         addClearButton();
-        addInputValue()
+        // addInputValue()
     }, [map]);
 
     //최초 맵 실행
@@ -117,7 +117,7 @@ const Map_v2: React.FC<IMap> = ({mapType, mapTypeControl = false, Input_Top}) =>
                         lng: coordinate.lng()
                     }
     
-                    console.log('map click responses: ', results[0])
+                    // console.log('map click responses: ', results[0])
                     
                     dispatch(setLocation(latLng.lat, latLng.lng));
                     dispatch(setAddress(address, shortenAddress))
@@ -166,23 +166,42 @@ const Map_v2: React.FC<IMap> = ({mapType, mapTypeControl = false, Input_Top}) =>
     }
 
     //현재 위치 받아오기
+    // const addCurrentLocationButton = (): void => {
+    //     const currentLocationButton = document.getElementsByClassName('map-container_button');
+    //     // map?.controls[google.maps.ControlPosition.TOP_RIGHT].push(currentLocationButton);
+    //     currentLocationButton.addEventListener('click', () => {
+    //         if(navigator.geolocation){
+    //             navigator.geolocation.getCurrentPosition(
+    //                 (position) => {
+    //                     const currentAddress = new google.maps.LatLng(
+    //                         position.coords.latitude,
+    //                         position.coords.longitude
+    //                     );
+    //                     coordinateToAddress(currentAddress);
+    //                 }
+    //             );
+    //         }
+    //     });
+    // };
+
     const addCurrentLocationButton = (): void => {
-        const currentLocationButton = document.createElement('button');
-        currentLocationButton.classList.add('map-container_button');
-        map?.controls[google.maps.ControlPosition.TOP_CENTER].push(currentLocationButton);
-        currentLocationButton.addEventListener('click', () => {
-            if(navigator.geolocation){
-                navigator.geolocation.getCurrentPosition(
-                    (position) => {
-                        const currentAddress = new google.maps.LatLng(
-                            position.coords.latitude,
-                            position.coords.longitude
-                        );
-                        coordinateToAddress(currentAddress);
-                    }
-                );
-            }
-        });
+        const currentLocationButtons = document.getElementsByClassName('map-container_button');
+        for (let i = 0; i < currentLocationButtons.length; i++) {
+            const currentLocationButton = currentLocationButtons[i] as HTMLButtonElement;
+            currentLocationButton.addEventListener('click', () => {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(
+                        (position) => {
+                            const currentAddress = new google.maps.LatLng(
+                                position.coords.latitude,
+                                position.coords.longitude
+                            );
+                            coordinateToAddress(currentAddress);
+                        }
+                    );
+                }
+            });
+        }
     };
 
 
@@ -250,25 +269,28 @@ const Map_v2: React.FC<IMap> = ({mapType, mapTypeControl = false, Input_Top}) =>
         coordinateToAddress(defaultAddress);
     };
     const addClearButton = (): void => {
-        const clearButton = document.createElement('button');
-        clearButton.classList.add('map-container_clearbutton');
-        map?.controls[google.maps.ControlPosition.TOP_CENTER].push(clearButton);
-        clearButton.addEventListener('click', clear); // 클릭 이벤트 핸들러 설정
+        const clearButtons = document.getElementsByClassName('map-container_clearbutton');
+        // clearButton.classList.add('map-container_clearbutton');
+        // map?.controls[google.maps.ControlPosition.TOP_RIGHT].push(clearButton);
+        for (let i = 0; i < clearButtons.length; i++) {
+            const clearButton = clearButtons[i] as HTMLButtonElement;
+            clearButton.addEventListener('click', clear);
+        }
+        // clearButton.addEventListener('click', clear); // 클릭 이벤트 핸들러 설정
     };
 
     //검색어 자동 완성 기능
-    const autoCompleteInput = document.createElement('input');
-    const addInputValue = () => {
-        autoCompleteInput.value = addressState.address;
-        autoCompleteInput.addEventListener('focus', (e: FocusEvent) => {
-            (e.target as HTMLInputElement).value = '';
-        })
-    }
-
+    // const addInputValue = () => {
+    //     autoCompleteInput.value = addressState.address;
+    //     autoCompleteInput.addEventListener('focus', (e: FocusEvent) => {
+    //         (e.target as HTMLInputElement).value = '';
+    //     })
+    // }
+    
     const addAutocomplete = ():void => {
+        const autoCompleteInput = document.querySelector('#autocompleteInputTag') as HTMLInputElement;
         autoCompleteInput.setAttribute('placeholder', '장소를 검색하세요. (예) "서울특별시 용산구"');
         autoCompleteInput.classList.add('map-container_input');
-        map?.controls[google.maps.ControlPosition.TOP_CENTER].push(autoCompleteInput);
         const autocompleteInstance = new google.maps.places.Autocomplete(autoCompleteInput);
         autocompleteInstance.addListener('place_changed', () => {
             const place = autocompleteInstance.getPlace();
@@ -283,7 +305,7 @@ const Map_v2: React.FC<IMap> = ({mapType, mapTypeControl = false, Input_Top}) =>
                 
             coordinateToAddress(newLatLng)
 
-
+            autoCompleteInput.value = addressState.address;
             autoCompleteInput.addEventListener('focus', (e: FocusEvent) => {
                 (e.target as HTMLInputElement).value = '';
             })
@@ -411,9 +433,21 @@ const Map_v2: React.FC<IMap> = ({mapType, mapTypeControl = false, Input_Top}) =>
 
     return (
         <>
-        <div className='map-container'>
-            <div ref={ref} className='map-container_map'></div>
-        </div>
+            <div className='map-container'>
+                <div className='map-container__InputButtDiv'>
+                    <div className='map-container__InputButtDiv__Inner'>
+                        <input type='text' id='autocompleteInputTag'></input>
+                        <div className='map-container__InputButtDiv__Inner__Butts'>
+                            <button className='map-container_button'></button>    
+                            <button className='map-container_clearbutton'></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div ref={ref} className='map-container_map'></div>
+            </div>
+
+        
         </>
     );
 }
