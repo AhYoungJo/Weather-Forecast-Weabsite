@@ -4,11 +4,8 @@
 @include desktop {
     .Main {
         top: 60px;
-        background-color: whitesmoke;
-        // background-image: url('../Assets/Background/pink_galaxy.jpg');
-        // background-repeat: no-repeat;
-        // background-size: cover;
-        // background-position: center;
+        background-image: linear-gradient(to bottom, rgb(189, 189, 189),rgb(233, 233, 233), rgb(255, 255, 255));
+        // background-color: whitesmoke;
         width: 100vw;
         font-family: 'GmarketSansMedium';
         position: relative;
@@ -35,14 +32,24 @@
                 text-shadow: 1px 1px 1px #c7c8c9;
                 list-style: none;
                 color: black;
-                width: 30%;
-                height: 50px;
+                width: 500px;
+                height: 70px;
                 display: flex;
+                align-items: flex-start;
                 justify-content: space-between;
                 &__right {
-                    font-size: 18px;
+                    font-size: 24px;
                     display: flex;
                     align-items: center;
+                    justify-content: flex-start;
+                    & span {
+                        padding: 2px;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        display: flex;
+                        align-items: center;
+                    }
                     & > img {
                         margin-top: -5px;
                         width: 28px;
@@ -57,14 +64,14 @@
                 &__left {
                     display: flex;
                     align-items: center;
-                    width: 186px;
+                    width: 200px;
                     justify-content: space-between;
                     & div {
                         display: flex;
                         flex-direction: column;
                         justify-content: space-between;
-                        font-size: 14px;
-                        line-height: 26px;
+                        font-size: 20px;
+                        height: 50px;
                         & > li:first-child {
                             color: rgb(247, 27, 93);
                         }
@@ -74,23 +81,21 @@
                     }
                     & > li {
                         text-shadow: 1px 1px 1px #c7c8c9;
-                        font-size: 55px;
-                        // position: relative;
-                        // right: -10px;
-                        height: 43px;
+                        font-size: 60px;
+                        height: 50px;
                     }
                 }
             }
 
             &__inputDiv{
-                margin: 80px 0 58px 0;
-                width: 300px;
+                margin: 100px 0 58px 0;
+                width: 330px;
                 position: relative;
                 display: inline-flex;
                 justify-content: center;
                 &__input{
                     box-shadow: 0px 1px 3px 1px #b9b9b965;
-                    font-size: 15px;
+                    font-size: 17px;
                     width: 330px;
                     height: 3.5em;
                     padding: 10px 40px 10px 60px;
@@ -106,8 +111,8 @@
                 }
                 &__icon {
                     position: absolute;
-                    top: 16.5px;
-                    left: 24px;
+                    top: 23px;
+                    left: 27px;
                     background-size: contain;
                     background-repeat: no-repeat;
                     opacity: 50%;
@@ -119,45 +124,52 @@
             }
             
             &__InteractivBG{
-                width: 200px;
-                height: 200px;
+                width: 220px;
+                height: 220px;
             }
 
 
             &__weatherDiv{
-                letter-spacing: 1.6px;
-                -webkit-border-radius: 36px;
-                -moz-border-radius: 36px;
-                border-radius: 25px;
+                letter-spacing: 1px;
                 text-align: center;
                 width: 30vw;
                 justify-content: center;
                 word-break: keep-all;
                 line-height: 30px;
-                margin-top: 40px;
+                margin: 40px;
             }
             &__weatherDiv li{
                 text-shadow: 1px 1px 1px #c7c8c9;
                 color: rgb(19, 18, 18);
-                font-size: 15px;
+                font-size: 18px;
             }
             &__weatherDiv li:last-child {
-                color: rgb(190, 190, 190);
-                // font-weight: 700;
+                font-size: 17px;
+                color: rgb(100, 100, 100);
             }
             
             
         }
         &__mapIntroduce {
+            margin-top: 50px;
+            margin-bottom: 80px;
             padding: 20px 0;
-            font-size: 16px;
+            font-size: 20px;
+            text-align: center;
+            line-height: 35px;
+            width: 15%;
+            word-break: keep-all;
         }
         &__map {
             box-shadow: 0px 1px 3px 1px #32323245;
             display: flex;
             justify-content: center;
             align-items: center;
+            margin-bottom: 5em;
+            height: 550px;
+            border: 1px solid red;
         }
+
         &__body {
             list-style: none;
             border-radius: 10px;
@@ -368,8 +380,9 @@
 
 @include desktopToLaptop {
     .Main {
+        background-image: linear-gradient(to bottom, rgb(189, 189, 189),rgb(233, 233, 233), rgb(255, 255, 255));
         top: 60px;
-        background-color: whitesmoke;
+        // background-color: whitesmoke;
         width: 100vw;
         font-family: 'GmarketSansMedium';
         position: relative;
@@ -397,13 +410,24 @@
                 list-style: none;
                 color: black;
                 width: 30%;
-                height: 50px;
+                height: 70px;
                 display: flex;
                 justify-content: space-between;
+                align-items: center;
+                flex-direction: column;
+                height: 150px;
                 &__right {
-                    font-size: 18px;
+                    font-size: 22px;
                     display: flex;
                     align-items: center;
+                    & span {
+                        padding: 2px 0;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        display: flex;
+                        align-items: center;
+                    }
                     & > img {
                         margin-top: -5px;
                         width: 28px;
@@ -412,20 +436,21 @@
                     & > img:last-child {
                         margin-top: -5px;
                         width: 40px;
-                        height: 40px;;
+                        height: 40px;
                     }
                 }
                 &__left {
                     display: flex;
                     align-items: center;
-                    width: 186px;
+                    width: 193px;
+                    height: 100px;
                     justify-content: space-between;
                     & div {
                         display: flex;
                         flex-direction: column;
                         justify-content: space-between;
-                        font-size: 14px;
-                        line-height: 26px;
+                        font-size: 18px;
+                        height: 50px;
                         & > li:first-child {
                             color: rgb(247, 27, 93);
                         }
@@ -435,16 +460,14 @@
                     }
                     & > li {
                         text-shadow: 1px 1px 1px #c7c8c9;
-                        font-size: 55px;
-                        // position: relative;
-                        // right: -10px;
-                        height: 43px;
+                        font-size: 58px;
+                        height: 50px;
                     }
                 }
             }
 
             &__inputDiv{
-                margin: 80px 0 58px 0;
+                margin: 58px 0;
                 width: 300px;
                 position: relative;
                 display: inline-flex;
@@ -467,7 +490,7 @@
                 }
                 &__icon {
                     position: absolute;
-                    top: 16.5px;
+                    top: 17px;
                     left: 24px;
                     background-size: contain;
                     background-repeat: no-repeat;
@@ -480,48 +503,51 @@
             }
             
             &__InteractivBG{
-                width: 200px;
-                height: 200px;
+                //-20px;
+                width: 220px;
+                height: 220px;
             }
 
 
             &__weatherDiv{
-                letter-spacing: 1.6px;
-                -webkit-border-radius: 36px;
-                -moz-border-radius: 36px;
-                border-radius: 25px;
+                letter-spacing: 1px;
                 text-align: center;
                 width: 30vw;
                 justify-content: center;
                 word-break: keep-all;
                 line-height: 30px;
-                margin-top: 40px;
+                margin: 50px;
             }
             &__weatherDiv li{
                 text-shadow: 1px 1px 1px #c7c8c9;
                 color: rgb(19, 18, 18);
-                font-size: 15px;
+                //-1px;
+                font-size: 17px;
             }
             &__weatherDiv li:last-child {
-                color: rgb(190, 190, 190);
-                // font-weight: 700;
+                font-size: 16px;
+                color: rgb(100, 100, 100);
             }
             
             
         }
         &__mapIntroduce {
+            word-break: keep-all;
+            margin-top: 80px;
             padding: 20px 0;
-            font-size: 16px;
+            width: 20%;
+            line-height: 25px;
+            text-align: center;
+            //-2px;
+            font-size: 18px;
         }
 
         &__map {
-            box-shadow: 0px 1px 10px 1px #91919145;
+            box-shadow: 0px 1px 3px 1px #32323245;
             display: flex;
             justify-content: center;
             align-items: center;
-            border-top: 40px solid rgb(255, 255, 255);
-            border-radius: 40px;
-            margin-bottom: 100px;
+            margin-bottom: 2em;
         }
         &__body {
             list-style: none;
@@ -732,8 +758,9 @@
 }
 @include laptop {
     .Main {
+        background-image: linear-gradient(to bottom, rgb(189, 189, 189),rgb(233, 233, 233), rgb(255, 255, 255));
         top: 60px;
-        background-color: whitesmoke;
+        // background-color: whitesmoke;
         width: 100vw;
         font-family: 'GmarketSansMedium';
         position: relative;
@@ -760,46 +787,50 @@
                 text-shadow: 1px 1px 1px #c7c8c9;
                 list-style: none;
                 color: black;
-                width: 32%;
-                height: 50px;
+                width: 43em;
+                height: 70px;
                 display: flex;
                 justify-content: space-between;
+                align-items: flex-start;
                 &__right {
+                    //-2
                     font-size: 20px;
                     display: flex;
                     align-items: center;
-                    width: 58%;
+                    & span {
+                        padding: 5px 0;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        display: flex;
+                        align-items: center;
+                    }
                     & > img {
                         margin-top: -5px;
-                        width: 28px;
-                        height: 28px;;
+                        //-2, -2
+                        width: 26px;
+                        height: 26px;;
                     }
                     & > img:last-child {
                         margin-top: -5px;
-                        width: 40px;
-                        height: 40px;;
-                    }
-                    & span {
-                        overflow: hidden;
-                        text-overflow: ellipsis;
-                        white-space: nowrap;
-                        width: 70%;
-                        height: 80%;
-                        display: flex;
-                        align-items: center;
+                        // -5, -5
+                        width: 35px;
+                        height: 35px;
                     }
                 }
                 &__left {
                     display: flex;
                     align-items: center;
-                    width: 160px;
+                    //-20px
+                    width: 173px;
                     justify-content: space-between;
                     & div {
                         display: flex;
                         flex-direction: column;
                         justify-content: space-between;
-                        font-size: 14px;
-                        line-height: 26px;
+                        //-2px
+                        font-size: 16px;
+                        height: 50px;
                         & > li:first-child {
                             color: rgb(247, 27, 93);
                         }
@@ -809,22 +840,25 @@
                     }
                     & > li {
                         text-shadow: 1px 1px 1px #c7c8c9;
-                        font-size: 55px;
-                        height: 43px;
+                        //-2px;
+                        font-size: 56px;
+                        height: 50px;
                     }
                 }
             }
 
             &__inputDiv{
-                margin: 80px 0 58px 0;
-                width: 240px;
+                //-20
+                margin: 60px 0 58px 0;
+                //-20px;
+                width: 280px;
                 position: relative;
                 display: inline-flex;
                 justify-content: center;
                 &__input{
                     box-shadow: 0px 1px 3px 1px #b9b9b965;
                     font-size: 15px;
-                    width: 400px;
+                    width: 330px;
                     height: 3.5em;
                     padding: 10px 40px 10px 60px;
                     border: none;
@@ -839,60 +873,66 @@
                 }
                 &__icon {
                     position: absolute;
-                    top: 16.5px;
-                    left: 10px;
+                    //+3, +14
+                    top: 20px;
+                    left: 30px;
                     background-size: contain;
                     background-repeat: no-repeat;
                     opacity: 50%;
-                    width: 18px;
-                    height: 18px;
+                    //-2px
+                    width: 14px;
+                    height: 14px;
                     background-image: url('../Assets/Images/search_50.png');
                 }
                 
             }
             
             &__InteractivBG{
-                width: 220px;
-                height: 220px;
+                //-20
+                width: 200px;
+                height: 200px;
             }
 
 
             &__weatherDiv{
-                letter-spacing: 1.6px;
-                -webkit-border-radius: 36px;
-                -moz-border-radius: 36px;
-                border-radius: 25px;
+                letter-spacing: 1px;
                 text-align: center;
                 width: 30vw;
                 justify-content: center;
                 word-break: keep-all;
                 line-height: 30px;
-                margin-top: 40px;
+                //+20px;
+                margin-top: 60px;
             }
             &__weatherDiv li{
                 text-shadow: 1px 1px 1px #c7c8c9;
                 color: rgb(19, 18, 18);
-                font-size: 15px;
+                //-1px;
+                font-size: 16px;
             }
             &__weatherDiv li:last-child {
-                color: rgb(190, 190, 190);
-                // font-weight: 700;
+                font-size: 15px;
+                color: rgb(100, 100, 100);
             }
             
             
         }
         &__mapIntroduce {
-            padding: 20px 0;
-            font-size: 16px;
+            word-break: keep-all;
+            width: 20%;
+            line-height: 25px;
+            text-align: center;
+             margin-top: 30px;
+             padding: 20px 0;
+             //-2px;
+             font-size: 16px;
         }
         &__map {
             box-shadow: 0px 1px 10px 1px #91919145;
             display: flex;
             justify-content: center;
             align-items: center;
-            border-top: 40px solid rgb(255, 255, 255);
-            border-radius: 40px;
-            margin-bottom: 80px;
+            margin-bottom: 1em;
         }
         &__body {
             list-style: none;
@@ -1104,8 +1144,9 @@
 
 @include laptopToTablet{
     .Main {
-        top: 60px;
-        background-color: whitesmoke;
+        //top 제거
+        background-image: linear-gradient(to bottom, rgb(189, 189, 189),rgb(233, 233, 233), rgb(255, 255, 255));
+        background-color: rgb(219, 219, 219);
         width: 100vw;
         font-family: 'GmarketSansMedium';
         position: relative;
@@ -1119,9 +1160,10 @@
          -khtml-user-select: none;
          user-select: none;
          &__head {
-            margin-top: 100px;
+            //50
+            margin-top: 150px;
             width: 100vw;
-            height: 580px; 
+            height: 570px; 
             color: whitesmoke;
             display: flex;
             flex-direction: column;
@@ -1129,39 +1171,58 @@
             font-size: 10px;
             
             &__IntroWeather {
+                // border: 1px solid rgb(255, 196, 0);
+                flex-direction: column;
                 text-shadow: 1px 1px 1px #c7c8c9;
                 list-style: none;
                 color: black;
-                width: 30%;
-                height: 50px;
+                width: 39em;
+                //-6
+                height: 150px;
                 display: flex;
                 justify-content: space-between;
+                align-items: center;
                 &__right {
+                    //-2
                     font-size: 18px;
                     display: flex;
                     align-items: center;
+                    & span {
+                        padding: 5px 0;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        display: flex;
+                        align-items: center;
+                    }
                     & > img {
                         margin-top: -5px;
-                        width: 28px;
-                        height: 28px;;
+                        //-2, -2
+                        width: 24px;
+                        height: 24px;;
                     }
                     & > img:last-child {
                         margin-top: -5px;
-                        width: 40px;
-                        height: 40px;;
+                        // -5, -5
+                        width: 30px;
+                        height: 30px;
                     }
                 }
                 &__left {
                     display: flex;
                     align-items: center;
-                    width: 186px;
+                    //-13px
+                    width: 160px;
+                    height: 100px;
                     justify-content: space-between;
                     & div {
                         display: flex;
                         flex-direction: column;
                         justify-content: space-between;
+                        //-2
                         font-size: 14px;
-                        line-height: 26px;
+                        //-6
+                        height: 44px;
                         & > li:first-child {
                             color: rgb(247, 27, 93);
                         }
@@ -1171,24 +1232,28 @@
                     }
                     & > li {
                         text-shadow: 1px 1px 1px #c7c8c9;
-                        font-size: 55px;
-                        // position: relative;
-                        // right: -10px;
-                        height: 43px;
+                        //-2px;
+                        font-size: 54px;
+                        //-6
+                        height: 44px;
                     }
                 }
             }
 
             &__inputDiv{
-                margin: 80px 0 58px 0;
-                width: 300px;
+                //0
+                margin: 30px 0 58px 0;
+                //0
+                width: 220px;
                 position: relative;
                 display: inline-flex;
                 justify-content: center;
                 &__input{
+                    
                     box-shadow: 0px 1px 3px 1px #b9b9b965;
-                    font-size: 15px;
-                    width: 330px;
+                    //-1
+                    font-size: 13px;
+                    width: 220px;
                     height: 3.5em;
                     padding: 10px 40px 10px 60px;
                     border: none;
@@ -1203,60 +1268,73 @@
                 }
                 &__icon {
                     position: absolute;
-                    top: 16.5px;
-                    left: 24px;
+                    //-4, 0
+                    top: 16px;
+                    left: 30px;
                     background-size: contain;
                     background-repeat: no-repeat;
                     opacity: 50%;
-                    width: 16px;
-                    height: 16px;
+                    //0
+                    width: 13px;
+                    height: 13px;
                     background-image: url('../Assets/Images/search_50.png');
                 }
+                
                 
             }
             
             &__InteractivBG{
+                //0
                 width: 200px;
                 height: 200px;
             }
 
 
             &__weatherDiv{
-                letter-spacing: 1.6px;
-                -webkit-border-radius: 36px;
-                -moz-border-radius: 36px;
-                border-radius: 25px;
+                letter-spacing: 1px;
                 text-align: center;
                 width: 30vw;
+                align-items: flex-end;
                 justify-content: center;
                 word-break: keep-all;
                 line-height: 30px;
-                margin-top: 40px;
+                //0
+                margin-top: 60px;
             }
             &__weatherDiv li{
                 text-shadow: 1px 1px 1px #c7c8c9;
                 color: rgb(19, 18, 18);
+                //-1
                 font-size: 15px;
             }
             &__weatherDiv li:last-child {
-                color: rgb(190, 190, 190);
+                font-size: 14px;
+                color: rgb(100, 100, 100);
                 // font-weight: 700;
             }
-            
-            
         }
+
         &__mapIntroduce {
+            // 삭제
+            margin-top: 30px;
             padding: 20px 0;
-            font-size: 16px;
+            //-2px;
+            font-size: 14px;
+            width: 20%;
+            text-align: center;
+            word-break: keep-all;
+            line-height: 25px;
         }
+
         &__map {
             box-shadow: 0px 1px 10px 1px #91919145;
             display: flex;
             justify-content: center;
             align-items: center;
-            border-top: 40px solid rgb(255, 255, 255);
-            border-radius: 40px;
+            margin-bottom: 3em;
         }
+
+
         &__body {
             list-style: none;
             border-radius: 10px;
@@ -1467,8 +1545,9 @@
 
 @include tablet {
     .Main {
-        top: 60px;
-        background-color: whitesmoke;
+        //top 제거
+        background-image: linear-gradient(to bottom, rgb(189, 189, 189),rgb(233, 233, 233), rgb(255, 255, 255));
+        background-color: rgb(219, 219, 219);
         width: 100vw;
         font-family: 'GmarketSansMedium';
         position: relative;
@@ -1482,9 +1561,10 @@
          -khtml-user-select: none;
          user-select: none;
          &__head {
-            margin-top: 100px;
+            //50
+            margin-top: 150px;
             width: 100vw;
-            height: 580px; 
+            height: 570px; 
             color: whitesmoke;
             display: flex;
             flex-direction: column;
@@ -1492,39 +1572,58 @@
             font-size: 10px;
             
             &__IntroWeather {
+                // border: 1px solid rgb(255, 196, 0);
+                flex-direction: column;
                 text-shadow: 1px 1px 1px #c7c8c9;
                 list-style: none;
                 color: black;
-                width: 30%;
-                height: 50px;
+                width: 39em;
+                //-6
+                height: 150px;
                 display: flex;
                 justify-content: space-between;
+                align-items: center;
                 &__right {
+                    //-2
                     font-size: 18px;
                     display: flex;
                     align-items: center;
+                    & span {
+                        padding: 5px 0;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        display: flex;
+                        align-items: center;
+                    }
                     & > img {
                         margin-top: -5px;
-                        width: 28px;
-                        height: 28px;;
+                        //-2, -2
+                        width: 24px;
+                        height: 24px;;
                     }
                     & > img:last-child {
                         margin-top: -5px;
-                        width: 40px;
-                        height: 40px;;
+                        // -5, -5
+                        width: 30px;
+                        height: 30px;
                     }
                 }
                 &__left {
                     display: flex;
                     align-items: center;
-                    width: 186px;
+                    //-13px
+                    width: 160px;
+                    height: 100px;
                     justify-content: space-between;
                     & div {
                         display: flex;
                         flex-direction: column;
                         justify-content: space-between;
+                        //-2
                         font-size: 14px;
-                        line-height: 26px;
+                        //-6
+                        height: 44px;
                         & > li:first-child {
                             color: rgb(247, 27, 93);
                         }
@@ -1534,24 +1633,28 @@
                     }
                     & > li {
                         text-shadow: 1px 1px 1px #c7c8c9;
-                        font-size: 55px;
-                        // position: relative;
-                        // right: -10px;
-                        height: 43px;
+                        //-2px;
+                        font-size: 54px;
+                        //-6
+                        height: 44px;
                     }
                 }
             }
 
             &__inputDiv{
-                margin: 80px 0 58px 0;
-                width: 300px;
+                //0
+                margin: 30px 0 58px 0;
+                //0
+                width: 220px;
                 position: relative;
                 display: inline-flex;
                 justify-content: center;
                 &__input{
+                    
                     box-shadow: 0px 1px 3px 1px #b9b9b965;
-                    font-size: 15px;
-                    width: 330px;
+                    //-1
+                    font-size: 13px;
+                    width: 220px;
                     height: 3.5em;
                     padding: 10px 40px 10px 60px;
                     border: none;
@@ -1566,60 +1669,73 @@
                 }
                 &__icon {
                     position: absolute;
-                    top: 16.5px;
-                    left: 24px;
+                    //-4, 0
+                    top: 16px;
+                    left: 30px;
                     background-size: contain;
                     background-repeat: no-repeat;
                     opacity: 50%;
-                    width: 16px;
-                    height: 16px;
+                    //0
+                    width: 13px;
+                    height: 13px;
                     background-image: url('../Assets/Images/search_50.png');
                 }
+                
                 
             }
             
             &__InteractivBG{
+                //0
                 width: 200px;
                 height: 200px;
             }
 
 
             &__weatherDiv{
-                letter-spacing: 1.6px;
-                -webkit-border-radius: 36px;
-                -moz-border-radius: 36px;
-                border-radius: 25px;
+                letter-spacing: 1px;
                 text-align: center;
                 width: 30vw;
+                align-items: flex-end;
                 justify-content: center;
                 word-break: keep-all;
                 line-height: 30px;
-                margin-top: 40px;
+                //0
+                margin-top: 60px;
             }
             &__weatherDiv li{
                 text-shadow: 1px 1px 1px #c7c8c9;
                 color: rgb(19, 18, 18);
+                //-1
                 font-size: 15px;
             }
             &__weatherDiv li:last-child {
-                color: rgb(190, 190, 190);
+                font-size: 14px;
+                color: rgb(100, 100, 100);
                 // font-weight: 700;
             }
-            
-            
         }
+
         &__mapIntroduce {
+            // 삭제
+            margin-top: 30px;
             padding: 20px 0;
-            font-size: 16px;
+            //-2px;
+            font-size: 14px;
+            width: 25%;
+            text-align: center;
+            word-break: keep-all;
+            line-height: 25px;
         }
+
         &__map {
             box-shadow: 0px 1px 10px 1px #91919145;
             display: flex;
             justify-content: center;
             align-items: center;
-            border-top: 40px solid rgb(255, 255, 255);
-            border-radius: 40px;
+            margin-bottom: 3em;
         }
+
+
         &__body {
             list-style: none;
             border-radius: 10px;
@@ -1830,8 +1946,9 @@
 
 @include tabletToMobile {
     .Main {
-        top: 60px;
-        background-color: whitesmoke;
+        //top 제거
+        background-image: linear-gradient(to bottom, rgb(189, 189, 189),rgb(233, 233, 233), rgb(255, 255, 255));
+        background-color: rgb(219, 219, 219);
         width: 100vw;
         font-family: 'GmarketSansMedium';
         position: relative;
@@ -1845,9 +1962,10 @@
          -khtml-user-select: none;
          user-select: none;
          &__head {
-            margin-top: 100px;
+            //50
+            margin-top: 150px;
             width: 100vw;
-            height: 580px; 
+            height: 570px; 
             color: whitesmoke;
             display: flex;
             flex-direction: column;
@@ -1855,39 +1973,58 @@
             font-size: 10px;
             
             &__IntroWeather {
+                // border: 1px solid rgb(255, 196, 0);
+                flex-direction: column;
                 text-shadow: 1px 1px 1px #c7c8c9;
                 list-style: none;
                 color: black;
-                width: 30%;
-                height: 50px;
+                width: 39em;
+                //-6
+                height: 150px;
                 display: flex;
                 justify-content: space-between;
+                align-items: center;
                 &__right {
+                    //-2
                     font-size: 18px;
                     display: flex;
                     align-items: center;
+                    & span {
+                        padding: 5px 0;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        display: flex;
+                        align-items: center;
+                    }
                     & > img {
                         margin-top: -5px;
-                        width: 28px;
-                        height: 28px;;
+                        //-2, -2
+                        width: 24px;
+                        height: 24px;;
                     }
                     & > img:last-child {
                         margin-top: -5px;
-                        width: 40px;
-                        height: 40px;;
+                        // -5, -5
+                        width: 30px;
+                        height: 30px;
                     }
                 }
                 &__left {
                     display: flex;
                     align-items: center;
-                    width: 186px;
+                    //-13px
+                    width: 160px;
+                    height: 100px;
                     justify-content: space-between;
                     & div {
                         display: flex;
                         flex-direction: column;
                         justify-content: space-between;
+                        //-2
                         font-size: 14px;
-                        line-height: 26px;
+                        //-6
+                        height: 44px;
                         & > li:first-child {
                             color: rgb(247, 27, 93);
                         }
@@ -1897,24 +2034,28 @@
                     }
                     & > li {
                         text-shadow: 1px 1px 1px #c7c8c9;
-                        font-size: 55px;
-                        // position: relative;
-                        // right: -10px;
-                        height: 43px;
+                        //-2px;
+                        font-size: 54px;
+                        //-6
+                        height: 44px;
                     }
                 }
             }
 
             &__inputDiv{
-                margin: 80px 0 58px 0;
-                width: 300px;
+                //0
+                margin: 30px 0 58px 0;
+                //0
+                width: 220px;
                 position: relative;
                 display: inline-flex;
                 justify-content: center;
                 &__input{
+                    
                     box-shadow: 0px 1px 3px 1px #b9b9b965;
-                    font-size: 15px;
-                    width: 330px;
+                    //-1
+                    font-size: 13px;
+                    width: 220px;
                     height: 3.5em;
                     padding: 10px 40px 10px 60px;
                     border: none;
@@ -1929,60 +2070,73 @@
                 }
                 &__icon {
                     position: absolute;
-                    top: 16.5px;
-                    left: 24px;
+                    //-4, 0
+                    top: 16px;
+                    left: 30px;
                     background-size: contain;
                     background-repeat: no-repeat;
                     opacity: 50%;
-                    width: 16px;
-                    height: 16px;
+                    //0
+                    width: 13px;
+                    height: 13px;
                     background-image: url('../Assets/Images/search_50.png');
                 }
+                
                 
             }
             
             &__InteractivBG{
+                //0
                 width: 200px;
                 height: 200px;
             }
 
 
             &__weatherDiv{
-                letter-spacing: 1.6px;
-                -webkit-border-radius: 36px;
-                -moz-border-radius: 36px;
-                border-radius: 25px;
+                letter-spacing: 1px;
                 text-align: center;
                 width: 30vw;
+                align-items: flex-end;
                 justify-content: center;
                 word-break: keep-all;
                 line-height: 30px;
-                margin-top: 40px;
+                //0
+                margin-top: 60px;
             }
             &__weatherDiv li{
                 text-shadow: 1px 1px 1px #c7c8c9;
                 color: rgb(19, 18, 18);
+                //-1
                 font-size: 15px;
             }
             &__weatherDiv li:last-child {
-                color: rgb(190, 190, 190);
+                font-size: 14px;
+                color: rgb(100, 100, 100);
                 // font-weight: 700;
             }
-            
-            
         }
+
         &__mapIntroduce {
+            // 삭제
+            margin-top: 30px;
             padding: 20px 0;
-            font-size: 16px;
+            //-2px;
+            font-size: 14px;
+            width: 28%;
+            text-align: center;
+            word-break: keep-all;
+            line-height: 25px;
         }
+
         &__map {
             box-shadow: 0px 1px 10px 1px #91919145;
             display: flex;
             justify-content: center;
             align-items: center;
-            border-top: 40px solid rgb(255, 255, 255);
-            border-radius: 40px;
+            margin-bottom: 3em;
         }
+
+
         &__body {
             list-style: none;
             border-radius: 10px;
@@ -2193,7 +2347,8 @@
 
 @include mobile {
     .Main {
-        background-color: whitesmoke;
+        background-image: linear-gradient(to bottom, rgb(189, 189, 189),rgb(233, 233, 233), rgb(255, 255, 255));
+        background-color: rgb(219, 219, 219);
         width: 100vw;
         font-family: 'GmarketSansMedium';
         position: relative;
@@ -2327,28 +2482,29 @@
                 font-size: 15px;
             }
             &__weatherDiv li:last-child {
-                color: rgb(190, 190, 190);
+                color: rgb(100, 100, 100);
                 // font-weight: 700;
             }
         }
 
         &__mapIntroduce {
-            font-size: 13px;
-            margin-top: -50px;
-            width: 60vw;
+            font-size: 15px;
+            margin-top: -80px;
+            width: 50%;
             text-align: center;
             word-break: keep-all;
             line-height: 18px;
         }
 
         &__map {
-            margin-top: 80px;
+            margin-top: 10px;
             box-shadow: 0px 1px 3px 1px #32323245;
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-bottom: 100px;
+            margin-bottom: 10px;
         }
+
         &__body {
             list-style: none;
             border-radius: 10px;
