@@ -41,8 +41,8 @@ export const Background = styled.div<BackgroundProps>`
     background-repeat: no-repeat;
     background-position: center;
     border-radius: 50%;
-    border: 10px solid white;
-    box-shadow: 0px 1px 10px 1px #e7e7e7;
+    /* border: 10px solid white; */
+    box-shadow: 0px 1px 20px 1px #e7e7e7;
 `;
 
 interface ButtonProps {
