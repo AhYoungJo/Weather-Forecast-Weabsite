@@ -1,8 +1,8 @@
 import React from 'react';
 import { WindDegreeStyle, WindSpeedChart } from '../../Styles/Styles';
-import {TimeData, DailyWeatherProps} from '../../Store/Type/Interface';
+import {TimeData, WindDegreeProps} from '../../Store/Type/Interface';
 
-const WindDegree: React.FC<DailyWeatherProps> = ({todayDateData, tomorrowSlicedData}) => {
+const WindDegree: React.FC<WindDegreeProps> = ({todayDateData, tomorrowSlicedData}) => {
 
 
     return (
@@ -19,7 +19,7 @@ const WindDegree: React.FC<DailyWeatherProps> = ({todayDateData, tomorrowSlicedD
                     {todayDateData && tomorrowSlicedData? (
                             <div className='Main__body__dailyWeather__WindDeg__Icon'>
                             {todayDateData.map((data: TimeData, index: number) => (
-                                <div className={'Main__body__dailyWeather__WindDeg__Icon__'+index} key={index + data.windgust}>
+                                <div className={'Main__body__dailyWeather__WindDeg__Icon__'+index} key={index + 'WindDeg'}>
                                     <li>{data.windgust * 10}°</li>
                                     <br/>
                                     <li>
@@ -28,7 +28,7 @@ const WindDegree: React.FC<DailyWeatherProps> = ({todayDateData, tomorrowSlicedD
                                         </WindDegreeStyle>
                                     </li>
                                     <br/><br/><br/><br/>
-                                    <div className={'WindSpeed'}  key={index + Math.round(data.windspeed)}>
+                                    <div className={'WindSpeed'}  key={index + 'todayWS'}>
                                         <WindSpeedChart color={Math.round(data.windspeed) < 2 ? 'rgb(255, 224, 224)' : 'rgb(250, 167, 167)'} height={Math.round(data.windspeed) * 10}>
                                                 <div></div>
                                             </WindSpeedChart>
@@ -37,8 +37,8 @@ const WindDegree: React.FC<DailyWeatherProps> = ({todayDateData, tomorrowSlicedD
                                             <br/> <br/>
                                     </div>
                                     <br/><br/><br/><br/><br/><br/><br/>
-                                    <div className='강수량' key={index + data.pop}>
-                                        <li>💧{data.pop}%</li><br/>
+                                    <div className='강수량' key={index + 'todayPop'}>
+                                        <li>💧{(data.pop)*10}%</li><br/>
                                         <li><img src={data.icon} alt='weatherIcon'/></li><br/><br/>
                                         <li>{data.time}시</li><br/>
                                     </div>
@@ -47,7 +47,7 @@ const WindDegree: React.FC<DailyWeatherProps> = ({todayDateData, tomorrowSlicedD
                             ))}
                             
                             {tomorrowSlicedData.length > 0 && tomorrowSlicedData.map((data: TimeData, index: number) => (
-                                <div key={index + data.windgust}>
+                                <div key={index + 'tomorrowGust'}>
                                     <li>{data.windgust * 10}°</li>
                                     <br/>
                                     <li>
@@ -65,8 +65,8 @@ const WindDegree: React.FC<DailyWeatherProps> = ({todayDateData, tomorrowSlicedD
                                             <br/> <br/>
                                     </div>
                                     <br/><br/><br/><br/><br/><br/><br/>
-                                    <div className='강수량' key={index + data.pop}>
-                                        <li>💧{data.pop}%</li><br/>
+                                    <div className='강수량' key={index + 'tomorrowPop'}>
+                                        <li>💧{(data.pop)*10}%</li><br/>
                                         <li><img src={data.icon} alt='weatherIcon'/></li><br/><br/>
                                         <li>{data.time}시</li><br/>
                                     </div>

@@ -2,6 +2,7 @@ import React from 'react';
 import Main from '../Components/Main';
 import Header from '../Components/Header';
 import '../Styles/Home.scss'
+import Footer from '../Components/Footer';
 
 const Home = () => {
 
@@ -9,7 +10,7 @@ const Home = () => {
         <>
             <Header/>
             <Main/>
-            {/*Footer component*/}
+            <Footer />
         </>
     );
 };

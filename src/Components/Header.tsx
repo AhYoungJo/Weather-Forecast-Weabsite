@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import cancle from '../Assets/Images/cancle_90.png'
 import '../Styles/Header.scss';
 import '../Styles/Sidebar.scss';
@@ -21,7 +21,7 @@ const Header: React.FC = () => {
         $('#SideBarDiv').hide()
         // cancleButton 클릭 이벤트 핸들러 추가
         cancleButton.on('click', () => {
-            $('#SideBarDiv'). hide()
+            $('#SideBarDiv').hide()
         });
 
         // SideBarOpenButt 클릭 이벤트 핸들러 추가
@@ -57,9 +57,9 @@ const Header: React.FC = () => {
                             <div className='Sidebar__SignButtons'>
                                 <Button buttonColor = '#4083E6' 
                                     hoverBgColor = '#f7f7f7'
-                                    borderColor = {null}
+                                    borderColor = 'transparent'
                                     hoverBorderColor = 'white'
-                                    borderSize = {null}
+                                    borderSize = {0}
                                     buttonW = {81}
                                     buttonH = {35}
                                     fontColor = 'white'
