@@ -1,89 +1,206 @@
-import React, { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux'
+import React, { useCallback } from 'react';
+import { useSelector } from 'react-redux'
 import { RootState } from '../../Store/Data/Reducers/index';
-import {WeeklyWeatherProps, TimeData, TimesByDateT} from '../../Store/Type/Interface';
-import { currentDateString, tomorrowDateString, thirdDateString, fourthDateString, fifthDateString, sixthdDateString } from '../../Utils/currentDateUtils';
+import {WeeklyWeatherProps, TimesByDateT} from '../../Store/Type/Interface';
+import { thirdDateString, fourthDateString, fifthDateString } from '../../Utils/currentDateUtils';
+import { getMaxTemp, getIcon, getMinTemp } from '../../Utils/WeatherUitl';
 
 
 //비가 있으면 아이콘은 비 아이콘으로
 //최저, 최고 기온 나누기
-//굴곡을 일직선으로 폈을 때의 길이인가?, 
-
 //요일 완료
 
 /**
- * 1. 같은 요일의 정보를 가져와야함
- * 2. 최저 배열, 최고 배열 나누기
+ * 1. 같은 요일의 정보를 가져와야함 --clear!
+ * 2. 최저 배열, 최고 배열 나누기 ---clear!
  * 3. tolowercase(main)=== 'rain' 이 있으면 아이콘은 그날 4시 기준의 아이콘으로 
  */
 
-
-
 const WeeklyWeather: React.FC<WeeklyWeatherProps> = ({timesByDate, tomorrowDateData, todayDateData}) => {
     const weatherDataList = useSelector((state: RootState) => state.weather.weatherDataList)
-    const [thirdData, setThirdData] = useState<TimesByDateT>({});
-    const [fourthData, setFourthData] = useState<TimesByDateT>({});
-    const [fifthData, setFifthData] = useState<TimesByDateT>({});
-    const [sixthData, setSixthData] = useState<TimesByDateT>({});
-
-    const [maxTemp1, setMaxTemp1] = useState<number | string>();
-    const [maxTemp2, setMaxTemp2] = useState<number | string>();
-    const [maxTemp3, setMaxTemp3] = useState<number | string>();
-    const [maxTemp4, setMaxTemp4] = useState<number | string>();
-    const [maxTemp5, setMaxTemp5] = useState<number | string>();
-    const [maxTemp6, setMaxTemp6] = useState<number | string>();
     
-
-    useEffect(() => {
-        setThirdData(prevThirdData => getNthDate(prevThirdData, thirdDateString));
-        setFourthData(prevFourthData => getNthDate(prevFourthData, fourthDateString));
-        setFifthData(prevFifthData => getNthDate(prevFifthData, fifthDateString));
-        setSixthData(prevSixthData => getNthDate(prevSixthData, sixthdDateString));
-        setMaxTemp1(getMaxTemp(todayDateData));
-        setMaxTemp2(getMaxTemp(tomorrowDateData));
-        setMaxTemp3(thirdData ? getMaxTemp(thirdData[thirdDateString]) : 'loading...');
-        setMaxTemp4(fourthData ? getMaxTemp(fourthData[fourthDateString]) : 'loading...');
-        setMaxTemp5(fifthData ? getMaxTemp(fifthData[fifthDateString]) : 'loading...');
-        setMaxTemp6(sixthData ? getMaxTemp(sixthData[sixthdDateString]) : 'loading...');
-
-        console.log(maxTemp1)
-
-    }, [weatherDataList])
-
-    
-    
-    const getNthDate = (newObject: TimesByDateT, targetDate: string) => {
-        weatherDataList.forEach((data: { date: string, time: string, temp: number, temp_max: number, temp_min: number, pop: number, icon: string, windgust: number, windspeed: number, humidity: number, pressure: number  }) => {
-            const {date, time, temp, temp_max, temp_min, pop, icon, windgust, windspeed, humidity, pressure } = data;
-            if (date === targetDate) { // 날짜가 일치하는 경우에만 데이터를 추가합니다.
-                if (!newObject[targetDate]) {
-                    newObject[targetDate] = [];
+    //weatherDataList가 같으면 결과 또한 매번 같은게 나오니까 useCallback 사용 / 값이 변경 안 되면, 이전에 메모이제이션된 함수를 계속 사용
+    //useEffect로 처리할 필요가 없나?
+    const getNthDate = useCallback((targetDate: string) => {
+        const newData: TimesByDateT = {};
+        weatherDataList.forEach((data: { code: string, date: string, day: string, description: string, time: string, main: string, temp: number, temp_max: number, temp_min: number, feels_like: number, pop: number, icon: string, windgust: number, windspeed: number, humidity: number, pressure: number  }) => {
+            const {code, date, day, description, time, main, temp, temp_max, temp_min, feels_like, pop, icon, windgust, windspeed, humidity, pressure } = data;
+            if (date === targetDate) {
+                if (!newData[targetDate]) {
+                    newData[targetDate] = [];
                 }
-                newObject[targetDate].push({ time, temp, temp_max, temp_min, pop, icon, windgust, windspeed, humidity, pressure });
+                newData[targetDate].push({code, date, day, description, time, temp, main, temp_max, temp_min, feels_like, pop, icon, windgust, windspeed, humidity, pressure });
             }
         });
-        return newObject;
-    }
+        return newData;
+    }, [weatherDataList]);
+    
 
-    const getMaxTemp = (datas: TimeData[] | null | undefined) => {
-        if (datas === null || datas === undefined || datas.length === 0) {
-            return 'loading...';
-        }
-        let temp = 0;
-        for (let i = 0; i < datas.length; i++) {
-            temp = datas[i].temp_max;
-            if(i < datas.length - 1 && datas[i].temp_max < datas[i+1].temp_max) {
-                temp = datas[i+1].temp_max;
-            }
-        }
-        return temp;
-    }
+    const thirdData: TimesByDateT = getNthDate(thirdDateString);
+    const fourthData: TimesByDateT = getNthDate(fourthDateString);
+    const fifthData: TimesByDateT = getNthDate(fifthDateString);
+    // const sixthData: TimesByDateT = getNthDate(sixthdDateString);
+    
+    const day2 = tomorrowDateData && tomorrowDateData[0] && tomorrowDateData[0].day;
+    const day3 = thirdData[thirdDateString]?.[0]?.day;
+    const day4 = fourthData[fourthDateString]?.[0]?.day;
+    const day5 = fifthData[fifthDateString]?.[0]?.day;
+    // const day6 = sixthData[sixthdDateString]?.[0]?.day;
+
+    const pop1 = todayDateData && todayDateData[0] && todayDateData[0].pop;
+    const pop2 = tomorrowDateData && tomorrowDateData[0] && tomorrowDateData[0].pop;
+    const pop3 = thirdData[thirdDateString]?.[0]?.pop;
+    const pop4 = fourthData[fourthDateString]?.[0]?.pop;
+    const pop5 = fifthData[fifthDateString]?.[0]?.pop;
+    // const pop6 = sixthData[sixthdDateString]?.[0]?.pop;
+
+    //인수로 전달받고 있기 때문에  외부 데이터나 상태에 의존하고 있지 않음, 엄밀히 따지면,
+    //전달받는 그 '인수'가 외부 데이터에 의존. 그래서 이건 useCallback으로 처리
+    const maxTemp1 = getMaxTemp(todayDateData);
+    const maxTemp2 = getMaxTemp(tomorrowDateData);
+    const maxTemp3 = getMaxTemp(thirdData[thirdDateString]);
+    const maxTemp4 = getMaxTemp(fourthData[fourthDateString]);
+    const maxTemp5 = getMaxTemp(fifthData[fifthDateString]);
+    // const maxTemp6 = getMaxTemp(sixthData[sixthdDateString]);
+
+    const minTemp1 = getMinTemp(todayDateData);
+    const minTemp2 = getMinTemp(tomorrowDateData);
+    const minTemp3 = getMinTemp(thirdData[thirdDateString]);
+    const minTemp4 = getMinTemp(fourthData[fourthDateString]);
+    const minTemp5 = getMinTemp(fifthData[fifthDateString]);
+    // const minTemp6 = getMinTemp(sixthData[sixthdDateString]);
+
+    const icon1 = getIcon(todayDateData);
+    const icon2 = getIcon(tomorrowDateData);
+    const icon3 = getIcon(thirdData[thirdDateString]);
+    const icon4 = getIcon(fourthData[fourthDateString]);
+    const icon5 = getIcon(fifthData[fifthDateString]);
+    // const icon6 = getIcon(sixthData[sixthdDateString]);
+
+    const humidity1 = todayDateData && todayDateData[0] && todayDateData[0].humidity;
+    const humidity2 = tomorrowDateData && tomorrowDateData[0] && tomorrowDateData[0].humidity;
+    const humidity3 = thirdData[thirdDateString]?.[0]?.humidity;
+    const humidity4 = fourthData[fourthDateString]?.[0]?.humidity;
+    const humidity5 = fifthData[fifthDateString]?.[0]?.humidity;
+    // const humidity6 = sixthData[sixthdDateString]?.[0]?.humidity;
+ 
 
     return (
-        <div className='Main__body__5daysWeather'>
-            <h2>주간 날씨</h2>
-            {/* {thirdData.time} */}
-        </div>
+        <div className='Main__body__WeeklyWeather__Inner'>
+        <table summary="주간 날씨 정보 WeeklyWeather">
+            <tbody>
+                <tr>
+                    <td>오늘</td>
+                    <td><img src={icon1} alt='icon' /></td>
+                    <td>{minTemp1}℃</td>
+                    <td>{maxTemp1}℃</td>
+                    <td>
+                    <div>
+                        <img src='https://img.icons8.com/arcade/64/rain.png' alt='pop.icon'/>
+                        {pop1}
+                    </div>    
+                    </td>
+                    <td>
+                        <div>
+                            <img src='https://img.icons8.com/external-justicon-flat-justicon/64/external-humidity-weather-justicon-flat-justicon-1.png' alt='humidi.icon'/>
+                            {humidity1}%
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>{day2}</td>
+                    <td><img src={icon2} alt='icon' /></td>
+                    <td>{minTemp2}℃</td>
+                    <td>{maxTemp2}℃</td>
+                    <td>
+                    <div>
+                        <img src='https://img.icons8.com/arcade/64/rain.png' alt='pop.icon'/>
+                        {pop2}
+                    </div>    
+                    </td>
+                    <td>
+                        <div>
+                            <img src='https://img.icons8.com/external-justicon-flat-justicon/64/external-humidity-weather-justicon-flat-justicon-1.png' alt='humidi.icon'/>
+                            {humidity2}%
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>{day3}</td>
+                    <td><img src={icon3} alt='icon' /></td>
+                    <td>{minTemp3}℃</td>
+                    <td>{maxTemp3}℃</td>
+                    <td>
+                    <div>
+                        <img src='https://img.icons8.com/arcade/64/rain.png' alt='pop.icon'/>
+                        {pop3}
+                    </div>    
+                    </td>
+                    <td>
+                        <div>
+                            <img src='https://img.icons8.com/external-justicon-flat-justicon/64/external-humidity-weather-justicon-flat-justicon-1.png' alt='humidi.icon'/>
+                            {humidity3}%
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>{day4}</td>
+                    <td><img src={icon4} alt='icon' /></td>
+                    <td>{minTemp4}℃</td>
+                    <td>{maxTemp4}℃</td>
+                    <td>
+                    <div>
+                        <img src='https://img.icons8.com/arcade/64/rain.png' alt='pop.icon'/>
+                        {pop4}
+                    </div>    
+                    </td>
+                    <td>
+                        <div>
+                            <img src='https://img.icons8.com/external-justicon-flat-justicon/64/external-humidity-weather-justicon-flat-justicon-1.png' alt='humidi.icon'/>
+                            {humidity4}%
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>{day5}</td>
+                    <td><img src={icon5} alt='icon' /></td>
+                    <td>{minTemp5}℃</td>
+                    <td>{maxTemp5}℃</td>
+                    <td>
+                    <div>
+                        <img src='https://img.icons8.com/arcade/64/rain.png' alt='pop.icon'/>
+                        {pop5}
+                    </div>    
+                    </td>
+                    <td>
+                        <div>
+                            <img src='https://img.icons8.com/external-justicon-flat-justicon/64/external-humidity-weather-justicon-flat-justicon-1.png' alt='humidi.icon'/>
+                            {humidity5}%
+                        </div>
+                    </td>
+                </tr>
+                {/* <tr>
+                    <td>{day6}</td>
+                    <td><img src={icon6} alt='icon' /></td>
+                    <td>{minTemp6}℃</td>
+                    <td>{maxTemp6}℃</td>
+                    <td>
+                    <div>
+                        <img src='https://img.icons8.com/arcade/64/rain.png' alt='pop.icon'/>
+                        {pop6}
+                    </div>    
+                    </td>
+                    <td>
+                        <div>
+                            <img src='https://img.icons8.com/external-justicon-flat-justicon/64/external-humidity-weather-justicon-flat-justicon-1.png' alt='humidi.icon'/>
+                            {humidity6}%
+                        </div>
+                    </td>
+                </tr> */}
+            </tbody>
+        </table>
+    </div>
+    
     );
 };
 

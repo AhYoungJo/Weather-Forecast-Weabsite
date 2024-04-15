@@ -4,7 +4,7 @@ import LinearChart from './LinearChart';
 
 
 
-const DailyWeather: React.FC<DailyWeatherProps> = ({todayDateData, tomorrowSlicedData}) => {
+const DailyWeather: React.FC<DailyWeatherProps> = ({todayDateData}) => {
     const tempData = todayDateData.map((data: TimeData) => data.temp);
     const labelData = todayDateData.map((data: TimeData) => `${data.time}시`);
     return (

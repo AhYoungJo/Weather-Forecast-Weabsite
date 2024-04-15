@@ -48,9 +48,9 @@ export const Background = styled.div<BackgroundProps>`
 interface ButtonProps {
     buttonColor: string;
     hoverBgColor: string;
-    borderColor: string | null;
+    borderColor: string;
     hoverBorderColor: string;
-    borderSize: number | null;
+    borderSize: number;
     buttonW: number;
     buttonH: number;
     fontColor: string;
@@ -75,12 +75,9 @@ export const Button = styled.div<ButtonProps>`
     font-weight: 600;
     &:hover {
         cursor: pointer;
-        /* background-color: ${(props) => props.hoverBgColor};
+        background-color: ${(props) => props.hoverBgColor};
         border: ${(props) => props.borderSize}px solid ${(props) => props.hoverBorderColor};
-        color: ${(props) => props.hoverFontColor}; */
-        background-color: white;
-        border: 1px solid black;
-        color: black;
+        color: ${(props) => props.hoverFontColor};
     }
 `;
 
@@ -102,4 +99,34 @@ export const WindSpeedChart = styled.div<WindSpeedChartProps>`
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+`
+
+export const HPAFStyle = styled.div`
+margin: 10px 0;
+padding: 10px;
+border-radius: 1.5em;
+background-color: white;
+display: flex;
+flex-direction: column;
+justify-content: center;
+text-align: center;
+gap: 2em;
+width: 7.5em;
+height: 12em;
+`;
+
+export const HPAFDiv = styled.div`
+display: flex;
+flex-direction: row;
+width: 100%;
+border: 1px solid blue;
+justify-content: space-between;
+`
+
+interface SidebarProps {
+    isOpen: boolean;
+}
+
+export const Sidebar = styled.div<SidebarProps>`
+     display: ${(props) => (props.isOpen ? 'block' : 'none')};
 `

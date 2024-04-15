@@ -165,24 +165,6 @@ const Map_v2: React.FC<IMap> = ({mapType, mapTypeControl = false, Input_Top}) =>
         });
     }
 
-    //현재 위치 받아오기
-    // const addCurrentLocationButton = (): void => {
-    //     const currentLocationButton = document.getElementsByClassName('map-container_button');
-    //     // map?.controls[google.maps.ControlPosition.TOP_RIGHT].push(currentLocationButton);
-    //     currentLocationButton.addEventListener('click', () => {
-    //         if(navigator.geolocation){
-    //             navigator.geolocation.getCurrentPosition(
-    //                 (position) => {
-    //                     const currentAddress = new google.maps.LatLng(
-    //                         position.coords.latitude,
-    //                         position.coords.longitude
-    //                     );
-    //                     coordinateToAddress(currentAddress);
-    //                 }
-    //             );
-    //         }
-    //     });
-    // };
 
     const addCurrentLocationButton = (): void => {
         const currentLocationButtons = document.getElementsByClassName('map-container_button');
@@ -279,13 +261,6 @@ const Map_v2: React.FC<IMap> = ({mapType, mapTypeControl = false, Input_Top}) =>
         // clearButton.addEventListener('click', clear); // 클릭 이벤트 핸들러 설정
     };
 
-    //검색어 자동 완성 기능
-    // const addInputValue = () => {
-    //     autoCompleteInput.value = addressState.address;
-    //     autoCompleteInput.addEventListener('focus', (e: FocusEvent) => {
-    //         (e.target as HTMLInputElement).value = '';
-    //     })
-    // }
     
     const addAutocomplete = ():void => {
         const autoCompleteInput = document.querySelector('#autocompleteInputTag') as HTMLInputElement;
