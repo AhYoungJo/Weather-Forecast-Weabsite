@@ -106,7 +106,6 @@ margin: 10px 0;
 padding: 10px;
 border-radius: 1.5em;
 background-color: white;
-/* border: 1px solid red; */
 display: flex;
 flex-direction: column;
 justify-content: center;
@@ -122,4 +121,12 @@ flex-direction: row;
 width: 100%;
 border: 1px solid blue;
 justify-content: space-between;
+`
+
+interface SidebarProps {
+    isOpen: boolean;
+}
+
+export const Sidebar = styled.div<SidebarProps>`
+     display: ${(props) => (props.isOpen ? 'block' : 'none')};
 `
