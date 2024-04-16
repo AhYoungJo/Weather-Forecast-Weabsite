@@ -228,7 +228,7 @@ const Map_v2: React.FC<IMap> = ({mapType, mapTypeControl = false, Input_Top}) =>
     // const clear = () => {
     //     markers.forEach(mark => mark.googleMarker.setMap(null)); // 모든 마커를 지도에서 제거하는 함수
     //     setMarker([]); // 마커 배열을 직접 빈 배열로 초기화
-    //      근데 비동기로 작동하니까, coordinateToAddress함수가 호출이 먼저 일어나서 변경된 내용이 반영 안 된 것
+    //      렌더링은 비동기로 작동하니까, coordinateToAddress함수가 호출이 먼저 일어나서 변경된 내용이 반영 안 된 것
     //     coordinateToAddress(defaultAddress); 
     //  marker의 상태 변경하는 함수가 다른 곳에도 있잖음.
     //  리액트느 다수의 상태가 변경될 때, 각 상태를 순차적으로 변경하는게 아니고 한번에 업데이트 함
@@ -236,7 +236,7 @@ const Map_v2: React.FC<IMap> = ({mapType, mapTypeControl = false, Input_Top}) =>
     // 그래서 마크가 남았던 것
     // };
 
-    // 해결 방법: setMarer을 함수형으로 만들면, 바로 직전 상태를 불러올 수 있음.
+    // 해결 방법: setMarker을 함수형으로 만들면, 바로 직전 상태를 불러올 수 있음.
     // 이러면 확실하게 상태가 업데이트 됨을 예측할 수 있게 됨.
     // 버그 해결!
     // setMarker(prevMarkers => []);
@@ -250,6 +250,7 @@ const Map_v2: React.FC<IMap> = ({mapType, mapTypeControl = false, Input_Top}) =>
         });
         coordinateToAddress(defaultAddress);
     };
+
     const addClearButton = (): void => {
         const clearButtons = document.getElementsByClassName('map-container_clearbutton');
         // clearButton.classList.add('map-container_clearbutton');

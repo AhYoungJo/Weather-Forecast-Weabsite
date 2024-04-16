@@ -9,6 +9,7 @@ import MyPage from '../Assets/Images/my_page.png';
 import Favorite from '../Assets/Images/interest_90.png';
 import Conatact from '../Assets/Images/call_90.png';
 import GitHub from '../Assets/Images/github_96.png';
+import logo from '../Assets/Images/Logo.png';
 
 
 const Header: React.FC = () => {
@@ -23,12 +24,12 @@ const Header: React.FC = () => {
         <nav>
             <div className='header'>
                 <Link to='/' className='header__logo'>
-                    <img src='#' alt="logo" />
+                    <img src={logo} alt="logo" />
                 </Link>
                 <div className='header__left'>
 
                 <button type="button" onClick={toggleSidebar}>메뉴</button>
-                <Sidebar isOpen={isSidebarOpen}>
+                <Sidebar $isopen={isSidebarOpen} >
                     <div className='BlackDiv' id='SideBarDiv'>
                         <div className='Sidebar'>
                             <div className='Sidebar__top' >
@@ -37,33 +38,33 @@ const Header: React.FC = () => {
                             </div>
                             <div className='Sidebar__SignButtons'>
                                 <Button 
-                                    buttonColor = '#4083E6' 
-                                    hoverBgColor = '#f7f7f7'
-                                    borderColor = 'transparent'
-                                    hoverBorderColor = 'white'
-                                    borderSize = {0}
-                                    buttonW = {81}
-                                    buttonH = {35}
-                                    fontColor = 'white'
-                                    hoverFontColor = '#032455'
-                                    fontSzie = {15}
-                                    transSec = {0.4}
-                                    radius= {7}>
+                                    $buttoncolor = '#4083E6' 
+                                    $hoverbgcolor = '#f7f7f7'
+                                    $bordercolor = 'transparent'
+                                    $hoverbordercolor = 'white'
+                                    $bordersize = {0}
+                                    $buttonw = {81}
+                                    $buttonh = {35}
+                                    $fontcolor = 'white'
+                                    $hoverfontcolor = '#032455'
+                                    $fontszie = {15}
+                                    $transsec = {0.4}
+                                    $radius= {7}>
                                     로그인
                                 </Button>
                                 <Button 
-                                    buttonColor = '#f7f7f7' 
-                                    hoverBgColor = '#4083E6'
-                                    borderColor = '#4083E6'
-                                    hoverBorderColor = 'transparent'
-                                    borderSize = {2.3}
-                                    buttonW = {81}
-                                    buttonH = {35}
-                                    fontColor = '#032455'
-                                    hoverFontColor = '#f7f7f7'
-                                    fontSzie = {15}
-                                    transSec = {0.4}
-                                    radius= {7}>
+                                    $buttoncolor = '#f7f7f7' 
+                                    $hoverbgcolor = '#4083E6'
+                                    $bordercolor = '#4083E6'
+                                    $hoverbordercolor = 'transparent'
+                                    $bordersize = {2.3}
+                                    $buttonw = {81}
+                                    $buttonh = {35}
+                                    $fontcolor = '#032455'
+                                    $hoverfontcolor = '#f7f7f7'
+                                    $fontszie = {15}
+                                    $transsec = {0.4}
+                                    $radius= {7}>
                                     회원가입
                                 </Button>
                             </div>
@@ -97,12 +98,12 @@ const Header: React.FC = () => {
                                 </div>
                             </Link>
                             <br /><br />
-                            <Link to='/'>
+                            <a href="https://www.canva.com/design/DAGCjRnTw14/oFG6jr1ZHfhRf7S_UQXOMQ/edit?utm_content=DAGCjRnTw14&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" rel='Contact'>
                                 <div className='ContactDiv'>
                                     <img src={Conatact} alt='Contact'/>
                                     <span>Contact</span>
                                 </div>
-                            </Link>
+                            </a>
                             <br/><br />
                             <a href="https://github.com/AhYoungJo/Weather-Forecast-Weabsite" rel='GitHub'>
                                 <div className='GitDiv'>

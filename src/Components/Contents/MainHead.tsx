@@ -12,8 +12,6 @@ const MainHead: React.FC<MainHeadProps> = ({weatherGIF, todayDateData}) => {
     const minTemp = todayDateData && todayDateData[0] && todayDateData[0].temp_min;
     const temp = todayDateData && todayDateData[0] && todayDateData[0].temp;
     const description = todayDateData && todayDateData[0] && todayDateData[0].description;
-
-
     return (
         <div>
               <div className='Main__head'>
@@ -37,7 +35,7 @@ const MainHead: React.FC<MainHeadProps> = ({weatherGIF, todayDateData}) => {
                         <div className="Main__head__inputDiv__icon"></div>
                 </div>
                 
-                <Background bgURL={weatherGIF}>
+                <Background $bgurl={weatherGIF}>
                         <div className='Main__head__InteractivBG'>
                         </div>
                 </Background>

@@ -13,8 +13,6 @@ const WindDegree: React.FC<WindDegreeProps> = ({todayDateData, tomorrowSlicedDat
             <p  className='Main__body__dailyWeather__강수량Ttitle'>강수량</p>
             <div className='WindDeg__background__scroll'>
                 <div className='Main__body__dailyWeather__WindDeg'>
-                    <div className='Main__body__dailyWeather__WindDeg__Bg'></div>
-                    <div className='Main__body__dailyWeather__WindDeg__Bg2'></div>
                     
                     {todayDateData && tomorrowSlicedData? (
                             <div className='Main__body__dailyWeather__WindDeg__Icon'>
@@ -23,13 +21,13 @@ const WindDegree: React.FC<WindDegreeProps> = ({todayDateData, tomorrowSlicedDat
                                     <li>{data.windgust * 10}°</li>
                                     <br/>
                                     <li>
-                                        <WindDegreeStyle degree={data.windgust * 10}>
+                                        <WindDegreeStyle $degree={data.windgust * 10}>
                                             <img src="https://img.icons8.com/color/48/000000/near-me--v1.png" alt='degIcon' />
                                         </WindDegreeStyle>
                                     </li>
                                     <br/><br/><br/><br/>
                                     <div className={'WindSpeed'}  key={index + 'todayWS'}>
-                                        <WindSpeedChart color={Math.round(data.windspeed) < 2 ? 'rgb(255, 224, 224)' : 'rgb(250, 167, 167)'} height={Math.round(data.windspeed) * 10}>
+                                        <WindSpeedChart $color={Math.round(data.windspeed) < 2 ? 'rgb(255, 224, 224)'  : 'rgb(250, 167, 167)'} $height={Math.round(data.windspeed) * 10}>
                                                 <div></div>
                                             </WindSpeedChart>
                                             <br/>
@@ -51,13 +49,13 @@ const WindDegree: React.FC<WindDegreeProps> = ({todayDateData, tomorrowSlicedDat
                                     <li>{data.windgust * 10}°</li>
                                     <br/>
                                     <li>
-                                        <WindDegreeStyle degree={data.windgust * 10}>
+                                        <WindDegreeStyle $degree={data.windgust * 10}>
                                             <img src="https://img.icons8.com/color/48/000000/near-me--v1.png" alt='degIcon' />
                                         </WindDegreeStyle>
                                     </li>
                                     <br/><br/><br/><br/>
                                     <div className={'WindSpeed'} key={index + Math.round(data.windspeed)}>
-                                        <WindSpeedChart color={Math.round(data.windspeed) < 2 ? 'rgb(255, 224, 224)' : 'rgb(250, 167, 167)'} height={Math.round(data.windspeed) * 10}>
+                                        <WindSpeedChart $color={Math.round(data.windspeed) < 2 ? 'rgb(255, 224, 224)' : 'rgb(250, 167, 167)'} $height={Math.round(data.windspeed) * 10}>
                                                 <div></div>
                                             </WindSpeedChart>
                                             <br/>

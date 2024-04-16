@@ -17,56 +17,58 @@ Chart.register(ArcElement)
 //공식 문서:
 // v4 of this library, just like Chart.js v3, is tree-shakable. It means that you need to import and register the controllers, elements, scales, and plugins you want to use.
 // For a list of all the available items to import, see Chart.js docs.
-// 도넛 그래프는 리니얼 그래프랑 다르게 누락된 부분을 추가해줘야 하나봄
+// 도넛 그래프는 리니얼 그래프랑 다르게 누락된 부분을 추가해줘야 하나봄import CircularGraph from './CircularGraph';
 
-const CircularGraph = ({humidityRate, labelData}) => {
+
+// const CircularGraph = ({humidityRate, labelData}) => {
 
  
-    const RightContainer = styled.div`
-        width: 700px;
-        height: 690px;
-        position: absolute;
-        right: 0px;
-        background-color: skyblue;
-    `
+//     const RightContainer = styled.div`
+//         width: 700px;
+//         height: 690px;
+//         position: absolute;
+//         right: 0px;
+//         background-color: skyblue;
+//     `
 
-    const expData = {
-        labels: ["대기","습도"],
-        datasets: [
-          {
-            labels: ["대기", "습도"],
-            data: [40, 60],
-            borderWidth: 2,
-            hoverBorderWidth: 3,
-            backgroundColor: [
-              "rgba(238, 102, 121, 1)",
-              "rgba(98, 181, 229, 1)",
-              "rgba(255, 198, 0, 1)",
-            ],
-            fill: true,
-          },
-        ],
-      }
+//     const expData = {
+//         labels: ["대기","습도"],
+//         datasets: [
+//           {
+//             labels: ["대기", "습도"],
+//             data: [40, 60],
+//             borderWidth: 2,
+//             hoverBorderWidth: 3,
+//             backgroundColor: [
+//               "rgba(238, 102, 121, 1)",
+//               "rgba(98, 181, 229, 1)",
+//               "rgba(255, 198, 0, 1)",
+//             ],
+//             fill: true,
+//           },
+//         ],
+//       }
 
-    return (
-        <Doughnut
-        options={{
-                responsive: true,
-             maintainAspectRatio: false,
-             legend: {
-                display: true,
-                position: "right",
-               },
-            }}
-         data={expData}
-         style={{
-             position: "relative",
-             right: "0px",
-          }}
-     />
-    );
-};
+//     return (
+//         <Doughnut
+//         options={{
+//                 responsive: true,
+//              maintainAspectRatio: false,
+//              legend: {
+//                 display: true,
+//                 position: "right",
+//                },
+//             }}
+//          data={expData}
+//          style={{
+//              position: "relative",
+//              right: "0px",
+//           }}
+//      />
+//     );
+// };
 
-export default CircularGraph;
+// export default CircularGraph;
 
 
+const CircularGraph = '';

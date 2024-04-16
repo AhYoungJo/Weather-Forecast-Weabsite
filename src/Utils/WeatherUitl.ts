@@ -1,4 +1,4 @@
-import { TimeData } from '../Store/Type/Interface';
+import { TimeData, TimesByDateT } from '../Store/Type/Interface';
 
 export const getMaxTemp = (datas: TimeData[] | null | undefined): number | string => {
     if (datas === null || datas === undefined || datas.length === 0) {
@@ -53,3 +53,8 @@ export const getIcon = (datas: TimeData[] | null | undefined): string => {
     }
     return 'loading...';
 };
+
+export const getNthData = (obj: TimesByDateT, id: number) => {
+    return obj[Object.keys(obj)[id]];
+}
+

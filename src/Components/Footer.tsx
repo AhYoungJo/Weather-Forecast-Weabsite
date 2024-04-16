@@ -4,19 +4,39 @@ import '../Styles/Footer.scss'
 const Footer = () => {
     return (
         <div className='Footer'>
-            <ul>
-                <li>Menu</li>
-                <li>홈으로</li>
-                <li>마이페이지</li>
-                <li>관심지역</li>
-                <li>Contact</li>
-                <li>Git</li>
-            </ul>
-            <ul>
-                <li>Join Us</li>
-                <li>로그인</li>
-                <li>회원가입</li>
-            </ul>
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th >Menu</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>홈으로</td>
+                            <td>마이페이지</td>
+                            <td>관심지역</td>
+                            <td>Contact</td>
+                            <td>Git</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th ></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>로그인</td>
+                            <td>회원가입</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     );
 };

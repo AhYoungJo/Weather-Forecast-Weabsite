@@ -1,18 +1,355 @@
-.Footer {
-    width: 100vw;
-    height: 200px;
-    display: flex;
-    justify-content: space-around; /* 목록 간의 공간을 균등하게 배치 */
-    align-items: center; /* 목록을 수직 중앙에 정렬 */
+@import '../Assets/Fonts/Gmarket.scss';
+@import './mixin';
+
+@include desktop {
+    .Footer {
+        background-color: whitesmoke;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        height: 160px;
+        margin-top: 7em;
+        padding: 30px 0;
+    }
+    
+    .Footer > div {
+       width: 25%; /* 각 테이블의 너비는 부모 요소의 절반으로 설정하고, 간격인 20px을 고려하여 계산 */
+       height: 100px;
+    }
+    
+    .Footer table {
+        width: 100%; /* 테이블의 너비를 부모 요소의 100%로 설정 */
+        border-collapse: collapse; /* 테이블의 경계를 합칩니다. */
+        padding: 30px 0;
+    }   
+    
+    .Footer th, .Footer td {
+        padding: 5px; /* 셀 안의 내용과 테두리 간의 여백을 설정합니다. */
+        cursor: pointer;
+    }
+    
+    .Footer th {
+        width: 12%;
+        font-size: 14px;
+        padding: 10px 0;
+        display: flex;
+        align-items: flex-start;
+    }
+    
+    .Footer div:first-child tbody tr {
+        // width: 70%;
+        font-size: 12px;
+        display: flex; /* tr 요소를 flex로 설정하여 내부 요소를 가로로 정렬 */
+        justify-content: space-between; /* 내부 요소들을 균등한 간격으로 정렬 */
+    }
+    .Footer div:last-child tbody tr {
+        font-size: 12px;
+        display: flex; /* tr 요소를 flex로 설정하여 내부 요소를 가로로 정렬 */
+        justify-content: space-between; /* 내부 요소들을 균등한 간격으로 정렬 */
+        // width: 20%;
+    }
+     
 }
 
-.Footer ul {
-    list-style-type: none; /* 목록 기호 제거 */
-    margin: 0;
-    padding: 0;
+@include desktopToLaptop {
+    .Footer {
+        background-color: whitesmoke;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        height: 160px;
+        margin-top: 7em;
+        padding: 30px 0;
+    }
+    
+    .Footer > div {
+       width: 55%; /* 각 테이블의 너비는 부모 요소의 절반으로 설정하고, 간격인 20px을 고려하여 계산 */
+       height: 100px;
+    }
+    
+    .Footer table {
+        width: 100%; /* 테이블의 너비를 부모 요소의 100%로 설정 */
+        border-collapse: collapse; /* 테이블의 경계를 합칩니다. */
+        padding: 30px 0;
+    }   
+    
+    .Footer th, .Footer td {
+        padding: 5px; /* 셀 안의 내용과 테두리 간의 여백을 설정합니다. */
+        cursor: pointer;
+    }
+    
+    .Footer th {
+        width: 12%;
+        font-size: 14px;
+        padding: 10px 0;
+        display: flex;
+        align-items: flex-start;
+    }
+    
+    .Footer div:first-child tbody tr {
+        // width: 70%;
+        font-size: 12px;
+        display: flex; /* tr 요소를 flex로 설정하여 내부 요소를 가로로 정렬 */
+        justify-content: space-between; /* 내부 요소들을 균등한 간격으로 정렬 */
+    }
+    .Footer div:last-child tbody tr {
+        font-size: 12px;
+        display: flex; /* tr 요소를 flex로 설정하여 내부 요소를 가로로 정렬 */
+        justify-content: space-between; /* 내부 요소들을 균등한 간격으로 정렬 */
+        // width: 20%;
+    }
+     
 }
 
-.Footer ul li {
-    margin-bottom: 10px; /* 목록 아이템 간의 간격 설정 */
-    font-size: 16px; /* 목록 아이템의 폰트 크기 설정 */
+@include laptop {
+    .Footer {
+        background-color: whitesmoke;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        height: 160px;
+        margin-top: 3em;
+        padding: 30px 0;
+    }
+    
+    .Footer > div {
+       width: 55%; /* 각 테이블의 너비는 부모 요소의 절반으로 설정하고, 간격인 20px을 고려하여 계산 */
+       height: 100px;
+    }
+    
+    .Footer table {
+        width: 100%; /* 테이블의 너비를 부모 요소의 100%로 설정 */
+        border-collapse: collapse; /* 테이블의 경계를 합칩니다. */
+        padding: 30px 0;
+    }   
+    
+    .Footer th, .Footer td {
+        padding: 5px; /* 셀 안의 내용과 테두리 간의 여백을 설정합니다. */
+        cursor: pointer;
+    }
+    
+    .Footer th {
+        width: 12%;
+        font-size: 14px;
+        padding: 10px 0;
+        display: flex;
+        align-items: flex-start;
+    }
+    
+    .Footer div:first-child tbody tr {
+        // width: 70%;
+        font-size: 12px;
+        display: flex; /* tr 요소를 flex로 설정하여 내부 요소를 가로로 정렬 */
+        justify-content: space-between; /* 내부 요소들을 균등한 간격으로 정렬 */
+    }
+    .Footer div:last-child tbody tr {
+        font-size: 12px;
+        display: flex; /* tr 요소를 flex로 설정하여 내부 요소를 가로로 정렬 */
+        justify-content: space-between; /* 내부 요소들을 균등한 간격으로 정렬 */
+        // width: 20%;
+    }
+     
+}
+
+@include laptopToTablet {
+    .Footer {
+        background-color: whitesmoke;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        height: 160px;
+        margin-top: 3em;
+        padding: 30px 0;
+    }
+    
+    .Footer > div {
+       width: 66%; /* 각 테이블의 너비는 부모 요소의 절반으로 설정하고, 간격인 20px을 고려하여 계산 */
+       height: 100px;
+    }
+    
+    .Footer table {
+        width: 100%; /* 테이블의 너비를 부모 요소의 100%로 설정 */
+        border-collapse: collapse; /* 테이블의 경계를 합칩니다. */
+        padding: 30px 0;
+    }
+    
+    .Footer th, .Footer td {
+        padding: 5px; /* 셀 안의 내용과 테두리 간의 여백을 설정합니다. */
+        cursor: pointer;
+    }
+    
+    .Footer th {
+        width: 12%;
+        font-size: 14px;
+        padding: 10px 0;
+        display: flex;
+        align-items: flex-start;
+    }
+    
+    .Footer div:first-child tbody tr {
+        // width: 70%;
+        font-size: 12px;
+        display: flex; /* tr 요소를 flex로 설정하여 내부 요소를 가로로 정렬 */
+        justify-content: space-between; /* 내부 요소들을 균등한 간격으로 정렬 */
+    }
+    .Footer div:last-child tbody tr {
+        font-size: 12px;
+        display: flex; /* tr 요소를 flex로 설정하여 내부 요소를 가로로 정렬 */
+        justify-content: space-between; /* 내부 요소들을 균등한 간격으로 정렬 */
+        // width: 20%;
+    }
+     
+}
+
+@include tablet {
+    .Footer {
+        background-color: whitesmoke;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        height: 160px;
+        margin-top: 3em;
+        padding: 30px 0;
+    }
+    
+    .Footer > div {
+       width: 80%; /* 각 테이블의 너비는 부모 요소의 절반으로 설정하고, 간격인 20px을 고려하여 계산 */
+       height: 100px;
+    }
+    
+    .Footer table {
+        width: 100%; /* 테이블의 너비를 부모 요소의 100%로 설정 */
+        border-collapse: collapse; /* 테이블의 경계를 합칩니다. */
+        padding: 30px 0;
+    }
+    
+    .Footer th, .Footer td {
+        padding: 5px; /* 셀 안의 내용과 테두리 간의 여백을 설정합니다. */
+        cursor: pointer;
+    }
+    
+    .Footer th {
+        width: 12%;
+        font-size: 14px;
+        padding: 10px 0;
+        display: flex;
+        align-items: flex-start;
+    }
+    
+    .Footer div:first-child tbody tr {
+        // width: 70%;
+        font-size: 12px;
+        display: flex; /* tr 요소를 flex로 설정하여 내부 요소를 가로로 정렬 */
+        justify-content: space-between; /* 내부 요소들을 균등한 간격으로 정렬 */
+    }
+    .Footer div:last-child tbody tr {
+        font-size: 12px;
+        display: flex; /* tr 요소를 flex로 설정하여 내부 요소를 가로로 정렬 */
+        justify-content: space-between; /* 내부 요소들을 균등한 간격으로 정렬 */
+        // width: 20%;
+    }
+     
+}
+
+@include tabletToMobile {
+    .Footer {
+        background-color: whitesmoke;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        height: 160px;
+        margin-top: 7em;
+        padding: 30px 0;
+    }
+    
+    .Footer > div {
+       width: 90%; /* 각 테이블의 너비는 부모 요소의 절반으로 설정하고, 간격인 20px을 고려하여 계산 */
+       height: 100px;
+    }
+    
+    .Footer table {
+        width: 100%; /* 테이블의 너비를 부모 요소의 100%로 설정 */
+        border-collapse: collapse; /* 테이블의 경계를 합칩니다. */
+        padding: 30px 0;
+    }
+    
+    .Footer th, .Footer td {
+        padding: 5px; /* 셀 안의 내용과 테두리 간의 여백을 설정합니다. */
+        cursor: pointer;
+    }
+    
+    .Footer th {
+        width: 12%;
+        font-size: 14px;
+        padding: 10px 0;
+        display: flex;
+        align-items: flex-start;
+    }
+    
+    .Footer div:first-child tbody tr {
+        font-size: 12px;
+        display: flex; /* tr 요소를 flex로 설정하여 내부 요소를 가로로 정렬 */
+        justify-content: space-between; /* 내부 요소들을 균등한 간격으로 정렬 */
+    }
+    .Footer div:last-child tbody tr {
+        font-size: 12px;
+        display: flex; /* tr 요소를 flex로 설정하여 내부 요소를 가로로 정렬 */
+        justify-content: space-between; /* 내부 요소들을 균등한 간격으로 정렬 */
+    }
+     
+}
+
+@include mobile {
+    .Footer {
+        background-color: whitesmoke;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        height: 160px;
+        margin-top: 7em;
+        padding: 25px 0;
+    }
+    
+    .Footer > div {
+       width: 90%; /* 각 테이블의 너비는 부모 요소의 절반으로 설정하고, 간격인 20px을 고려하여 계산 */
+       height: 100px;
+    }
+    
+    .Footer table {
+        width: 100%; /* 테이블의 너비를 부모 요소의 100%로 설정 */
+        border-collapse: collapse; /* 테이블의 경계를 합칩니다. */
+        padding: 20px 0;
+    }
+    
+    .Footer th, .Footer td {
+        padding: 5px; /* 셀 안의 내용과 테두리 간의 여백을 설정합니다. */
+        cursor: pointer;
+    }
+    
+    .Footer th {
+        width: 13%;
+        font-size: 14px;
+        padding: 10px 0;
+        display: flex;
+        align-items: flex-start;
+    }
+    
+    .Footer div:first-child tbody tr {
+        font-size: 12px;
+        display: flex; /* tr 요소를 flex로 설정하여 내부 요소를 가로로 정렬 */
+        justify-content: space-between; /* 내부 요소들을 균등한 간격으로 정렬 */
+    }
+    .Footer div:last-child tbody tr {
+        font-size: 12px;
+        display: flex; /* tr 요소를 flex로 설정하여 내부 요소를 가로로 정렬 */
+        justify-content: space-between; /* 내부 요소들을 균등한 간격으로 정렬 */
+    }
+     
 }
