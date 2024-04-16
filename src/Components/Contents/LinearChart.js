@@ -8,7 +8,8 @@ import {
     LinearScale, // y axis
     PointElement,
     Legend,
-    Tooltip
+    Tooltip,
+    Filler
 } from 'chart.js';
 
 ChartJS.register(
@@ -17,7 +18,8 @@ ChartJS.register(
     LinearScale, 
     PointElement,
     Legend,
-    Tooltip
+    Tooltip,
+    Filler
 )
 
 const LinearChart = ({tempData, labelData}) => {

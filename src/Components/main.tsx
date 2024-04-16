@@ -14,7 +14,8 @@ import { RootState } from '../Store/Data/Reducers/index';
 import {setTimesByDate} from '../Store/Data/Reducers/timesByDateReducer'
 import {TimeData, TimesByDateT} from '../Store/Type/Interface';
 import { getBackgroundKeyword } from '../Utils/backgroundUtils';
-import { currentDateString, currentTimeString, tomorrowDateString } from '../Utils/currentDateUtils';
+import { currentTimeString, currentDateString, tomorrowDateString } from '../Utils/currentDateUtils';
+import { getNthData } from '../Utils/WeatherUitl';
 
 // import Loading from '../Hooks/Loading';
 
@@ -49,7 +50,7 @@ const Main: React.FC = () => {
     }, [weatherDataList]);
 
     
-    
+
     const sliceTomorowData = (tLength: number) => {
         const todayDataLength = todayDateData.length;
         const slices = [8, 7, 6, 5, 4, 3, 2, 1]; // 각 경우에 대한 slice 값
@@ -57,18 +58,23 @@ const Main: React.FC = () => {
         const sliceValue = slices[index]; // 선택된 인덱스에 해당하는 slice 값
         const todaySlicedData = todayDateData.slice(0, todayDataLength - sliceValue + 1);
         const tomorrowSlicedData = tomorrowDateData.slice(0, tomorrowDateData.length - (8 - sliceValue));
-        return { todaySlicedData, tomorrowSlicedData };
+        return tomorrowSlicedData ;
     }
-    
-    const todayKey = Object.keys(timesByDate).find(date => date === currentDateString);
-    const tomorrowKey = Object.keys(timesByDate).find(date => date === tomorrowDateString);
+
+    const todayKey = Object.keys(timesByDate)[0];
     const todayDateData: TimeData[] = todayKey ? timesByDate[todayKey].filter((data: TimeData) => parseInt(data.time) >= parseInt(currentTimeString)) : [];
+    // const todayDateData = getNthData(timesByDate, 0)
+    const tomorrowKey = Object.keys(timesByDate)[1];
     const tomorrowDateData: TimeData[] = tomorrowKey ? timesByDate[tomorrowKey] : [];
     const keyword = todayDateData && todayDateData[0] && todayDateData[0].code;
     const weatherGIF: string = getBackgroundKeyword(keyword)
-    const {tomorrowSlicedData} = sliceTomorowData(todayDateData.length);
+    const tomorrowSlicedData = sliceTomorowData(todayDateData.length);
 
-    console.log(todayKey, '어휴', timesByDate)
+
+
+    // useEffect(() => {
+    //     console.log('오늘거', todayDateData.length)
+    // }, [timesByDate])
     
     return (
        <div className='Main'>
@@ -102,12 +108,14 @@ const Main: React.FC = () => {
             <section >
                 <div className='Main__body'>
                     <div className='Main__body__dailyWeather'>
-                        < DailyHead todayDateData={todayDateData} />
-                        <br /> 
-                        {/* <div className='Main__body__dailyWeather__HPAF'>
-                            * 습도, 기압, 평균기온, 체감
-                            <HPAF todayDateData={todayDateData} />
-                        </div> */}
+                        <div>
+                            < DailyHead todayDateData={todayDateData} />
+                            <br /> 
+                            <div className='Main__body__dailyWeather__HPAF'>
+                                {/* * 습도, 기압, 평균기온, 체감 */}
+                                <HPAF todayDateData={todayDateData} />
+                            </div>
+                        </div>
                         <DailyWeather todayDateData={todayDateData}/>
                         <br /> 
                         <WindDegree tomorrowSlicedData={tomorrowSlicedData} todayDateData={todayDateData}/>
@@ -115,7 +123,7 @@ const Main: React.FC = () => {
                         <br />
                         <div className='Main__body__WeeklyWeather'>
                             <h1>주간 날씨</h1>
-                            <WeeklyWeather timesByDate={timesByDate} tomorrowDateData={tomorrowDateData} todayDateData={todayDateData}/>
+                            <WeeklyWeather tomorrowDateData={tomorrowDateData} todayDateData={todayDateData}/>
 
                         </div>
                     </div>

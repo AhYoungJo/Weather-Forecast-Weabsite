@@ -18,37 +18,49 @@ const HPAF: React.FC<DailyHeadProps> = ({todayDateData}) => {
 
     return (
         <>
-            <HPAFDiv>
+            {/* <HPAFDiv> */}
                 <div className='Main__body__dailyWeather__Humidity'>
-                    <HPAFStyle>
-                        <li>습도</li>
+                    {/* <HPAFStyle> */}
+                        {/* <li>습도</li>
                         <li><img style={imgSize} src='https://img.icons8.com/external-justicon-flat-justicon/64/external-humidity-weather-justicon-flat-justicon-1.png' alt='humidi.icon'/></li>
+                        <li>{humidity}</li> */}
+                        <li>습도</li>
+                        <li><img src='https://img.icons8.com/external-justicon-flat-justicon/64/external-humidity-weather-justicon-flat-justicon-1.png' alt='humidi.icon'/></li>
                         <li>{humidity}</li>
-                    </HPAFStyle>
+                    {/* </HPAFStyle> */}
                 </div>
 
                 <div className='Main__body__dailyWeather__Pressure'>
-                    <HPAFStyle>
-                        <li>기압</li>
+                    {/* <HPAFStyle> */}
+                        {/* <li>기압</li>
                         <li><img style={imgSize} src="https://img.icons8.com/arcade/64/000000/atmospheric-pressure.png" alt="atmospheric-pressure"/></li>
+                        <li>{pressure}</li> */}
+                        <li>기압</li>
+                        <li><img src="https://img.icons8.com/arcade/64/000000/atmospheric-pressure.png" alt="atmospheric-pressure"/></li>
                         <li>{pressure}</li>
-                    </HPAFStyle>
+                    {/* </HPAFStyle> */}
                 </div>
                 <div className='Main__body__dailyWeather__AverageTemp'>
-                    <HPAFStyle>
-                        <li>평균기온</li>
+                    {/* <HPAFStyle> */}
+                        {/* <li>평균기온</li>
                         <li><img style={imgSize} src="https://img.icons8.com/arcade/64/000000/dew-point.png" alt="dew-point"/></li>
+                        <li>{averageTemp}</li> */}
+                        <li>평균기온</li>
+                        <li><img src="https://img.icons8.com/arcade/64/000000/dew-point.png" alt="dew-point"/></li>
                         <li>{averageTemp}</li>
-                    </HPAFStyle>
+                    {/* </HPAFStyle> */}
                 </div>
                 <div className='Main__body__dailyWeather__FeelsLike'>
-                    <HPAFStyle>
-                        <li>체감온도</li>
+                    {/* <HPAFStyle> */}
+                        {/* <li>체감온도</li>
                         <li><img style={imgSize} src="https://img.icons8.com/external-wanicon-flat-wanicon/64/external-temperature-nature-wanicon-flat-wanicon.png" alt="external-temperature-nature-wanicon-flat-wanicon"/></li>
+                        <li>{feelsLike}</li> */}
+                        <li>체감온도</li>
+                        <li><img src="https://img.icons8.com/external-wanicon-flat-wanicon/64/external-temperature-nature-wanicon-flat-wanicon.png" alt="external-temperature-nature-wanicon-flat-wanicon"/></li>
                         <li>{feelsLike}</li>
-                    </HPAFStyle>
+                    {/* </HPAFStyle> */}
                 </div>
-            </HPAFDiv>
+            {/* </HPAFDiv> */}
         </>
     );
 };

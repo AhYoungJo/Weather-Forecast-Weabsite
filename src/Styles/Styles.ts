@@ -6,7 +6,7 @@ export const LoadingText = styled.div`
 `;
 
 export interface BackgroundProps {
-    bgURL: string;
+    $bgurl: string;
 }
 
 export const Background = styled.div<BackgroundProps>`
@@ -36,7 +36,7 @@ export const Background = styled.div<BackgroundProps>`
             rgba(255, 255, 255, 0),
             rgb(255, 168, 168, 0.1383)
         ), 
-            url(${(props) => props.bgURL});
+            url(${(props) => props.$bgurl});
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -46,56 +46,56 @@ export const Background = styled.div<BackgroundProps>`
 `;
 
 interface ButtonProps {
-    buttonColor: string;
-    hoverBgColor: string;
-    borderColor: string;
-    hoverBorderColor: string;
-    borderSize: number;
-    buttonW: number;
-    buttonH: number;
-    fontColor: string;
-    hoverFontColor: string;
-    fontSzie: number;
-    transSec: number;
-    radius: number;
+    $buttoncolor: string;
+    $hoverbgcolor: string;
+    $bordercolor: string;
+    $hoverbordercolor: string;
+    $bordersize: number;
+    $buttonw: number;
+    $buttonh: number;
+    $fontcolor: string;
+    $hoverfontcolor: string;
+    $fontszie: number;
+    $transsec: number;
+    $radius: number;
 }
 
 export const Button = styled.div<ButtonProps>`
-    background-color: ${(props) => props.buttonColor};
-    border: ${(props) => props.borderSize}px solid ${(props) => props.borderColor};
-    width: ${(props) => props.buttonW}px; 
-    height: ${(props) => props.buttonH}px;
-    color: ${(props) => props.fontColor};
-    font-size: ${(props) => props.fontSzie}px;
-    transition: ${(props) => props.transSec}s;
-    border-radius: ${(props) => props.radius}px;
+    background-color: ${(props) => props.$buttoncolor};
+    border: ${(props) => props.$bordersize}px solid ${(props) => props.$bordercolor};
+    width: ${(props) => props.$buttonw}px; 
+    height: ${(props) => props.$buttonh}px;
+    color: ${(props) => props.$fontcolor};
+    font-size: ${(props) => props.$fontszie}px;
+    transition: ${(props) => props.$transsec}s;
+    border-radius: ${(props) => props.$radius}px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 600;
     &:hover {
         cursor: pointer;
-        background-color: ${(props) => props.hoverBgColor};
-        border: ${(props) => props.borderSize}px solid ${(props) => props.hoverBorderColor};
-        color: ${(props) => props.hoverFontColor};
+        background-color: ${(props) => props.$hoverbgcolor};
+        border: ${(props) => props.$bordersize}px solid ${(props) => props.$hoverbordercolor};
+        color: ${(props) => props.$hoverfontcolor};
     }
 `;
 
 interface WindDegProps {
-    degree: number;
+    $degree: number;
 }
 export const WindDegreeStyle = styled.div<WindDegProps>`
-    transform: rotate(${(props) => props.degree}deg);
+    transform: rotate(${(props) => props.$degree}deg);
 `
 interface WindSpeedChartProps {
-    height: number;
-    color: string
+    $height: number;
+    $color: string
 }
 
 export const WindSpeedChart = styled.div<WindSpeedChartProps>`
-    min-height: ${(props) => props.height}px;
+    min-height: ${(props) => props.$height}px;
     width: 30px;
-    background-color: ${(props) => props.color};
+    background-color: ${(props) => props.$color};
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -123,10 +123,11 @@ border: 1px solid blue;
 justify-content: space-between;
 `
 
+//boolean은 프롭스로 전달 받을 수 없다는...
 interface SidebarProps {
-    isOpen: boolean;
+    $isopen: boolean;
 }
 
 export const Sidebar = styled.div<SidebarProps>`
-     display: ${(props) => (props.isOpen ? 'block' : 'none')};
-`
+    display: ${(props) => (props.$isopen ? 'block' : 'none')}; 
+`;
