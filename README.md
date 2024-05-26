@@ -7,11 +7,26 @@
 
 <br/>
 
-## Main
+## 핵심 기능
+### (1) 주소 또는 지도 검색
+### (2) 요약 날씨 정보 조회
+<div style="text-align: center">
+<img src="https://github.com/AhYoungJo/Weather-Forecast-Weabsite/assets/125351416/5dcc7ead-4962-4ce8-aa7f-806849d8bcff" style="max-width: 600px; max-height: 1000px;" />
+</div>
 
-![Group 2245 (2)](https://github.com/AhYoungJo/Weather-Forecast-Weabsite/assets/125351416/ebc4be1b-689d-441f-8d19-c5509df6700d)
 
-지역을 검색하거나 지도를 클릭하면 페이지 상단에 원하는 지역의 날씨를 나타내는 원 안의 이미지가 변경되고, 그 주변에는 요약된 정보가 나타납니다. 그리고 페이지 하단에는 해당 지역 날씨에 관한 구체적인 정보가 나타납니다.
+### (3) 현재 시각 기준 24h 상세 날씨 정보 조회
+<br/>
+<div style="text-align: center">
+<img src="https://github.com/AhYoungJo/Weather-Forecast-Weabsite/assets/125351416/bfe97621-9fcf-4543-9e75-3f4efc9a1664" style="max-width: 850px; max-height: 800px;" />
+</div>
+
+### (4) 주간 날씨 조회
+<br/>
+<div style="text-align: center">
+<img src="https://github.com/AhYoungJo/Weather-Forecast-Weabsite/assets/125351416/c6d9f7f3-141b-4724-9737-a41a25ed017f" style="max-width: 600px; max-height: 800px;" />
+</div>
+
 
 
 <br/>
@@ -20,6 +35,11 @@
 
 - 회원가입/로그인/로그아웃
 - 관심 지역 저장
+  
+<br/>
+<div style="text-align: center">
+<img src="https://github.com/AhYoungJo/Weather-Forecast-Weabsite/assets/125351416/1567d715-be4b-4356-a9e6-6be78fffdef2" style="max-width: 600px; max-height: 1000px;" />
+</div>
 
 <br/>
 
