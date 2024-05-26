@@ -38,7 +38,7 @@
   
 <br/>
 <div style="text-align: center">
-<img src="https://github.com/AhYoungJo/Weather-Forecast-Weabsite/assets/125351416/1567d715-be4b-4356-a9e6-6be78fffdef2" style="max-width: 600px; max-height: 1000px;" />
+<img src="https://github.com/AhYoungJo/Weather-Forecast-Weabsite/assets/125351416/1567d715-be4b-4356-a9e6-6be78fffdef2" style="max-width: 500px; max-height: 300px;" />
 </div>
 
 <br/>
