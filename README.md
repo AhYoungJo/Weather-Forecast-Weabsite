@@ -18,13 +18,13 @@
 ### (3) 현재 시각 기준 24h 상세 날씨 정보 조회
 <br/>
 <div style="text-align: center">
-<img src="https://github.com/AhYoungJo/Weather-Forecast-Weabsite/assets/125351416/bfe97621-9fcf-4543-9e75-3f4efc9a1664" style="max-width: 500px; max-height: 300px;" />
+<img src="https://github.com/AhYoungJo/Weather-Forecast-Weabsite/assets/125351416/bfe97621-9fcf-4543-9e75-3f4efc9a1664" style="max-width: 300px; max-height: 300px;" />
 </div>
 
 ### (4) 주간 날씨 조회
 <br/>
 <div style="text-align: center">
-<img src="https://github.com/AhYoungJo/Weather-Forecast-Weabsite/assets/125351416/c6d9f7f3-141b-4724-9737-a41a25ed017f" style="max-width: 500px; max-height: 300px;" />
+<img src="https://github.com/AhYoungJo/Weather-Forecast-Weabsite/assets/125351416/c6d9f7f3-141b-4724-9737-a41a25ed017f" style="max-width: 300px; max-height: 300px;" />
 </div>
 
 
@@ -38,7 +38,7 @@
   
 <br/>
 <div style="text-align: center">
-<img src="https://github.com/AhYoungJo/Weather-Forecast-Weabsite/assets/125351416/1567d715-be4b-4356-a9e6-6be78fffdef2" style="max-width: 500px; max-height: 300px;" />
+<img src="https://github.com/AhYoungJo/Weather-Forecast-Weabsite/assets/125351416/1567d715-be4b-4356-a9e6-6be78fffdef2" style="max-width: 300px; max-height: 300px;" />
 </div>
 
 <br/>
