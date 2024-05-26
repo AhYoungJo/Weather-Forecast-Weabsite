@@ -11,7 +11,7 @@
 ### (1) 주소 또는 지도 검색
 ### (2) 요약 날씨 정보 조회
 <div style="text-align: center">
-<img src="https://github.com/AhYoungJo/Weather-Forecast-Weabsite/assets/125351416/5dcc7ead-4962-4ce8-aa7f-806849d8bcff" style="max-width: 200px; max-height: 300px;" />
+<img src="https://github.com/AhYoungJo/Weather-Forecast-Weabsite/assets/125351416/5dcc7ead-4962-4ce8-aa7f-806849d8bcff" style="max-width: 200px; max-height: 200px;" />
 </div>
 
 
